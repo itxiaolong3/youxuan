@@ -18,11 +18,14 @@
     <div class="top-container">
         <img src="__PUBLIC__/home/images/other/ok.jpg" />
         <p class="text-1">支付成功!</p>
-        <p class="text-2">您的提货单号为：<span style="color: #f00;">6</span></p>
+        <p class="text-2">您的提货单号为：
+            <span style="color: #f00;">
+                {$goodid}
+        </span></p>
     </div>
     <div class="btn-container">
-        <a class="btn1" href="">继续购物</a>
-        <a class="btn2" href="">提醒老板接单</a>
+        <a class="btn1" href="{:U('Index/index',array('sid'=>$sid))}">继续购物</a>
+        <a class="btn2" href="{:U('Orderdetail/detail',array('ordernum'=>$ordernum,'total'=>$total))}">提醒老板接单</a>
     </div>
     <div class="text-container">
         点击上面的<span style="color: #f00;">【提醒老板接单】</span>按钮，将提醒消息发送到本店微信群：<span style="color: #f00;">兴盛优选11619润泽园小区雅堂小超店 </span>群，提醒老板及时处理您的订单！
@@ -33,5 +36,6 @@
     </div>
 	<script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
 </body>
 </html>

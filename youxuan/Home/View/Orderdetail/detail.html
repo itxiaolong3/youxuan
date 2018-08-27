@@ -23,12 +23,12 @@
         <div style="display: flex;">
             <img src="__PUBLIC__/home/images/icon/daish.png" width="40" height="40" /><span style="margin-left:5px;size: 25px;color: red;font-weight: bold;">待提货</span>
         </div>
-        <span style="color: black;size: 20px;text-align: right;font-weight: bold;">提货单号:<span style="color: red;margin-right: 20px;font-weight: bold;">&nbsp;6</span></span>
+        <span style="color: black;size: 20px;text-align: right;font-weight: bold;">提货单号:<span style="color: red;margin-right: 20px;font-weight: bold;">&nbsp;{$goodid}</span></span>
     </div>
     <div class="info-container">
         <div class="top">
             <span>收货人：</span>
-            <div style="font-weight: bold;">美好时代&nbsp;18319409223</div>
+            <div style="font-weight: bold;">{$userinfo.nickname}&nbsp;{$userinfo.phone}</div>
         </div>
         <div class="middle">
             提货地点：{$shopinfo.daddress|default="暂无地址"}
@@ -38,77 +38,35 @@
         </div>
     </div>
     <div class="list-container">
-        <if condition="$onegoodsize eq 1">
+        <foreach  name="goods" item="v">
             <div class="item">
-                <img class="image" src="__PUBLIC__/{$onegood.imgurl}" />
+                <img class="image" src="__PUBLIC__/{$v.imgurl}" />
                 <div class="info">
                     <div class="top">
-                        <input type="hidden" value="{$onegood.id}"/>
-                        <p class="name">{$onegood.name} </p>
-                        <p class="describe">{$onegood.gdes}&nbsp;&nbsp;&nbsp;<span>x{$onegood.num}</span></p>
-                        <div class="comment" >
-                            <input type="hidden"  value="{$onegood.name} x {$onegood.num}">
-                        </div>
+                        <input type="hidden" value="{$v.id}"/>
+                        <p class="name">{$v.name} </p>
+                        <p class="describe">{$v.gdes}&nbsp;&nbsp;&nbsp;<span>x{$v.buynum}</span></p>
+
+
                     </div>
                     <div class="bottom">
-                        <div class="left"><span>￥</span>{$onegood.saleprice}&nbsp;&nbsp;<s>￥{$onegood.gprice}</s></div>
+                        <div class="left"><span>￥</span>{$v.gyhprice}&nbsp;&nbsp;<s>￥{$v.gprice}</s></div>
                         <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;16:00提货</div>
                     </div>
                 </div>
             </div>
-
-            <else />
-            <foreach  name="goods" item="v">
-                <div class="item">
-                    <img class="image" src="__PUBLIC__/{$v.imgurl}" />
-                    <div class="info">
-                        <div class="top">
-                            <input type="hidden" value="{$v.id}"/>
-                            <p class="name">{$v.name} </p>
-                            <p class="describe">{$v.gdes}&nbsp;&nbsp;&nbsp;<span>x{$v.num}</span></p>
-                            <div class="comment" >
-                                <input type="hidden"  value="{$v.name} x {$v.num}">
-                            </div>
-
-                        </div>
-                        <div class="bottom">
-                            <div class="left"><span>￥</span>{$v.saleprice}&nbsp;&nbsp;<s>￥{$v.gprice}</s></div>
-                            <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;16:00提货</div>
-                        </div>
-                    </div>
-                </div>
-            </foreach>
-        </if>
-
-        <!--<div class="item">-->
-        <!--<img class="image" src="__PUBLIC__/home/images/other/ware_2.jpg" />-->
-        <!--<div class="info">-->
-        <!--<div class="top">-->
-        <!--<p class="name">葡萄 2至3个/份 约2至2.5斤</p>-->
-        <!--<p class="describe">2至3个&nbsp;&nbsp;<span>x1</span></p>-->
-        <!--</div>-->
-        <!--<div class="bottom">-->
-        <!--<div class="left"><span>￥</span>29.9&nbsp;&nbsp;<s>￥38.8</s></div>-->
-        <!--<div class="right">06月29号&nbsp;&nbsp;16:00提货</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
+        </foreach>
     </div>
     <div class="price-container" style="margin-bottom: 25px;">
-        <if condition="$onegoodsize eq 1">
-            <p class="top">共计1个商品&nbsp;&nbsp;合计：<span>￥{$onegood.totalprice}</span></p>
-            <p class="bottom">实付金额：<span>￥{$onegood.totalprice}</span></p>
-            <else/>
-            <p class="top">共计{$goodtypenums}个商品&nbsp;&nbsp;合计：<span>￥{$totalprice}</span></p>
-            <p class="bottom">实付金额：<span>￥{$totalprice}</span></p>
-        </if>
+        <p class="top">共计{$goodnum}个商品&nbsp;&nbsp;合计：<span>￥{$totalprice}</span></p>
+        <p class="bottom">实付金额：<span>￥{$totalprice}</span></p>
     </div>
     <div class="orderandtime" style="background-color: #fff;margin-top: 5px;padding-right: 5px;">
         <div class="middle" style="display: block;padding: 8px 0 8px 15px;">
-            订单编号：18024548488787887
+            订单编号：{$goods[0]['onumber']}
         </div>
         <div class="middle" style="padding-right:18px;">
-            下单时间：2018-2-51 :30:14
+            下单时间：{$goods[0]['ordertime']}
         </div>
     </div>
 
@@ -125,42 +83,7 @@
 <script>
     var getgoodid= [];
     var goodcomment= [];
-    function pay() {
-        for(var i = 0; i < $(".list-container .item").length; i++){
-            var goodid = $(".item").eq(i).find(".info .top input").val();
-            var comment = $(".item").eq(i).find(".info .top .comment input").val();
-            getgoodid.push(goodid);
-            goodcomment.push(comment);
-        }
-        if("{$onegoodsize}"==1){
-            totalprice="{$onegood.totalprice}";
-        }else{
-            totalprice="{$totalprice}";
-        }
-        username=$("#username").val();
-        userphone=$("#userphone").val();
-        //提交数据到确认支付页面并保存订单
-        var sid="{$sid}";
-        var parames = new Array();
-        parames.push({ name: "sid", value: sid});
-        parames.push({ name: "username", value: username});
-        parames.push({ name: "userphone", value: userphone});
-        parames.push({ name: "totalprice", value: totalprice});
-        parames.push({ name: "goodid", value: JSON.stringify(getgoodid)});
-        parames.push({ name: "goodcomment", value: JSON.stringify(goodcomment)});
-        //删除购物车的数据
-        for(var i=0;i<getgoodid.length;i++){
-            cart.deleteproduct(getgoodid[i],sid)
-        }
-        if (username==''||userphone==''){
-            alert('手机或者收货人不可为空');
-            return false;
-        }else{
-            Post("{:U('Pay/index')}",parames);
-        }
 
-
-    }
     /*
     *功能： 模拟form表单的提交
     *参数： URL 跳转地址 PARAMTERS 参数

@@ -35,7 +35,28 @@ class OrderdetailController extends BaseController {
       $this->display('Orderdetail/index');
     }
     function detail(){
-        $this->display();
+        $getordernum=I('ordernum');
+        $gettotal=I('total');
+        $goods=M('order')->where('onumber='.$getordernum)->select();
+        $goodid='';
+        foreach ($goods as $k=>$v){
+            $goodid.=$v['oid'].'-';
+            $goods[$k]['gooddetail']=M('goods')->where('gid='.$v['ogid'])->find();
+        }
+        $goodid = substr($goodid,0,strlen($goodid)-1);
+        $goodsnum=M('order')->where('onumber='.$getordernum)->count();
+        $sid=$goods[0]['osid'];
+        $uid=$goods[0]['ouid'];
+        $userinfo=M('user')->where(array("uid"=>$uid))->find();
+        $this->userinfo=$userinfo;
+        $shopinfo=$this->getshopinfo($sid);
+        var_dump($goods);
+        $this->shopinfo=$shopinfo;
+        $this->totalprice=$gettotal;
+        $this->goods=$goods;
+        $this->goodnum=$goodsnum;
+        $this->goodid=$goodid;
+        //$this->display();
     }
 
 }

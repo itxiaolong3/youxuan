@@ -81,15 +81,16 @@ class PayController extends Controller {
             }
         }
         if($re){
+           $totalpric=I('totalprice');
             //查询店名
             $shop=M('shop')->where('did='.$sid)->find();
             $shopname=$shop['dname'];
             $file = __DIR__ . '/postinfo.txt';
             file_put_contents($file,json_encode($preorder));
-            $this->assign('total_fee',I('totalprice')*100*$getonum);
+            $this->assign('total_fee',$totalpric*100*$getonum);
             $this->assign('shop_name',$shopname);
             $this->assign('out_trade_no',$out_trade_no);
-            $this->assign('success_url','http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan/index.php?sid='.$sid);
+            $this->assign('success_url','http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan/index.php/Payresult?ordernum='.$out_trade_no.'&total='.$totalpric);
             $this->display('Pay/index');
         }
     }
