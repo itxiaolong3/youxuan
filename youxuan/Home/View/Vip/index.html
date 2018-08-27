@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/hyp.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/xsyx.css" />
+        <title>查看会员</title>
+    </head>
+    <body class="body-t">
+        <div class="header-container">
+            <a class="left" onclick="javascript:history.back();">
+                <img src="__PUBLIC__/home/home_admin/images/icon/left.png" />
+                <span>返回</span>
+            </a>
+            <div class="middle">查看会员</div>
+            <a class="right" href=""></a>
+        </div>
+        <div class="vip-search">
+            <div class="search">
+                <img src="__PUBLIC__/home/home_admin/images/icon/search.png" />
+                <input placeholder="输入手机号查询" />
+            </div>
+            <div class="btn">搜索</div>
+        </div>
+        <div class="nav-container" style="padding: 0 0.2667rem;">
+            <div class="nav">手机号</div>
+            <div class="nav">用户名称</div>
+            <div class="nav">订单数量</div>
+            <div class="nav">订单金额</div>
+        </div>
+        <div class="vip-list">
+            <foreach name="allvipinfo" item="v">
+                <div class="item">
+                    <div class="phone">{$v.phone|default='暂无'}</div>
+                    <div>{$v.nickname}</div>
+                    <div>{$v.ordernum}</div>
+                    <div>{$v.ordermoney}</div>
+                </div>
+            </foreach>
+
+            <!--<div class="item">-->
+                <!--<div class="phone">14210247515</div>-->
+                <!--<div>用户名称</div>-->
+                <!--<div>200</div>-->
+                <!--<div>1287.30</div>-->
+            <!--</div>-->
+
+        </div>
+    </body>
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
+
+</html>

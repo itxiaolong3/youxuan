@@ -1,0 +1,85 @@
+<!--引入头部文件，如css-->
+<include file="Common:header" />
+
+	<body style="background: none;">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<!--主体部分-->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="clients-list">
+						<div class="table-responsive">
+							<div id="tab-2" class="tab-pane">
+								<div class="panel-body">
+									<form method="post" class="form-horizontal"  enctype="multipart/form-data">
+									<fieldset class="form-horizontal">
+										<input type="hidden" name="id" value="{$info[0].id}">
+										<input type="hidden" name="did" value="{$shopconfig.did}">
+										<div class="form-group"><label class="col-sm-2 control-label">站点名称:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" value="{$info[0].title}" name="title" required="required" placeholder="公司名称"/></div>
+										</div>
+
+										<div class="form-group"><label class="col-sm-2 control-label">版权信息:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" name="copyright" value="{$info[0].copyright}" required="required" placeholder="版权信息"/></div>
+										</div>
+										<div class="form-group"><label class="col-sm-2 control-label">appId:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dappid}" name="dappid" required="required" placeholder="公司名称"/></div>
+										</div>
+
+										<div class="form-group"><label class="col-sm-2 control-label">appSecret:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" name="dappsecret" value="{$shopconfig.dappsecret}" required="required" placeholder="版权信息"/></div>
+										</div>
+										<div class="form-group"><label class="col-sm-2 control-label">支付商户号:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dpayshopnum}" name="dpayshopnum" required="required" placeholder="支付商户号"/></div>
+										</div>
+
+										<div class="form-group"><label class="col-sm-2 control-label">支付密钥:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" name="dpaykey" value="{$shopconfig.dpaykey}" required="required" placeholder="版权信息"/></div>
+										</div>
+									</fieldset>
+										<div class="col-sm-10" style="width: 100%;text-align: center;">
+											<button class ="ladda-button ladda-button-demo btn btn-primary"data-style ="zoom-in" id="postdata">保存并提交</button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--引入头部文件，如css-->
+		<include file="Common:footer" />
+		<script>
+            $(document).ready(function(){
+
+                var l = $( '.ladda-button-demo' ).ladda();
+                $('#postdata').click(function () {
+                        l.ladda( 'start' );
+                        var data = $('form').serializeArray();
+                        //开始提交数据进行保存
+                        $.post("",data,function(e){
+                            e = JSON.parse(e);
+                            console.log(e);
+                            if(e.status==1){
+                                window.location.reload();
+                                l.ladda('stop');
+                            }else{
+                                swal({
+                                    title: "保存失败",
+                                    text: "发生未知错误"
+                                });
+                                l.ladda('stop');
+							}
+                        })
+
+                })
+
+            });
+		</script>
+
+	</body>
+
+</html>

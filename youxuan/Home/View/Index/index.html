@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css" />
+        <title>首页</title>
+    </head>
+    <body>
+        <img class="banner" src="__PUBLIC__/home/images/other/banner.jpg" />
+        <div class="index-container">
+            <div class="header-container">
+                <div class="search">
+                    <img src="__PUBLIC__/home/images/icon/search.png" />
+                    <input placeholder="输入手机号 / 订单号 / 提单号查询" />
+                </div>
+                <div class="info">
+                    <img class="left" width="50" height="50" src="__PUBLIC__/{$shopinfo.dheaderimg}" />
+                    <div class="middle">
+                        <p>{$shopinfo.dphone}</p>
+                        <p>{$shopinfo.dname}</p>
+                        <p class="sign">{$shopinfo.dsign}</p>
+                    </div>
+                    <div class="right">
+                        <p class="title-1">粉丝数</p>
+                        <p class="count">{$usernum}</p>
+                        <p class="title-2">购买指数</p>
+                        <p class="count">{$ordernum}</p>
+                    </div>
+                </div>
+            </div>
+            <foreach name="goodsinfo" item="v">
+            <div class="goods-container">
+                <div class="header">本商品由{$v.gboss}专供</div>
+                <a href="{:U('Waredetail/index')}?sid={$sid}&gid={$v.gid}">
+                    <img class="image" src="__PUBLIC__/{$v.gtopimg}" />
+                </a>
+                <div style="padding: 0 0.2667rem;">
+                    <div class="container-1">
+                        <a class="top" href="{:U('Waredetail/index',array('sid'=>$sid,'gid'=>$v[gid]))}">
+                            {$v.gtitle}
+                        </a>
+                        <dix class="bottom">
+                            <div class="left">
+                                <span>￥</span>{$v.gyhprice}&nbsp;&nbsp;<s>￥{$v.gprice}</s>
+                            </div>
+                            <div class="right">
+                                已售 <span>{$v.salenum|default=0}</span> 份/ 限量{$v.gendnum}份
+                            </div>
+                        </dix>
+                    </div>
+                    <div class="container-2">
+                        <div class="left">
+                            <p style="margin-bottom: 0.2rem;">预售时间：<span>{$shopinfo.dpretime}</span></p>
+                            <p>提货时间：<span>{$shopinfo.dendtime}</span></p>
+                        </div>
+                        <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}')">加入购物车</div>
+                    </div>
+                    <div class="container-3">
+                        <foreach name="v.userinfo" item="vv">
+                            <!--头像到时需要去掉public-->
+                            <img src="{$vv.headerimg}"/>{$vv.nickname}
+                        </foreach>
+
+                            <span>&nbsp;等刚购买此商品</span>
+                    </div>
+                </div>
+            </div>
+            </foreach>
+        </div>
+        <div class="footer-container">
+            <a class="cart" onclick="postcartdata();">
+                <img src="__PUBLIC__/home/images/other/cart.png" />
+                <p class="count hid">0</p>
+            </a>
+            <div class="tab">
+                <img src="__PUBLIC__/home/images/icon/home.png" />
+                <p style="color: #e70012;">首页</p>
+            </div>
+            <a class="tab" href="{:U('My/index',array('sid'=>$sid))}">
+                <img src="__PUBLIC__/home/images/icon/my.png" />
+                <p>我的</p>
+            </a>
+        </div>
+    </body>
+    <script>
+        var jsfori=0;
+        var jsforsid="{$sid}";
+    </script>
+    <script>
+
+        function addcat(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid) {
+            //保存的数据
+            product={
+                id:gid,
+                name:gtitle,
+                num:1,
+                gdes:gdes,
+                saleprice:gyhprice,
+                gprice:gprice,
+                imgurl:gtopimg,
+                sid:sid
+            };
+            cart.addproduct(product);
+           var getdata= cart.getproductlist("{$sid}");
+           //console.log(JSON.stringify(getdata));
+        }
+        function postcartdata() {
+            var sid="{$sid}";
+            var getdata= cart.getproductlist(sid);
+            var parames = new Array();
+            parames.push({ name: "sid", value: sid});
+            parames.push({ name: "shoppingcart", value: JSON.stringify(getdata)});
+            Post("{:U('Cart/index')}",parames);
+           // console.log(getdata);
+        }
+        /*
+        *功能： 模拟form表单的提交
+        *参数： URL 跳转地址 PARAMTERS 参数
+         */
+        function Post(URL, PARAMTERS) {
+            //创建form表单
+            var temp_form = document.createElement("form");
+            temp_form.action = URL;
+            //如需打开新窗口，form的target属性要设置为'_blank'
+            temp_form.target = "_self";
+            temp_form.method = "post";
+            temp_form.style.display = "none";
+            //添加参数
+            for (var item in PARAMTERS) {
+                var opt = document.createElement("textarea");
+                opt.name = PARAMTERS[item].name;
+                opt.value = PARAMTERS[item].value;
+                temp_form.appendChild(opt);
+            }
+            document.body.appendChild(temp_form);
+            //提交数据
+            temp_form.submit();
+        }
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+
+
+</html>

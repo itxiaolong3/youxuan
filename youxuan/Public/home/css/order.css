@@ -1,0 +1,160 @@
+.header-container {
+	position: fixed;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 1.0667rem;
+	padding: 0 0.2667rem;
+	background-color: #fff;
+}
+
+.header-container .left {
+	display: flex;
+	align-items: center;
+	min-width: 1.3333rem;
+}
+
+.header-container .left img {
+	width: 0.2rem;
+	height: 0.3333rem;
+	margin-right: 0.2rem;
+}
+
+.header-container .left span {
+	color: #666;
+	font-size: 0.36rem;
+}
+
+.header-container .middle {
+	color: #333;
+	font-size: 0.4rem;
+}
+
+.header-container .right {
+	color: #666;
+	font-size: 0.3333rem;
+	text-align: right;
+	min-width: 1.3333rem;
+}
+
+.nav-container {
+	display: flex;
+	background-color: #fff;
+	width: 100%;
+	height: 1.3333rem;
+	border-top: 0.2667rem solid #f7f7f7;
+	border-bottom: 1px solid #ddd;
+	margin-top: 1.0667rem;
+}
+
+.nav-container .nav {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #666;
+	font-size: 0.4rem;
+}
+
+.list-container2 {
+	background-color: #f7f7f7;
+}
+
+.list-container2 .item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.2667rem;
+	padding: 0 0.2667rem;
+	background-color: #fff;
+}
+
+.list-container2 .item .title {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.4rem;
+	color: #999;
+	font-size: 0.3333rem;
+}
+
+.list-container2 .item .info-1 {
+	display: flex;
+	padding: 0.4rem 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.list-container2 .item .info-1 .left {
+	min-width: 1.8667rem;
+	min-height: 1.8667rem;
+	margin-right: 0.2667rem;
+	background-color: #ccaaaa;
+}
+
+.list-container2 .item .info-1 .right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 1.8667rem;
+}
+
+.list-container2 .item .info-1 .right .name {
+	color: #333;
+	font-size: 0.4rem;
+	line-height: 0.5333rem;
+}
+
+.list-container2 .item .info-1 .right .bottom {
+	display: flex;
+	justify-content: space-between;
+	color: #999;
+	font-size: 0.3333rem;
+}
+
+.list-container2 .item .info-2 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.3333rem 0;
+}
+
+.list-container2 .item .info-2 .left {
+	display: flex;
+	flex-direction: column;
+	color: #999;
+	font-size: 0.3333rem;
+}
+
+.list-container2 .item .info-2 .right {
+	width: 2.1333rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	color: #e70012;
+	font-size: 0.3333rem;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #e70012;
+}
+
+.list-container2 .item .info-2 .right.disable {
+	color: #999;
+	border: 1px solid #999;
+}
+
+.no-container2 {
+	height: 100%;
+	background-color: #fff;
+}
+
+.no-container2 img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 6.0rem;
+    height: 6.0rem;
+}
+

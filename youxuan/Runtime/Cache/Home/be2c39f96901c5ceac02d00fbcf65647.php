@@ -1,0 +1,64 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="/tp3/youxuan/Public/home/home_admin/css/hyp.css" />
+        <link rel="stylesheet" type="text/css" href="/tp3/youxuan/Public/home/home_admin/css/xsyx.css" />
+        <title>申请提现</title>
+    </head>
+    <body class="body-t bg">
+        <div class="header-container">
+            <a class="left" onclick="javascript:history.back();">
+                <img src="/tp3/youxuan/Public/home/home_admin/images/icon/left.png" />
+                <span>返回</span>
+            </a>
+            <div class="middle">申请提现</div>
+            <a class="right" href=""></a>
+        </div>
+        <div class="apply-container">
+            <div class="header">
+                <p class="left">可提现金额</p>
+                <p class="right"><span>￥</span><?php echo ($enablemoney); ?></p>
+            </div>
+            <div class="input">
+                <p>提现金额</p>
+                <div class="flex-row" style="border-bottom: 1px solid #ddd;">
+                    <span>￥</span>
+                    <form method="post" action="<?php echo U('Cashapply/tixian');?>" id="posttixian">
+                        <input type="hidden" name="yue" value="<?php echo ($enablemoney); ?>">
+                        <input type="hidden" name="sid" value="<?php echo ($sid); ?>">
+                    <input type="number" id="txmoney" name="txmoney">
+                    </form>
+                </div>
+            </div>
+            <p class="tip">提现申请提交成功后，预计24小时到账（国家法定节假日顺延），请到提现账户绑定的银行卡查看是否到账。</p>
+            <a class="btn-container4" onclick="tixian('<?php echo ($sid); ?>','<?php echo ($enablemoney); ?>')">立即提现</a>
+        </div>
+        
+    </body>
+    <script type="text/javascript" src="/tp3/youxuan/Public/home/home_admin/js/hyp.js"></script>
+    <script type="text/javascript" src="/tp3/youxuan/Public/home/home_admin/js/xsyx.js"></script>
+    <script>
+        function tixian(sid,enblemoney) {
+           getmoney= $('#txmoney').val();
+           if ((enblemoney-getmoney)<0){
+               alert('余额不足！');
+           }else if(getmoney<1){
+               alert('提现金额不能小于1元');
+           }else{
+               if(window.confirm('当次提现金额为'+getmoney+'元，是否提现？')){
+                   $('#posttixian').submit();
+                   console.log('提现金额：'+getmoney+'==总额'+enblemoney);
+                   return true;
+               }else{
+                   return false;
+               }
+
+           }
+        }
+
+    </script>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/hyp.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/xsyx.css"/>
+    <title>交易记录</title>
+</head>
+<body class="body-t">
+<div class="header-container">
+    <a class="left" onclick="javascript:history.back();">
+        <img src="__PUBLIC__/home/home_admin/images/icon/left.png"/>
+        <span>返回</span>
+    </a>
+    <div class="middle">交易记录</div>
+    <a class="right" href=""></a>
+</div>
+<div class="nav-container top">
+    <div class="nav active">全部</div>
+    <div class="nav">收益</div>
+    <div class="nav">支出</div>
+</div>
+<!--全部-->
+<div class="cash-list">
+    <foreach name="allinfo" item="v">
+        <div class="item">
+            <div class="left">
+                <if condition="$v.rtype eq 0"><p>提成</p>
+                    <elseif condition="$v.rtype eq 1"/>
+                    <p>退款</p>
+                    <else/>
+                    <p>提现</p>
+                </if>
+                <p>{$v.raddtime}</p>
+            </div>
+            <div class="right">
+                <if condition="($v.rtype eq 1) OR ($v.rtype eq 2) "><p class="down">-{$v.rmoney}</p>
+                    <else/>
+                    <p class="up">+{$v.rmoney}</p>
+                </if>
+                <p class="count">余额：<span>{$v.ryue}</span></p>
+            </div>
+        </div>
+    </foreach>
+    <!--<div class="item">-->
+    <!--<div class="left">-->
+    <!--<p>提成</p>-->
+    <!--<p>2018-04-23</p>-->
+    <!--</div>-->
+    <!--<div class="right">-->
+    <!--<p class="up">+2.1</p>-->
+    <!--<p class="count">余额：<span>507.51</span></p>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+<!--收益-->
+<div class="cash-list hid">
+    <foreach name="getinfo" item="v">
+        <div class="item">
+            <div class="left">
+                <p>提成</p>
+                <p>{$v.raddtime}</p>
+            </div>
+            <div class="right">
+                <p class="up">+{$v.rmoney}</p>
+                <p class="count">余额：<span>{$v.ryue}</span></p>
+            </div>
+        </div>
+    </foreach>
+</div>
+<div class="cash-list hid">
+    <foreach name="outinfo" item="v">
+        <div class="item">
+            <div class="left">
+                <if condition="$v.rtype eq 0"><p>提成</p>
+                    <elseif condition="$v.rtype eq 1"/>
+                    <p>退款</p>
+                    <else/>
+                    <p>提现</p>
+                </if>
+                <p>{$v.raddtime}</p>
+            </div>
+            <div class="right">
+                <p class="down">-{$v.rmoney}</p>
+                <p class="count">余额：<span>{$v.ryue}</span></p>
+            </div>
+        </div>
+    </foreach>
+</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
+
+</html>

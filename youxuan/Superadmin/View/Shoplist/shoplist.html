@@ -1,0 +1,208 @@
+<!--引入头部文件，如css-->
+<include file="Common:header" />
+
+	<body style="background: none;">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<div style="margin-top: 10px;"></div>
+					<ol class="breadcrumb">
+						<li>
+							<a href="{:U('index/index')}" target="_parent">首页</a>
+						</li>
+
+						<li class="active">
+							<strong>商家列表展示</strong>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<!--主体部分-->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox">
+						<div class="ibox-content">
+							<div class="clients-list">
+								<div class="tab-content">
+									<div id="tab-2">
+										<div class="full-height-scroll">
+											<div class="table-responsive">
+												<table class="table table-striped  dataTables-example">
+													<thead>
+													<tr>
+														<th>id</th>
+														<th>封面图</th>
+														<th>店名</th>
+														<th>手机号</th>
+														<th>登录密码</th>
+														<th>提货地址</th>
+														<th>预售时间</th>
+														<th>提货时间</th>
+														<th>添加时间</th>
+														<th>店铺链接</th>
+														<th>店面二维码</th>
+														<th>操作</th>
+													</tr>
+													</thead>
+													<tbody>
+													<foreach name="info" item="v">
+													<tr class="gradeX">
+														<td class="center">{$v.did}</td>
+														<td><img src="__PUBLIC__/{$v.dheaderimg}" width="60" height="60" /></td>
+														<td>{$v.dname}</td>
+														<td>{$v.dphone}</td>
+														<td>{$v.dpassword}</td>
+														<td>{$v.daddress}</td>
+														<td>{$v.dpretime}</td>
+														<td>{$v.dendtime}</td>
+														<td>{$v.daddtime}</td>
+														<td id="urlid{$v.did}">{$v.durl}</td>
+														<td><img src="__MODULE__/Shoplist/getqrcorde?sid={$v.did}" width="60" height="60" /></td>
+														<!--__MODULE__-->
+														<!--__ROOT__-->
+														<td>
+															<input type="button" onClick="copyUrl('{$v.did}')" class="btn btn-info btn-xs"  href="javascript:;" style="margin-top: 10px;" value="复制链接"/>
+															<a class="btn btn-primary btn-xs"  href="__MODULE__/Shoplist/editshop?did={$v.did}" target="main" style="margin-top: 10px;">修改</a>
+															<a type="button" class="btn btn-danger btn-xs" data-toggle="modal" href="javascript:deletes('{$v.did}');" style="margin-top: 10px;">删除</a>
+														</td>
+													</tr>
+													</foreach>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModal">
+							注意事项详细
+						</h4>
+					</div>
+					<div style="width: 100%;text-align: center">
+						<div id="noticedata"></div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+		<!--引入外部js文件-->
+		<include file="Common:footer" />
+		<script>
+			$(".loadimg").on("change", "input[type='file']", function() {
+				var filePath = $(this).val();
+				if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+					$(".fileerrorTip").html("").hide();
+					var arr = filePath.split('\\');
+					var fileName = arr[arr.length - 1];
+					$(".showFileName").html(fileName);
+				} else {
+					$(".showFileName").html("");
+					$(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+					return false
+				}
+			});
+
+		</script>
+		<script>
+            $(document).ready(function(){
+                $('.dataTables-example').DataTable({
+                    pageLength: 10,
+                    responsive: true,
+                    buttons: [
+                        {
+                            customize: function (win){
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+                                $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+
+                });
+
+            });
+		</script>
+		<script>
+            function deletes(id) {
+                getid=id;
+                swal({
+                    title: "确定要删除该课程？"+getid,
+                    text: "删除之后无法恢复",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "是的, 删除先",
+                    closeOnConfirm: false
+                }, function() {
+                    $.post(
+                        "{:U('Shoplist/deleteshop')}",
+                        {
+                            id:getid
+                        },
+                        function(e){
+                            console.log(e);
+                            obj=JSON.parse(e);
+                            if(obj.status){
+                                swal("已删除", "温馨提示", "success");
+                                window.location.reload();
+                            }else{
+                                swal("删除失败", "温馨提示", "fail");
+                                window.location.reload();
+                            }
+                        });
+
+                })
+
+            }
+		</script>
+		<script>
+			function shownotice(data,id) {
+				$("#noticedata").html();
+				$("#noticedata").html(data);
+            }
+		</script>
+		<script type="text/javascript">
+            layui.use('layer', function(){ //独立版的layer无需执行这一句
+                var $ = layui.jquery, layer = layui.layer;
+            }); //独立版的layer无需执行这一句
+            function copyUrl(did)
+            {
+                var Url2=document.getElementById("urlid"+did).innerText;
+                var oInput = document.createElement('input');
+                oInput.value = Url2;
+                document.body.appendChild(oInput);
+                oInput.select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                oInput.className = 'oInput';
+                oInput.style.display='none';
+                layer.msg('已复制到粘贴板');
+                //alert('复制成功');
+            }
+		</script>
+	</body>
+
+</html>

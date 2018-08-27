@@ -1,0 +1,531 @@
+[ 2018-08-24T19:11:06+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+
+[ 2018-08-24T19:11:27+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+
+[ 2018-08-24T19:12:44+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000265s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000420s ]
+
+[ 2018-08-24T19:13:34+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000369s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+
+[ 2018-08-24T19:15:20+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+
+[ 2018-08-24T19:18:15+08:00 ] 119.123.103.209 /tp3/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+
+[ 2018-08-24T19:20:21+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000400s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000441s ]
+
+[ 2018-08-24T19:20:22+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/index/dealwxlogin?code=021uZIDf0HPZsA16ljCf0Nx4Ef0uZIDF&state=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `yx_user` WHERE `openid` = 'o9uGT0RhDgWsy3NNvuN7QYuHE2xk' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-08-24T19:20:22+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0002s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0002s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0002s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006365s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006392s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000366s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2018-08-24T19:21:09+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000356s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000389s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006445s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006471s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000378s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2018-08-24T19:21:12+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/My/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000432s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_user` WHERE `openid` = 'o9uGT0RhDgWsy3NNvuN7QYuHE2xk' LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004335s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004366s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000179s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000202s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000451s ]
+
+[ 2018-08-24T19:21:12+08:00 ] 117.136.39.223 /tp3/youxuan/index.php/Home/My/getqrcorde?sid=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000269s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000415s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000454s ]
+
+[ 2018-08-24T19:21:36+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000427s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000463s ]
+
+[ 2018-08-24T19:21:48+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000321s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000470s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000506s ]
+
+[ 2018-08-24T19:21:50+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/index/dealwxlogin?code=0810cbCu1Beqpc0cytCu11mWBu10cbCS&state=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000396s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0020s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0009s ]
+SQL: SELECT * FROM `yx_user` WHERE `openid` = 'o9uGT0RhDgWsy3NNvuN7QYuHE2xk' LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2018-08-24T19:21:50+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006345s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006383s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000188s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000358s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000386s ]
+
+[ 2018-08-24T19:21:55+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000302s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000422s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000455s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006266s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006292s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000180s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000381s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000425s ]
+
+[ 2018-08-24T19:22:29+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000377s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000387s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000416s ]
+
+[ 2018-08-24T19:22:30+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/index/dealwxlogin?code=021tODn42YEPaM0J27q42HUPn42tODne&state=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000266s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `yx_user` WHERE `openid` = 'o9uGT0RhDgWsy3NNvuN7QYuHE2xk' LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2018-08-24T19:22:30+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000408s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000042s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006649s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006689s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000367s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2018-08-24T19:22:32+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/My/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000390s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_user` WHERE `openid` = 'o9uGT0RhDgWsy3NNvuN7QYuHE2xk' LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000076s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004954s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004987s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000207s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000428s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000457s ]
+
+[ 2018-08-24T19:22:32+08:00 ] 117.136.39.223 /tp3/youxuan/index.php/Home/My/getqrcorde?sid=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000431s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000478s ]
+
+[ 2018-08-24T19:22:34+08:00 ] 183.3.227.100 /tp3/youxuan/index.php/Index/index/sid/5.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000367s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `yx_shop` [ RunTime:0.0005s ]
+SQL: SELECT `did`,`dname`,`dheaderimg`,`dphone`,`dpretime`,`dendtime`,`dsign`,`daddress` FROM `yx_shop` WHERE ( did=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0003s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 ) LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `yx_user` [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `yx_user` WHERE ( shopid=5 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `yx_goods` [ RunTime:0.0003s ]
+SQL: SELECT `gid`,`gboss`,`sid`,`gtopimg`,`gtitle`,`gyhprice`,`gprice`,`gdes`,`gendnum` FROM `yx_goods`  [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=2 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=2 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=5 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=5 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=6 ) LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=6 ) LIMIT 3   [ RunTime:0.0001s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=7 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=7 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=8 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=8 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=9 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=9 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=10 ) LIMIT 3   [ RunTime:0.0000s ]
+SQL: SELECT SUM(onum) AS tp_sum FROM `yx_order` WHERE ( osid=5 and ostatus=1 and ogid=11 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT o.oid,o.ostatus,u.nickname,u.headerimg FROM yx_order o INNER JOIN yx_user u on o.ouid=u.uid  WHERE ( o.ostatus=1 and ogid=11 ) LIMIT 3   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000040s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+NOTIC: [8] Use of undefined constant gid - assumed 'gid' /www/wwwroot/jsq.dede1.com/tp3/youxuan/Runtime/Cache/Home/09930d8c7658199ebeca15374c667bd0.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006342s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006368s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000197s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000377s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000406s ]
+
+[ 2018-08-24T19:22:36+08:00 ] 61.129.7.236 /tp3/youxuan/index.php/Index/index/sid/5.html?from=singlemessage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000476s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000510s ]
+

@@ -1,0 +1,372 @@
+<!--引入头部文件，如css-->
+<include file="Common:header" />
+
+	<body style="background: none;">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<div style="margin-top: 10px;"></div>
+					<ol class="breadcrumb">
+						<li class="active">
+							<span>交易记录</span>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<!--主体部分-->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox">
+						<div class="ibox-content">
+							<div class="clients-list">
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a data-toggle="tab" href="#tab-0"><i class="fa fa-bar-chart-o"></i>提成记录</a>
+									</li>
+
+									<li class="">
+										<a data-toggle="tab" href="#tab-1"><i class="fa fa-briefcase"></i>退款记录</a>
+									</li>
+									<li class="">
+										<a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i>提现记录</a>
+									</li>
+								</ul>
+
+								<div class="tab-content">
+									<!--提成记录-->
+									<div id="tab-0" class="tab-pane active">
+										<div class="full-height-scroll">
+											<div class="table-responsive">
+												<table class="table table-striped table-hover">
+													<tbody>
+														<tr>
+															<th>id</th>
+															<th>订单来源</th>
+															<th>交易金额</th>
+															<th>账户余额</th>
+															<th>操作时间</th>
+														</tr>
+														<foreach name="ticheninfo" item="v">
+														<tr>
+															<td>{$v.rid}</td>
+															<td>{$v.dname}</td>
+															<td>{$v.rmoney}</td>
+															<td>{$v.ryue}</td>
+															<td>{$v.raddtime}</td>
+														</tr>
+														</foreach>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!--退款记录-->
+									<div id="tab-1" class="tab-pane active">
+										<div class="full-height-scroll">
+											<div class="table-responsive">
+												<table class="table table-striped table-hover">
+													<tbody>
+													<tr>
+														<th>id</th>
+														<th>订单来源</th>
+														<th>交易金额</th>
+														<th>账户余额</th>
+														<th>操作时间</th>
+													</tr>
+													<foreach name="tuikuaninfo" item="v1">
+														<tr>
+															<td>{$v1.rid}</td>
+															<td>{$v1.dname}</td>
+															<td>{$v1.rmoney}</td>
+															<td>{$v1.ryue}</td>
+															<td>{$v1.raddtime}</td>
+														</tr>
+													</foreach>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!--提现记录-->
+									<div id="tab-2" class="tab-pane active">
+										<div class="full-height-scroll">
+											<div class="table-responsive">
+												<table class="table table-striped table-hover">
+													<tbody>
+													<tr>
+														<th>id</th>
+														<th>订单来源</th>
+														<th>交易金额</th>
+														<th>账户余额</th>
+														<th>操作时间</th>
+													</tr>
+													<foreach name="tixianinfo" item="v2">
+														<tr>
+															<td>{$v2.rid}</td>
+															<td>{$v2.dname}</td>
+															<td>{$v2.rmoney}</td>
+															<td>{$v2.ryue}</td>
+															<td>{$v2.raddtime}</td>
+														</tr>
+													</foreach>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		<!--查看商品信息-->
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							商品信息
+						</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="ibox float-e-margins">
+									<fieldset class="form-horizontal">
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">商品图片：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<img src="" id="imgs" width="60" height="60" />
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">商品：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" disabled="disabled" id="gname"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">订单号：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" disabled="disabled" id="gnum"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">价格：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" style="color: red" disabled="disabled" id="gprice"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">申请时间：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" disabled="disabled" id="saddtime"/>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">手机号：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" disabled="disabled" id="gphone"/>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		<!--编辑框结束-->
+		<!--引入外部js文件-->
+		<include file="Common:footer" />
+		<script>
+
+            $(document).ready(function (){
+                var l = $( '.ladda-button-demo' ).ladda();
+                $("#sub").click(function () {
+                    l.ladda( 'start' );
+                    getval=$("#tname").val();
+                    $.post(
+                        "{:U('Classtype/addclasstype')}",
+						{'t_name':getval}
+						,function(e){
+                        e = JSON.parse(e);
+                        console.log(e);
+                        if(e.status==1){
+                            window.location.href = "{:U('Classtype/classtype')}";
+                            l.ladda('stop');
+                        }else{
+                            swal({
+                                title: "添加失败",
+                                text: "发生未知错误"
+                            });
+                            l.ladda('stop');
+                        }
+                    });
+
+                });
+                $("#postedit").click(function () {
+                    l.ladda( 'start' );
+                    getid=$("#getid").val();
+                    getname=$("#getname").val();
+                    $.post(
+                        "{:U('Classtype/editclasstype')}",
+                        {
+                            't_name':getname,
+							't_id':getid
+						}
+                        ,function(e){
+                            e = JSON.parse(e);
+                            console.log(e);
+                            if(e.status==1){
+                                window.location.href = "{:U('Classtype/classtype')}";
+                                l.ladda('stop');
+                            }else{
+                                swal({
+                                    title: "编辑失败",
+                                    text: "发生未知错误"
+                                });
+                                l.ladda('stop');
+                            }
+                        });
+
+                })
+            });
+
+		</script>
+		<script>
+
+		</script>
+			<!--删除售后订单-->
+			<script>
+				function deletes(id) {
+                    getid=id;
+					swal({
+						title: "确定要删除该售后申请订单吗？",
+						text: "请谨慎操作",
+						type: "warning",
+						showCancelButton: true,
+						confirmButtonColor: "#DD6B55",
+						confirmButtonText: "是的, 删除先",
+						closeOnConfirm: false
+					}, function() {
+
+                        $.post(
+                            "{:U('Aftersale/deleteaftersale')}",
+							{
+							    id:getid
+							},
+							function(e){
+							console.log(e);
+							 obj=JSON.parse(e);
+							if(obj.status){
+                                swal("已删除", "成功提示", "success");
+                                window.location.reload();
+							}else{
+                                swal("删除失败", "温馨提示", "fail");
+                                window.location.reload();
+							}
+                        });
+
+					})
+				}
+				//确认售后订单
+                function sureorder(id) {
+                    getid=id;
+                    swal({
+                        title: "确认提示",
+                        text: "确认订单后表示已经完成该售后订单的出来，是否执行？",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "是的, 已经打款了",
+                        closeOnConfirm: false
+                    }, function() {
+
+                        $.post(
+                            "{:U('Aftersale/sureorder')}",
+                            {
+                                id:getid
+                            },
+                            function(e){
+                                console.log(e);
+                                obj=JSON.parse(e);
+                                if(obj.status){
+                                    swal("已处理", "成功提示", "success");
+                                    window.location.reload();
+                                }else{
+                                    swal("处理失败", "温馨提示", "fail");
+                                    window.location.reload();
+                                }
+                            });
+
+                    })
+
+                }
+			</script>
+			<script>
+				function edits(id) {
+					//alert(id);
+                    $.post(
+                        "{:U('Aftersale/getdetail')}",
+                        {
+                            hid:id
+                        },
+                        function(e){
+                            obj=JSON.parse(e);
+                            info=obj.data[0];
+//imgs gname gnum gprice saddtime  gphone
+						$("#imgs").attr('src','__PUBLIC__/'+info.gtopimg);
+						$("#gname").val(info.gtitle);
+						$("#gnum").val(info.hordernum);
+						$("#gprice").val(info.gyhprice);
+						$("#saddtime").val(info.haddtime);
+						$("#gphone").val(info.hphone);
+                        });
+//					$("#getid").val(id);
+//					$("#getname").val(name);
+				}
+			</script>
+	</body>
+
+</html>

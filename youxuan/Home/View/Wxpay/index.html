@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>微信安全支付</title>
+    <script type="text/javascript">
+	//调用微信JS api 支付
+	function weixinpay(){
+		
+		var jsApiParameters = {$jsApiParameters};
+
+		WeixinJSBridge.invoke(
+	       'getBrandWCPayRequest', jsApiParameters,
+	       	function(res){  
+				// 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+				if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+					window.location.href="{$success_url}";
+				}else{
+					history.go(-2);
+				}  
+	        }
+	    ); 
+	}
+
+	function callpay()
+	{
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', weixinpay, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', weixinpay); 
+		        document.attachEvent('onWeixinJSBridgeReady', weixinpay);
+		    }
+		}else{
+		    weixinpay();
+		}
+	}
+
+	</script>
+</head>
+<body onload="callpay();">
+	<div class="wenx_xx">
+	  <div class="mz"></div>
+	  <div class="wxzf_price">￥{$total_fee/100}</div>
+	</div>
+	<div class="skf_xinf">
+	  <div class="all_w"> <span class="bt">收款方</span> <span class="fr">{$pt_name}</span> </div>
+	</div>
+	<a href="javascript:void(0);" class="ljzf_but all_w" onclick="callpay();">立即支付</a> 
+
+</body>
+</html>
+
+
+

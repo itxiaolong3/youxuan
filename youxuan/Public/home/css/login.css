@@ -1,0 +1,93 @@
+.login-container {
+	height: 100%;
+	overflow: hidden;
+	padding: 0 0.4rem;
+	background-color: #fff;
+}
+
+.logo-t {
+	width: 4.2667rem;
+	height: 1.6rem;
+	margin: 1.6rem auto 1.0667rem;
+}
+
+.input-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 1.2rem;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 0.2rem;
+	margin-bottom: 0.4rem;
+}
+
+.input-container input {
+	flex: 1;
+	color: #333;
+	font-size: 0.4rem;
+}
+
+.input-container img {
+	width: 0.4667rem;
+	height: 0.4667rem;
+}
+
+.input-container .msg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.1333rem;
+	height: 100%;
+	padding-left: 0.2rem;
+	color: #ed5a5e;
+	font-size: 0.3333rem;
+	border-left: 1px solid #ddd;
+}
+
+.input-container .msg2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.1333rem;
+	height: 100%;
+	padding-left: 0.2rem;
+	color: #ccc;
+	font-size: 0.3333rem;
+	border-left: 1px solid #ddd;
+}
+
+.btn-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 1.0667rem;
+	border-radius: 5px;
+	background-color: #ed5a5e;
+	color: #fff;
+	font-size: 0.4rem;
+	margin-top: 1.3333rem;
+}
+
+.logo-b {
+	position: absolute;
+	left: 50%;
+	bottom: 1.3333rem;
+	margin-left: -1.3333rem;
+	width: 2.6667rem;
+	height: 0.8rem;
+}
+
+.wrong {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #ed5a5e;
+	color: #fff;
+	text-align: center;
+	line-height: 0.6rem;
+	font-size: 0.32rem;
+}
