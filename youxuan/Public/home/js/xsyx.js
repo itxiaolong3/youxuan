@@ -4,6 +4,18 @@ function show_tip(text) {
 }
 
 $(function(){
+    //返回顶部
+    $(window).scroll(function(event) {
+        if($(document).scrollTop() <= 100){
+            $('.totop').hide(100);
+        }
+        if($(document).scrollTop() > 100){
+            $('.totop').show(100);
+        }
+    });
+    $('.totop').on('click',function(){
+        $('html,body').stop(true).animate({scrollTop:0}, 500);
+    })
     //保存购物车记录的js
     //这里的方法基本都加了一个sid 这个是店铺id ，区分不同店铺的数据，别的项目估计用不到，请灵活使用
     utils = {
