@@ -34,5 +34,8 @@ class OrderdetailController extends BaseController {
        $this->shopinfo=$shopinfo;
       $this->display('Orderdetail/index');
     }
+    function detail(){
+        $this->display();
+    }
 
 }

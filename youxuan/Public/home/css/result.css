@@ -1,0 +1,133 @@
+body {
+	background-color: #f8f8f8;
+}
+
+.header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 1.0667rem;
+	padding: 0 0.2667rem;
+	background-color: #fff;
+}
+
+.header-container .left {
+	display: flex;
+	align-items: center;
+	min-width: 1.3333rem;
+}
+
+.header-container .left img {
+	width: 0.2rem;
+	height: 0.3333rem;
+	margin-right: 0.2rem;
+}
+
+.header-container .left span {
+	color: #666;
+	font-size: 0.36rem;
+}
+
+.header-container .middle {
+	color: #333;
+	font-size: 0.4rem;
+}
+
+.header-container .right {
+	color: #666;
+	font-size: 0.3333rem;
+	text-align: right;
+	min-width: 1.3333rem;
+}
+
+.top-container {
+	min-width: 100%;
+	min-height: 5.0667rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f6ffee;
+}
+
+.top-container img {
+	width: 2.0rem;
+	height: 2.0rem;
+	margin-top: 0.5333rem;
+}
+
+.top-container .text-1 {
+	padding-top: 0.1333rem;
+	color: #3cb033;
+	font-size: 0.3333rem;
+	font-weight: bold;
+}
+
+.top-container .text-2 {
+	padding-top: 0.2rem;
+	color: #555;
+	font-size: 0.3333rem;
+	font-weight: bold;
+	text-align: center;
+}
+
+.btn-container {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 2.0rem;
+	background-color: #fff;
+}
+
+.btn-container .btn1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.6667rem;
+	height: 0.9333rem;
+	border-radius: 0.1333rem;
+	border: 2px solid #b6b6b6;
+	margin: 0 0.5333rem;
+	color: #2f2f2f;
+	font-size: 0.3333rem;
+	font-weight: bold;
+}
+
+.btn-container .btn2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.6667rem;
+	height: 0.9333rem;
+	border-radius: 0.1333rem;
+	border: 2px solid #f00;
+	margin: 0 0.5333rem;
+	color: #f00;
+	font-size: 0.3333rem;
+	font-weight: bold;
+}
+
+.text-container	{
+	padding: 0.4rem 0.4rem 0.8rem;
+	color: #999;
+	font-size: 0.3333rem;
+	background-color: #fff;
+}
+
+.bottom-container {
+	padding: 0.4rem;
+	color: #999;
+	font-size: 0.3333rem;
+	line-height: 0.4rem;
+	display: flex;
+}
+
+.bottom-container img {
+	width: 0.4rem;
+	height: 0.4rem;
+	margin-top: 1px;
+	margin-right: 0.1333rem;
+}
