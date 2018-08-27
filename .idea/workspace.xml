@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f102ab56-99c2-4d04-bc10-d89f4951fa41" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youxuan/Home/View/Index/index.html" afterPath="$PROJECT_DIR$/youxuan/Home/View/Index/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youxuan/Public/home/css/index.css" afterPath="$PROJECT_DIR$/youxuan/Public/home/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js" afterPath="$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php">
+      <file leaf-file-name="xsyx.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youxuan/Public/home/home_admin/js/xsyx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-345">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="307">
+              <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -28,34 +26,30 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1439">
-              <caret line="80" column="95" lean-forward="true" selection-start-line="80" selection-start-column="95" selection-end-line="80" selection-end-column="95" />
+            <state relative-caret-position="483">
+              <caret line="198" column="13" lean-forward="false" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/youxuan/Public/home/css/index.css">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Vip/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2262">
-              <caret line="611" column="1" lean-forward="false" selection-start-line="611" selection-start-column="1" selection-end-line="611" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xsyx.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="322">
+              <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>top</find>
+      <find>search</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -143,47 +137,15 @@
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Vip" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="other" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -197,6 +159,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\mydemo\youxuan\youxuan\Public\home\js" />
       <recent name="E:\mydemo\youxuan\youxuan\Public\home\images\icon" />
     </key>
   </component>
@@ -227,13 +190,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2433000" />
+    <option name="totallyTimeSpent" value="7807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="15" width="1364" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09355828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.024539877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -271,14 +234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youxuan/Public/home/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2262">
@@ -297,10 +252,85 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/js/jquer3.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/postinfo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/notifyinfo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/PayController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="90" column="54" lean-forward="false" selection-start-line="90" selection-start-column="41" selection-end-line="90" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/PaynotifyController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1535338287548" expanded="true" signature="993:1099" ph="..." />
+            <marker date="1535338287548" expanded="true" signature="1450:1554" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/VipController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-116">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13939">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Vip/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="35" column="37" lean-forward="false" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/home_admin/js/xsyx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="105" column="34" lean-forward="true" selection-start-line="105" selection-start-column="34" selection-end-line="105" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1439">
-          <caret line="80" column="95" lean-forward="true" selection-start-line="80" selection-start-column="95" selection-end-line="80" selection-end-column="95" />
+        <state relative-caret-position="483">
+          <caret line="198" column="13" lean-forward="false" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="13" />
           <folding />
         </state>
       </provider>

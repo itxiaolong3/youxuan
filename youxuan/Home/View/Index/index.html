@@ -15,7 +15,7 @@
             <div class="header-container">
                 <div class="search">
                     <img src="__PUBLIC__/home/images/icon/search.png" />
-                    <input placeholder="输入手机号 / 订单号 / 提单号查询" />
+                    <input placeholder="输入商品名称，搜索商品"  id="seach"/>
                 </div>
                 <div class="info">
                     <img class="left" width="50" height="50" src="__PUBLIC__/{$shopinfo.dheaderimg}" />
@@ -41,7 +41,7 @@
                 <div style="padding: 0 0.2667rem;">
                     <div class="container-1">
                         <a class="top" href="{:U('Waredetail/index',array('sid'=>$sid,'gid'=>$v[gid]))}">
-                            {$v.gtitle}
+                            <div class="goodname">{$v.gtitle}</div>
                         </a>
                         <dix class="bottom">
                             <div class="left">
@@ -105,6 +105,7 @@
             </a>
         </div>
     </body>
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
     <script>
         var jsfori=0;
         var jsforsid="{$sid}";
@@ -159,6 +160,45 @@
             //提交数据
             temp_form.submit();
         }
+        //查询
+        var goodname = [];//商品名
+       // var order = [];//订单号
+        //var bl = [];//提单号
+        for(var i = 0 ; i < $(".goods-container").length ; i++){
+            goodname[i] = $(".goods-container").eq(i).find('.top').text();
+//            order[i] = $(".item").eq(i).find('.title p').eq(0).text().substring(5);
+//            bl[i] = $(".item").eq(i).find('.left span').text();
+        }
+//        $(".btn").on("click",function(){
+//            var phone = $(".search input").val();
+//            $(".item").css('display', 'none');
+//            for(var i = 0 ; i < $(".item").length ; i++){
+//                if(phones[i].indexOf(phone,0) >= 0 || order[i].indexOf(phone,0) >= 0 || bl[i].indexOf(phone,0) >= 0){
+//                    $(".item").eq(i).css('display', 'flex');
+//                }
+//            }
+//        });
+        $('#seach').blur(function () {
+            getkeyword=$('#seach').val();
+            $(".goods-container").css('display', 'none');
+            for(var i = 0 ; i < $(".goods-container").length ; i++){
+                if(goodname[i].indexOf(getkeyword,0) >= 0){
+                    $(".goods-container").eq(i).css('display', 'flex');
+                }
+            }
+
+           console.log('失去焦点'+getkeyword);
+        });
+        $('#seach').on('input propertychange', function() {
+            getkeyword=$('#seach').val();
+            $(".goods-container").css('display', 'none');
+            for(var i = 0 ; i < $(".goods-container").length ; i++){
+                if(goodname[i].indexOf(getkeyword,0) >= 0){
+                    $(".goods-container").eq(i).css('display', 'flex');
+                }
+            }
+            console.log(getkeyword);
+        })
     </script>
     <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
