@@ -40,17 +40,17 @@
     <div class="list-container">
         <foreach  name="goods" item="v">
             <div class="item">
-                <img class="image" src="__PUBLIC__/{$v.imgurl}" />
+                <img class="image" src="__PUBLIC__/{$v['gooddetail']['gtopimg']}" />
                 <div class="info">
                     <div class="top">
                         <input type="hidden" value="{$v.id}"/>
-                        <p class="name">{$v.name} </p>
-                        <p class="describe">{$v.gdes}&nbsp;&nbsp;&nbsp;<span>x{$v.buynum}</span></p>
+                        <p class="name">{$v['gooddetail']['gtitle']} </p>
+                        <p class="describe">{$v['gooddetail']['gdes']}&nbsp;&nbsp;&nbsp;<span>x{$v.buynum}</span></p>
 
 
                     </div>
                     <div class="bottom">
-                        <div class="left"><span>￥</span>{$v.gyhprice}&nbsp;&nbsp;<s>￥{$v.gprice}</s></div>
+                        <div class="left"><span>￥</span>{$v['gooddetail']['ghyprice']}&nbsp;&nbsp;<s>￥{$v['gooddetail']['gprice']}</s></div>
                         <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;16:00提货</div>
                     </div>
                 </div>

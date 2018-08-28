@@ -50,13 +50,14 @@ class OrderdetailController extends BaseController {
         $userinfo=M('user')->where(array("uid"=>$uid))->find();
         $this->userinfo=$userinfo;
         $shopinfo=$this->getshopinfo($sid);
-        var_dump($goods);
+//        var_dump($goods[0]['gooddetail']['gtopimg']);
+//        var_dump($goods[1]['gooddetail']['gtopimg']);
         $this->shopinfo=$shopinfo;
         $this->totalprice=$gettotal;
         $this->goods=$goods;
         $this->goodnum=$goodsnum;
         $this->goodid=$goodid;
-        //$this->display();
+        $this->display();
     }
 
 }
