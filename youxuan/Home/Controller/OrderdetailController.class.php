@@ -35,6 +35,7 @@ class OrderdetailController extends BaseController {
       $this->display('Orderdetail/index');
     }
     function detail(){
+        //当前请求的全路径$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         $getordernum=I('ordernum');
         $gettotal=I('total');
         $goods=M('order')->where('onumber='.$getordernum)->select();
@@ -50,8 +51,21 @@ class OrderdetailController extends BaseController {
         $userinfo=M('user')->where(array("uid"=>$uid))->find();
         $this->userinfo=$userinfo;
         $shopinfo=$this->getshopinfo($sid);
-//        var_dump($goods[0]['gooddetail']['gtopimg']);
-//        var_dump($goods[1]['gooddetail']['gtopimg']);
+        //分享
+        $requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+        $jssdkArr['appId'] = $this->getWxConfig()['appid'];
+        $jssdkArr['timestamp'] = time();
+        $jssdkArr['nonceStr'] = md5(time());
+        $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
+        //分享数据
+        $fxArr['title'] = "老板，我是“".$userinfo['nickname']."”,刚在店里买的商品请接单！";
+        $fxArr['link'] = $requrl;
+        $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
+        $fxArr['desc'] = '【兴盛优选】：小伙伴们都购买了，大家赶快来晒单吧！';
+        $fxArr['type'] = 'link';
+        //$this->assign('jssdkArr',$jssdkArr);
+        $this->jssdkArr=$jssdkArr;
+        $this->fxArr=$fxArr;
         $this->shopinfo=$shopinfo;
         $this->totalprice=$gettotal;
         $this->goods=$goods;
