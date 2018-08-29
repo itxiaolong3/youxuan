@@ -133,42 +133,68 @@
 </script>
 <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
 <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
 <script>
     var getgoodid= [];
     var goodcomment= [];
     function pay() {
+         var checkgoodid=[];
+         var mycomment=[];
         for(var i = 0; i < $(".list-container .item").length; i++){
             var goodid = $(".item").eq(i).find(".info .top input").val();
             var comment = $(".item").eq(i).find(".info .top .comment input").val();
-            getgoodid.push(goodid);
-            goodcomment.push(comment);
+            checkgoodid.push(goodid);
+            mycomment.push(comment);
         }
-        if("{$onegoodsize}"==1){
-            totalprice="{$onegood.totalprice}";
-        }else{
-            totalprice="{$totalprice}";
-        }
-        username=$("#username").val();
-        userphone=$("#userphone").val();
-        //提交数据到确认支付页面并保存订单
-        var sid="{$sid}";
-        var parames = new Array();
-        parames.push({ name: "sid", value: sid});
-        parames.push({ name: "username", value: username});
-        parames.push({ name: "userphone", value: userphone});
-        parames.push({ name: "totalprice", value: totalprice});
-        parames.push({ name: "goodid", value: JSON.stringify(getgoodid)});
-        parames.push({ name: "goodcomment", value: JSON.stringify(goodcomment)});
-        //删除购物车的数据
-        for(var i=0;i<getgoodid.length;i++){
-            cart.deleteproduct(getgoodid[i],sid)
-        }
-        if (username==''||userphone==''){
-            alert('手机或者收货人不可为空');
-            return false;
-        }else{
-            Post("{:U('Pay/index')}",parames);
-        }
+        $.post(
+            "{:U('Pay/checkkucun')}",
+            {
+               'goodids':checkgoodid,
+                'goodcomment':mycomment
+            },function (e) {
+              e=JSON.parse(e);
+              if (e.status==1){
+
+                  console.log('可以');
+                  for(var i = 0; i < $(".list-container .item").length; i++){
+                      var goodid = $(".item").eq(i).find(".info .top input").val();
+                      var comment = $(".item").eq(i).find(".info .top .comment input").val();
+                      getgoodid.push(goodid);
+                      goodcomment.push(comment);
+                  }
+                  if("{$onegoodsize}"==1){
+                      totalprice="{$onegood.totalprice}";
+                  }else{
+                      totalprice="{$totalprice}";
+                  }
+                  username=$("#username").val();
+                  userphone=$("#userphone").val();
+                  //提交数据到确认支付页面并保存订单
+                  var sid="{$sid}";
+                  var parames = new Array();
+                  parames.push({ name: "sid", value: sid});
+                  parames.push({ name: "username", value: username});
+                  parames.push({ name: "userphone", value: userphone});
+                  parames.push({ name: "totalprice", value: totalprice});
+                  parames.push({ name: "goodid", value: JSON.stringify(getgoodid)});
+                  parames.push({ name: "goodcomment", value: JSON.stringify(goodcomment)});
+                  //删除购物车的数据
+                  for(var i=0;i<getgoodid.length;i++){
+                      cart.deleteproduct(getgoodid[i],sid)
+                  }
+                  if (username==''||userphone==''){
+                      alert('手机或者收货人不可为空');
+                      return false;
+                  }else{
+                      Post("{:U('Pay/index')}",parames);
+                  }
+              }else{
+                  alert('商品库存不足，请重新现在购买数量');
+                  console.log('库存有限哦，不能提交');
+
+              }
+        });
+
 
 
     }

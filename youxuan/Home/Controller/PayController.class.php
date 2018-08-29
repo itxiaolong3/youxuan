@@ -66,6 +66,11 @@ class PayController extends Controller {
                    $num=explode('x', $goodcomment[$k]);
                     $preorder['buynum']=intval($num[1]);
                     $re=M('order')->add($preorder);
+                    //库存减少
+                    if ($re){
+                        $upbuynum['gendnum']=$goods['gendnum']-intval($num[1]);
+                        M('goods')->where('gid='.$v)->save($upbuynum);
+                    }
                 }
             }else{
                 foreach ($goodid as $k=>$v){
@@ -77,6 +82,11 @@ class PayController extends Controller {
                    $num=explode('x', $goodcomment[$k]);
                     $preorder['buynum']=intval($num[1]);
                     $re=M('order')->add($preorder);
+                    //库存减少
+                    if ($re){
+                        $upbuynum['gendnum']=$goods['gendnum']-intval($num[1]);
+                        M('goods')->where('gid='.$v)->save($upbuynum);
+                    }
                 }
             }
         }
@@ -109,6 +119,32 @@ class PayController extends Controller {
         $res['code'] = 0;
         $res['msg'] = 'ok';
         echo json_encode($res);
+    }
+    //提交订单时检查库存
+    public function checkkucun(){
+        $getgoods=I('goodids');
+        $goodcomment=I('goodcomment');
+        $isok=1;
+        foreach ($getgoods as $k=>$v){
+            $goodsinfo=M('goods')->where('gid='.$v)->find();
+            $num=explode('x', $goodcomment[$k]);
+            $buynum=intval($num[1]);
+            if ($goodsinfo['gendnum']<$buynum||$goodsinfo['gendnum']<=0){
+                $isok=0;
+                break;
+            }
+        }
+        $arr=array();
+        if ($isok){
+            $arr['status']=1;
+            $arr['msg']='allow to buy';
+            echo json_encode($arr);
+        }else{
+            $arr['status']=0;
+            $arr['msg']='no more good to buy';
+            $arr['info']=$goodcomment;
+            echo json_encode($arr);
+        }
     }
  
 

@@ -7,9 +7,11 @@
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/aui-pull-refresh.css" />
         <title>首页</title>
     </head>
     <body>
+    <section class="aui-refresh-content">
         <img class="banner" src="__PUBLIC__/home/images/other/banner.jpg" />
         <div class="index-container">
             <div class="header-container">
@@ -57,14 +59,17 @@
                             <p style="margin-bottom: 0.2rem;">预售时间：<span>{$shopinfo.dpretime}</span></p>
                             <p>提货时间：<span>{$shopinfo.dendtime}</span></p>
                         </div>
-                        <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}')">加入购物车</div>
+                        <if condition="$v['gendnum'] eq 0">
+                            <div style="color: #999;padding:18px;font-size: 0.3333rem;border-radius: 5px;border: 1px solid #999;">已售罄</div>
+                            <else/>
+                            <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}')">加入购物车</div>
+                        </if>
                     </div>
                     <div class="container-3">
                         <foreach name="v.userinfo" item="vv">
                             <!--头像到时需要去掉public-->
                             <img src="{$vv.headerimg}"/>{$vv.nickname}
                         </foreach>
-
                             <span>&nbsp;等刚购买此商品</span>
                     </div>
                 </div>
@@ -86,8 +91,6 @@
                     <a class="addright" href="tel:18684785499"><img src="__PUBLIC__/home/images/icon/phone.png" alt=""></a>
                 </div>
             </div>
-            <!-- 返回顶部 -->
-            <div class="totop hid"><span></span></div>
             <!-- 新增底部结束 -->
         </div>
         <div class="footer-container">
@@ -104,14 +107,31 @@
                 <p>我的</p>
             </a>
         </div>
+    </section>
+    <!-- 返回顶部 -->
+    <div class="totop hid"><span></span></div>
     </body>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/aui-pull-refresh.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
         var jsfori=0;
         var jsforsid="{$sid}";
     </script>
     <script>
+        //下拉刷新
+        var pullRefresh = new auiPullToRefresh({
+            container: document.querySelector('.aui-refresh-content'),
+            triggerDistance: 500
+        },function(ret){
+            if(ret.status=="success"){
+                // setTimeout(function(){
+                window.location.reload();
+                // pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+                //},2000)
 
+            }
+        })
         function addcat(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid) {
             //保存的数据
             product={
@@ -202,6 +222,96 @@
     </script>
     <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+    <!--微信分享-->
+    <script>
+        wx.config({
+            debug: false, // 开启调试模式
+            appId: '{$jssdkArr["appId"]}', // 必填，公众号的唯一标识
+            timestamp: {$jssdkArr['timestamp']}, // 必填，生成签名的时间戳
+            nonceStr: '{$jssdkArr["nonceStr"]}', // 必填，生成签名的随机串
+            signature: '{$jssdkArr["signature"]}',// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表
+        });
 
+        wx.ready(function(){
+            var title = '{$fxArr.title}'
+                ,link = '{$fxArr.link}'
+                ,imgUrl = '{$fxArr.imgUrl}'
+                ,desc = '{$fxArr.desc}'
+                ,type = '{$fxArr.type}'
+                ,dataUrl = '';
+
+            //分享到朋友圈
+            wx.onMenuShareTimeline({
+                title: title, // 分享标题
+                link: link,
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                }
+            });
+
+            //分享给朋友
+            wx.onMenuShareAppMessage({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: imgUrl, // 分享图标
+                type: type, // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+
+                }
+            });
+
+            //分享到QQ
+            wx.onMenuShareQQ({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到腾讯微博
+            wx.onMenuShareWeibo({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到QQ空间
+            wx.onMenuShareQZone({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+        });
+
+        wx.error(function(res){
+            //alert(JSON.parse(res))
+            console.log(res);
+        });
+
+    </script>
 
 </html>

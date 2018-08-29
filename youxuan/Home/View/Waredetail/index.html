@@ -95,7 +95,7 @@
                  <foreach name="selluserinfo" item="v">
                 <div class="record-item">
                     <!--这里的头像地址得去掉public-->
-                    <div class="left"><img src="__PUBLIC__/{$v.headerimg}"></div>
+                    <div class="left"><img src="{$v.headerimg}"></div>
                     <div class="right">
                         <p>{$v.nickname}</p>
                         <p><span>{$v.onum}</span>份</p>
@@ -113,14 +113,21 @@
                     <!--</div>-->
                 <!--</div>-->
             </div>
-            <div class="footer-container">
-                <a class="icon" onclick="postcartdata();">
-                    <img src="__PUBLIC__/home/images/icon/cart.png" />
-                    <div class="badge hid">0</div>
-                </a>
-                <a class="btn-1" onclick="addcart('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}','{$sid}');">加入购物车</a>
-                <a class="btn-2" onclick="topay('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}');">立即购买</a>
-            </div>
+            <if condition="$goodsinfo['gendnum'] eq 0">
+                <div class="nogood">
+                    已售罄
+                </div>
+                <else/>
+                <div class="footer-container">
+                    <a class="icon" onclick="postcartdata();">
+                        <img src="__PUBLIC__/home/images/icon/cart.png" />
+                        <div class="badge hid">0</div>
+                    </a>
+                    <a class="btn-1" onclick="addcart('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}','{$sid}');">加入购物车</a>
+                    <a class="btn-2" onclick="topay('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}');">立即购买</a>
+                </div>
+            </if>
+
         </main>
     </body>
     <script>

@@ -14,6 +14,16 @@ class IndexController extends BaseController {
      
        $getsid=I('sid');
        $iske=I('ke');
+       //删除一个小时后的未付款订单
+       $allorder=M('order')->where('ostatus=0')->select();
+       foreach ($allorder as $k=>$v){//1535515436-1535514637
+           if(time()-$v['oaddtime']>3600){
+               $goods=M('goods')->where('gid='.$v['ogid'])->find();
+               $upbuynum['gendnum']=($goods['gendnum']+$v['buynum']);
+               M('goods')->where('gid='.$v['ogid'])->save($upbuynum);
+               M('order')->where('oid='.$v['oid'])->delete();
+           }
+       }
        if (!empty($iske)){
            session('iske',$iske);
        }
@@ -36,9 +46,9 @@ class IndexController extends BaseController {
                $this->usernum=$usernum;
                //商品
                $goodsmodel=M('goods');
-               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum')->select();
+               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum')->where('gendnum>0')->select();
                foreach ($goodsinfo as $k=>$v){
-                   $goodsinfo[$k]['salenum']=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".$v['gid'])->sum('onum');
+                   $goodsinfo[$k]['salenum']=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".$v['gid'])->sum('buynum');
                    $goodsinfo[$k]['userinfo']=$ordernummodel
                        ->alias('o')
                        ->join("yx_user u on o.ouid=u.uid")
@@ -49,12 +59,27 @@ class IndexController extends BaseController {
                }
                $this->goodsinfo=$goodsinfo;
                $this->sid=$getsid;
+               //分享
+               $requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+               $jssdkArr['appId'] = $this->getWxConfig()['appid'];
+               $jssdkArr['timestamp'] = time();
+               $jssdkArr['nonceStr'] = md5(time());
+               $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
+               //分享数据
+               $fxArr['title'] = "兴盛优选(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
+               $fxArr['link'] = $requrl;
+               $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderurl.png';
+               $fxArr['desc'] = '亲，今天下单，明天下午16:00后来门店自提，在规定时间内，100%售后。';
+               $fxArr['type'] = 'link';
+               $this->jssdkArr=$jssdkArr;
+               $this->fxArr=$fxArr;
                $this->display('Index/index');
            }else{
                $this->wxLogin($getsid);
            }
 
        }
+
 
     }
     //微信登录入口
