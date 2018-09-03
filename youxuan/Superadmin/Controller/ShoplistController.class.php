@@ -40,7 +40,7 @@ class ShoplistController extends Controller{
         $object = new \QRcode();
         $object->png($url, false, $errorCorrectionLevel, $matrixPointSize, 2);
     }
-    //删除店铺
+    //删除店铺closeshop
     function deleteshop(){
         $upCtypeModel=M('shop');
         $arr=array();
@@ -55,6 +55,33 @@ class ShoplistController extends Controller{
             }else{
                 $arr['status']=0;
                 $arr['msg']='删除失败';
+                echo json_encode($arr);
+            }
+        }
+
+    }
+    //关闭店铺
+    function closeshop(){
+        $upCtypeModel=M('shop');
+        $arr=array();
+        if (!empty($_POST)){
+            $getid=$_POST['id'];
+            $colsestatus=$upCtypeModel->where('did='.$getid)->getField('discolse');
+
+            if ($colsestatus){
+                //如果是关闭的
+                $data['discolse']=0;
+            }else{
+                $data['discolse']=1;
+            }
+            $re=$upCtypeModel->where('did='.$getid)->save($data);
+            if ($re){
+                $arr['status']=1;
+                $arr['msg']='关闭成功';
+                echo json_encode($arr);
+            }else{
+                $arr['status']=0;
+                $arr['msg']='关闭失败';
                 echo json_encode($arr);
             }
         }

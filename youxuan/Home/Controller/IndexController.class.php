@@ -34,6 +34,11 @@ class IndexController extends BaseController {
            if($islogin){
                //店铺
                $shopinfo=$this->getshopinfo($getsid);
+               if (empty($shopinfo)){
+                   $imgpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan';
+                   echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/iscolse1.png" /></div>';
+                   exit();
+               }
                $this->shopinfo=$shopinfo;
                //购买指数
                $ordernummodel=M('order');
@@ -46,9 +51,16 @@ class IndexController extends BaseController {
                $this->usernum=$usernum;
                //商品
                $goodsmodel=M('goods');
-               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum')->where('gendnum>0')->select();
+               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum,gbuypretime,gbuyendtime,gstatus,guptime')->select();
+               $uptimearr=array();
                foreach ($goodsinfo as $k=>$v){
                    $goodsinfo[$k]['salenum']=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".$v['gid'])->sum('buynum');
+                   if(!empty($v['guptime'])){//手动下架的忽略
+                       if (strtotime($v['guptime'])-time()<=0){
+                           $uptimearr['gstatus']=1;
+                           $goodsmodel->where('gid='.$v['gid'])->save($uptimearr);
+                       }
+                   }
                    $goodsinfo[$k]['userinfo']=$ordernummodel
                        ->alias('o')
                        ->join("yx_user u on o.ouid=u.uid")
@@ -66,7 +78,7 @@ class IndexController extends BaseController {
                $jssdkArr['nonceStr'] = md5(time());
                $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
                //分享数据
-               $fxArr['title'] = "兴盛优选(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
+               $fxArr['title'] = "鼎飞李购(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
                $fxArr['link'] = $requrl;
                $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderurl.png';
                $fxArr['desc'] = '亲，今天下单，明天下午16:00后来门店自提，在规定时间内，100%售后。';

@@ -47,6 +47,36 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<div class="layui-upload">
+								<label class="col-sm-2 control-label">预售时间：</label>
+								<div class="layui-inline col-sm-10" >
+									<div class="layui-input-inline">
+										<input type="text" class="layui-input" name="gbuypretime" id="test11" placeholder="MM月dd日">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="layui-upload ">
+								<label class="col-sm-2 control-label">提货时间：</label>
+								<div class="layui-inline col-sm-10">
+									<div class="layui-input-inline">
+										<input type="text" class="layui-input" name="gbuyendtime" id="test12" placeholder="MM月dd日">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="layui-upload ">
+								<label class="col-sm-2 control-label">预设上架时间：</label>
+								<div class="layui-inline col-sm-10">
+									<div class="layui-input-inline">
+										<input type="text" class="layui-input" name="guptime" id="test13" placeholder="年-月-日 时:分:秒">(不选则立即上架)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
 							<label class="col-sm-2 control-label">封面图片：</label>
 							<div class="layui-upload col-sm-10">
 								<button type="button" class="layui-btn" id="test1">封面图片</button>
@@ -122,6 +152,18 @@
             //日期时间选择器
             laydate.render({
                 elem: '#test5'
+                ,type: 'datetime'
+            });
+            laydate.render({
+                elem: '#test11'
+                ,format: 'MM月dd日'
+            });
+            laydate.render({
+                elem: '#test12'
+                ,format: 'MM月dd日'
+            });
+            laydate.render({
+                elem: '#test13'
                 ,type: 'datetime'
             });
         });

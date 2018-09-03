@@ -28,6 +28,8 @@ class OrderlistController extends Controller
                 $allinfo[$k]['opaymoney']=$v['opaymoney'];
             }
             $this->info=$allinfo;
+            $this->allcount=$orderModel->where('ostatus<3')->count();
+            $this->allshop=M('shop')->field('did,discolse,dname')->select();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
@@ -52,6 +54,7 @@ class OrderlistController extends Controller
                 $allinfo[$k]['opaymoney']=$v['opaymoney'];
             }
             $this->info=$allinfo;
+            $this->nopaycount=$orderModel->count();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");

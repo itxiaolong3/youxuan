@@ -61,7 +61,7 @@ class OrderdetailController extends BaseController {
         $fxArr['title'] = "老板，我是“".$userinfo['nickname']."”,刚在店里买的商品请接单！";
         $fxArr['link'] = $requrl;
         $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
-        $fxArr['desc'] = '【兴盛优选】：小伙伴们都购买了，大家赶快来晒单吧！';
+        $fxArr['desc'] = '【鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';
         $fxArr['type'] = 'link';
         //$this->assign('jssdkArr',$jssdkArr);
         $this->jssdkArr=$jssdkArr;

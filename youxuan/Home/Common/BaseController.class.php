@@ -16,7 +16,7 @@ class BaseController extends Controller
     function getshopinfo($sid)
     {
         $shopmodel = M('shop');
-        $shopinfo = $shopmodel->field('did,dname,dheaderimg,dphone,dpretime,dendtime,dsign,daddress')->where("did=" . $sid)->find();
+        $shopinfo = $shopmodel->field('did,dname,dheaderimg,dphone,dpretime,dendtime,dsign,daddress')->where("discole=0 and did=" . $sid)->find();
         return $shopinfo;
     }
 

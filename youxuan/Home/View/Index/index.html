@@ -7,11 +7,11 @@
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/aui-pull-refresh.css" />
+      <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/aui-pull-refresh.css" />
         <title>首页</title>
     </head>
     <body>
-    <section class="aui-refresh-content">
+       <section class="aui-refresh-content">
         <img class="banner" src="__PUBLIC__/home/images/other/banner.jpg" />
         <div class="index-container">
             <div class="header-container">
@@ -56,10 +56,10 @@
                     </div>
                     <div class="container-2">
                         <div class="left">
-                            <p style="margin-bottom: 0.2rem;">预售时间：<span>{$shopinfo.dpretime}</span></p>
-                            <p>提货时间：<span>{$shopinfo.dendtime}</span></p>
+                            <p style="margin-bottom: 0.2rem;">预售时间：{$v.gbuypretime}</p>
+                            <p>提货时间：{$v.gbuyendtime} 16:00</p>
                         </div>
-                        <if condition="$v['gendnum'] eq 0">
+                         <if condition="$v['gendnum'] eq 0">
                             <div style="color: #999;padding:18px;font-size: 0.3333rem;border-radius: 5px;border: 1px solid #999;">已售罄</div>
                             <else/>
                             <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}')">加入购物车</div>
@@ -70,6 +70,7 @@
                             <!--头像到时需要去掉public-->
                             <img src="{$vv.headerimg}"/>{$vv.nickname}
                         </foreach>
+
                             <span>&nbsp;等刚购买此商品</span>
                     </div>
                 </div>
@@ -77,23 +78,26 @@
             </foreach>
             <!-- 新增底部开始 -->
             <div class="goods-container">
-                <div class="addhead">兴盛优选入驻指南</div>
+                <div class="addhead">鼎飞李购入驻指南</div>
                 <div class="addfoot">
                     <div class="addleft">
-                        <p class="addtxt">兴盛优选加盟店入驻</p>
-                        <p class="addtel">186<span>8478</span>5499</p>
+                        <p class="addtxt">团长招募:</p>
+                        <p class="addtel">199<span>0731</span>2125</p>
                     </div>
-                    <a class="addright" href="tel:18684785499"><img src="__PUBLIC__/home/images/icon/phone.png" alt=""></a>
+                    <a class="addright" href="tel:19907312125"><img src="__PUBLIC__/home/images/icon/phone.png" alt=""></a>
                     <div class="addleft">
-                        <p class="addtxt">兴盛优选优质供应商入驻</p>
-                        <p class="addtel">186<span>8478</span>5499<small>( 肖 )</small></p>
+                        <p class="addtxt">商品招商:</p>
+                        <p class="addtel">189<span>7492</span>2125</p>
                     </div>
-                    <a class="addright" href="tel:18684785499"><img src="__PUBLIC__/home/images/icon/phone.png" alt=""></a>
+                    <a class="addright" href="tel:18974922125"><img src="__PUBLIC__/home/images/icon/phone.png" alt=""></a>
                 </div>
             </div>
+            
             <!-- 新增底部结束 -->
         </div>
-        <div class="footer-container">
+       
+       </section>
+       <div class="footer-container">
             <a class="cart" onclick="postcartdata();">
                 <img src="__PUBLIC__/home/images/other/cart.png" />
                 <p class="count hid">0</p>
@@ -107,19 +111,18 @@
                 <p>我的</p>
             </a>
         </div>
-    </section>
-    <!-- 返回顶部 -->
-    <div class="totop hid"><span></span></div>
+      <!-- 返回顶部 -->
+            <div class="totop hid"><span></span></div>
     </body>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/aui-pull-refresh.js"></script>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+   <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/aui-pull-refresh.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
         var jsfori=0;
         var jsforsid="{$sid}";
     </script>
     <script>
-        //下拉刷新
+	//下拉刷新
         var pullRefresh = new auiPullToRefresh({
             container: document.querySelector('.aui-refresh-content'),
             triggerDistance: 500
@@ -222,7 +225,7 @@
     </script>
     <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
-    <!--微信分享-->
+<!--微信分享-->
     <script>
         wx.config({
             debug: false, // 开启调试模式
