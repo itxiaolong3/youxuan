@@ -14,6 +14,9 @@ class IndexController extends BaseController {
      
        $getsid=I('sid');
        $iske=I('ke');
+       if (empty($iske)){
+           session('iske',null);
+       }
        //删除一个小时后的未付款订单
        $allorder=M('order')->where('ostatus=0')->select();
        foreach ($allorder as $k=>$v){//1535515436-1535514637
@@ -26,6 +29,7 @@ class IndexController extends BaseController {
        }
        if (!empty($iske)){
            session('iske',$iske);
+           $this->iske=$iske;
        }
        if (empty($getsid)){
            $this->isurlempty($getsid);

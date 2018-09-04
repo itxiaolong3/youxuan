@@ -15,7 +15,6 @@ class IndexadminController extends Controller {
 
        $getphone=session('session_phone');
        $getpassword=session('session_password');
-
        if (!empty($getphone)&&!empty($getpassword)){
 
            $getsid=I('sid');

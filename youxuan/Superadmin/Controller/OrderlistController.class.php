@@ -17,17 +17,35 @@ class OrderlistController extends Controller
         $getsuperadminname=session('session_superadmin');
         if (!empty($getsuperadminname)){
             $orderModel=M('order');
-            $allinfo=$orderModel
-                ->alias('o')
-                ->join('left join yx_goods AS g ON o.ogid=g.gid')
-                ->join('left join yx_shop AS s ON o.osid=s.did')
-                ->field("o.*,g.gyhprice,g.gtopimg,g.gtitle,g.gid,s.dname")//需要显示的字段
-                ->select();//所有信息
+            $getsid=I('sid');
+            if (empty($getsid)){
+                $allinfo=$orderModel
+                    ->alias('o')
+                    ->join('left join yx_goods AS g ON o.ogid=g.gid')
+                    ->join('left join yx_shop AS s ON o.osid=s.did')
+                    ->field("o.*,g.gyhprice,g.gtopimg,g.gtitle,g.gid,s.dname")//需要显示的字段
+                    ->select();//所有信息
+            }else{
+                $allinfo=$orderModel
+                    ->alias('o')
+                    ->join('left join yx_goods AS g ON o.ogid=g.gid')
+                    ->join('left join yx_shop AS s ON o.osid=s.did')
+                    ->field("o.*,g.gyhprice,g.gtopimg,g.gtitle,g.gid,s.dname")
+                    ->where('did='.$getsid)
+                    ->select();
+            }
+
             foreach ($allinfo as $k=>$v){
                 $allinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
                 $allinfo[$k]['opaymoney']=$v['opaymoney'];
             }
             $this->info=$allinfo;
+            $this->sid=$getsid;
+            if(empty($getsid)){
+                $this->allcount=$orderModel->where('ostatus<3')->count();
+            }else{
+                $this->allcount=$orderModel->where('ostatus<3 and osid='.$getsid)->count();
+            }
             $this->allcount=$orderModel->where('ostatus<3')->count();
             $this->allshop=M('shop')->field('did,discolse,dname')->select();
             $this->display();

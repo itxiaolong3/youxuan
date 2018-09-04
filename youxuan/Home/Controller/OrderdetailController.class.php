@@ -13,6 +13,8 @@ class OrderdetailController extends BaseController {
        //店铺id
        $getsid=I('sid');
        $this->sid=$getsid;
+       $getke=session('iske');
+       $this->iske=$getke;
        //得到用户信息
        $getopenid=session('session_islogin'.$getsid);
        $usermodel=M('user');
@@ -57,12 +59,23 @@ class OrderdetailController extends BaseController {
         $jssdkArr['timestamp'] = time();
         $jssdkArr['nonceStr'] = md5(time());
         $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
-        //分享数据
-        $fxArr['title'] = "老板，我是“".$userinfo['nickname']."”,刚在店里买的商品请接单！";
-        $fxArr['link'] = $requrl;
-        $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
-        $fxArr['desc'] = '【鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';
-        $fxArr['type'] = 'link';
+        $getke=session('iske');
+        if (empty($getke)){
+            //分享数据
+            $fxArr['title'] = "老板，我是“".$userinfo['nickname']."”,刚在店里买的商品请接单！";
+            $fxArr['link'] = $requrl;
+            $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
+            $fxArr['desc'] = '【五鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';
+            $fxArr['type'] = 'link';
+        }else{
+            //代客分享数据
+            $fxArr['title'] = "亲爱的“".$userinfo['nickname']."”,刚才给你下单了，记得及时来提货哦！";
+            $fxArr['link'] = $requrl;
+            $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
+            $fxArr['desc'] = '【五鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';
+            $fxArr['type'] = 'link';
+        }
+
         //$this->assign('jssdkArr',$jssdkArr);
         $this->jssdkArr=$jssdkArr;
         $this->fxArr=$fxArr;
