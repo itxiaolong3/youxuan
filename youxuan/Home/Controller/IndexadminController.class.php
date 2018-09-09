@@ -6,10 +6,11 @@
  * Time: 22:51
  */
 namespace Home\Controller;
+use Home\Common\BaseController;
 use function PHPSTORM_META\elementType;
 use Think\Controller;
 use Think\Upload;
-class IndexadminController extends Controller {
+class IndexadminController extends BaseController {
     function index()
    {
 
@@ -54,6 +55,20 @@ class IndexadminController extends Controller {
                $alltotal=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=0")->sum('rmoney');
                $this->allnum=number_format($alltotal,2);
                $this->sid=$shopinfo['did'];
+               //分享
+               $requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+               $jssdkArr['appId'] = $this->getWxConfig()['appid'];
+               $jssdkArr['timestamp'] = time();
+               $jssdkArr['nonceStr'] = md5(time());
+               $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
+               //分享数据
+               $fxArr['title'] = $shopinfo['dname']." 门店管理系统";
+               $fxArr['link'] = $requrl;
+               $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/meng.png';
+               $fxArr['desc'] = '';
+               $fxArr['type'] = 'link';
+               $this->jssdkArr=$jssdkArr;
+               $this->fxArr=$fxArr;
                $this->display("Indexadmin/index");
            }
 

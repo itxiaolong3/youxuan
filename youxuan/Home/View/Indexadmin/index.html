@@ -96,6 +96,7 @@
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/aui-pull-refresh.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script>
         //修改头像
         $("#file").on("click",function(e){ //点击事件
@@ -123,6 +124,97 @@
 
             }
         })
+    </script>
+    <!--微信分享-->
+    <script>
+        wx.config({
+            debug: false, // 开启调试模式
+            appId: '{$jssdkArr["appId"]}', // 必填，公众号的唯一标识
+            timestamp: {$jssdkArr['timestamp']}, // 必填，生成签名的时间戳
+            nonceStr: '{$jssdkArr["nonceStr"]}', // 必填，生成签名的随机串
+            signature: '{$jssdkArr["signature"]}',// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表
+        });
+
+        wx.ready(function(){
+            var title = '{$fxArr.title}'
+                ,link = '{$fxArr.link}'
+                ,imgUrl = '{$fxArr.imgUrl}'
+                ,desc = '{$fxArr.desc}'
+                ,type = '{$fxArr.type}'
+                ,dataUrl = '';
+
+            //分享到朋友圈
+            wx.onMenuShareTimeline({
+                title: title, // 分享标题
+                link: link,
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                }
+            });
+
+            //分享给朋友
+            wx.onMenuShareAppMessage({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: imgUrl, // 分享图标
+                type: type, // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+
+                }
+            });
+
+            //分享到QQ
+            wx.onMenuShareQQ({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到腾讯微博
+            wx.onMenuShareWeibo({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到QQ空间
+            wx.onMenuShareQZone({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+        });
+
+        wx.error(function(res){
+            //alert(JSON.parse(res))
+            console.log(res);
+        });
+
     </script>
 
 </html>

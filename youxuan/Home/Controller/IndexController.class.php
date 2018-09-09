@@ -27,6 +27,13 @@ class IndexController extends BaseController {
                M('order')->where('oid='.$v['oid'])->delete();
            }
        }
+       //检查店铺状态
+       $isopen=M('configinfo')->where('id=1')->getField('isopen');
+       if (!$isopen){
+           $imgpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan';
+           echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/mengopen.png" /></div>';
+           exit();
+       }
        if (!empty($iske)){
            session('iske',$iske);
            $this->iske=$iske;
@@ -82,7 +89,7 @@ class IndexController extends BaseController {
                $jssdkArr['nonceStr'] = md5(time());
                $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
                //分享数据
-               $fxArr['title'] = "鼎飞李购(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
+               $fxArr['title'] = "五鼎飞李购(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
                $fxArr['link'] = $requrl;
                $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderurl.png';
                $fxArr['desc'] = '亲，今天下单，明天下午16:00后来门店自提，在规定时间内，100%售后。';
@@ -159,6 +166,15 @@ class IndexController extends BaseController {
         $getaccess = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $appid . "&secret=" . $secret . "&code=" . $code . '&grant_type=authorization_code');
         $getacctoken = json_decode($getaccess, true);
         return $getacctoken;
+    }
+    function  changestatus(){
+        $infoModel=D('configinfo');
+        $isopen=$infoModel->where('id=1')->getField('isopen');
+        if ($isopen){
+            $infoModel->where('id=1')->save(array('isopen'=>0));
+        }else{
+            $infoModel->where('id=1')->save(array('isopen'=>1));
+        }
     }
 
 }
