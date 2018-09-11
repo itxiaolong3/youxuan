@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="f102ab56-99c2-4d04-bc10-d89f4951fa41" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/youxuan/Home/Controller.tar.gz" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/youxuan/Home/Controller1.tar.gz" afterPath="" />
@@ -20,6 +21,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js" afterPath="$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/goodslist.html" afterPath="$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/goodslist.html" />
     </list>
+=======
+    <list default="true" id="f102ab56-99c2-4d04-bc10-d89f4951fa41" name="Default" comment="" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +32,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="63" />
+              <folding>
+                <marker date="1536488410640" expanded="true" signature="1053:1072" ph="..." />
+                <marker date="1536488410640" expanded="true" signature="1704:1723" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -78,11 +100,10 @@
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Orderlist/nopay.html" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Orderlist/orderlist.html" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/Controller/OrderlistController.class.php" />
-        <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexadminController.class.php" />
-        <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Home/View/Index/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Home/View/Orderdetail/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/OrderdetailController.class.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/youxuan/Public/home/js/xsyx.js" />
         <option value="$PROJECT_DIR$/youxuan/Home/View/Waredetail/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Public/home/css/ware-detail.css" />
@@ -90,6 +111,11 @@
         <option value="$PROJECT_DIR$/youxuan/Home/View/Payresult/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Common/Conf/config.php" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/goodslist.html" />
+=======
+        <option value="$PROJECT_DIR$/youxuan/Home/View/Indexadmin/index.html" />
+        <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexadminController.class.php" />
+        <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
       </list>
     </option>
   </component>
@@ -100,9 +126,14 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+<<<<<<< HEAD
   <component name="ProjectFrameBounds">
     <option name="x" value="39" />
     <option name="y" value="17" />
+=======
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="17" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
     <option name="width" value="1364" />
     <option name="height" value="729" />
   </component>
@@ -134,6 +165,35 @@
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
           </expand>
           <select />
         </subPane>
@@ -185,6 +245,7 @@
       <workItem from="1535709093038" duration="21000" />
       <workItem from="1535935927705" duration="29364000" />
       <workItem from="1535976142697" duration="3327000" />
+<<<<<<< HEAD
       <workItem from="1536022651063" duration="7321000" />
       <workItem from="1536130183543" duration="657000" />
       <workItem from="1536287199274" duration="1549000" />
@@ -192,25 +253,39 @@
       <workItem from="1536542469995" duration="3401000" />
       <workItem from="1536571352490" duration="1290000" />
       <workItem from="1536637372218" duration="613000" />
+=======
+      <workItem from="1536022651063" duration="6715000" />
+      <workItem from="1536482557725" duration="5356000" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="103078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="17" width="1364" height="729" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19401841" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="99484000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -233,6 +308,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Common/access_token.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/images/icon/gotopay.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
     <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/OrderController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
@@ -375,6 +479,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/PayresultController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/PayController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="102" column="95" lean-forward="false" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="95" />
+          <folding />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
         </state>
       </provider>
     </entry>
@@ -413,6 +536,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/IndexController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -420,10 +544,23 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
     <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Orderlist/nopay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="20" column="120" lean-forward="false" selection-start-line="20" selection-start-column="120" selection-end-line="20" selection-end-column="120" />
+<<<<<<< HEAD
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/GoodslistController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3358">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
+          <folding />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
         </state>
       </provider>
     </entry>
@@ -448,16 +585,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Indexadmin/index.html">
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Orderdetail/detail.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-851">
           <caret line="8" column="108" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="108" />
+=======
+        <state relative-caret-position="1587">
+          <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
+          <folding />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexadminController.class.php">
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/OrderdetailController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Orderdetail/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
+<<<<<<< HEAD
           <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
         </state>
       </provider>
@@ -578,15 +730,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="897">
           <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="32" />
+=======
+          <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2463">
+          <caret line="317" column="13" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="317" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Indexadmin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="98" column="73" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="73" />
+          <folding>
+            <element signature="n#script#5;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexadminController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="12" selection-end-column="51" />
+          <folding>
+            <element signature="e#121#152#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Admin/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-207">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/goodslist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="29" column="68" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="68" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Common/BaseController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <marker date="1536481940902" expanded="true" signature="214:233" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="63" />
+          <folding>
+            <marker date="1536488410640" expanded="true" signature="1053:1072" ph="..." />
+            <marker date="1536488410640" expanded="true" signature="1704:1723" ph="..." />
+          </folding>
+>>>>>>> a2c3a507fe22cbb70824a587eb05dbb2c09eee90
         </state>
       </provider>
     </entry>
