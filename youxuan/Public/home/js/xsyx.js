@@ -220,7 +220,7 @@ $(function(){
     // console.log(geti+'--');
 
     // var i = get_param('i');
-
+/*
     //商品详情轮播图
     var ul = $("#banner-ul");
     var li = $("#banner-ul li");
@@ -271,7 +271,7 @@ $(function(){
     if($("#dot li").length <= 1){
         $("#dot").hide();
     }
-
+*/
     //验证码倒计时
     var time = 60;
     var times;

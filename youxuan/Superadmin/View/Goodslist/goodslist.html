@@ -27,7 +27,7 @@
 												<table class="table table-striped  dataTables-example">
 													<thead>
 													<tr>
-														<th>id</th>
+														<th>排序号</th>
 														<th>封面图</th>
 														<th>商品名称</th>
 														<th>状态</th>
@@ -44,7 +44,7 @@
 													<tbody>
 													<foreach name="info" item="v">
 													<tr class="gradeX">
-														<td class="center">{$v.gid}</td>
+														<td class="center">{$v.gorder}</td>
 														<td><img src="__PUBLIC__/{$v.gtopimg}" width="60" height="60" /></td>
 														<td>{$v.gtitle}</td>
 														<td width="70"><if condition="$v.gstatus eq 1"><span style="background-color: #0d8ddb;color:white;padding: 5px;">已上架</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">待上架</span></if></td>
