@@ -18,7 +18,8 @@ class PayresultController extends BaseController {
            $goodid.=$v['oid'].'-';
        }
        $goodid = substr($goodid,0,strlen($goodid)-1);
-        $getsid=$goods[0]['osid'];
+      /// var_dump($goodid);
+      $getsid=$goods[0]['osid'];
        $this->goods=$goods;
        $this->goodid=$goodid;
        $this->ordernum=$getordernum;

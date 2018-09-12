@@ -75,7 +75,6 @@ class OrderdetailController extends BaseController {
             $fxArr['desc'] = '【五鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';
             $fxArr['type'] = 'link';
         }
-
         //$this->assign('jssdkArr',$jssdkArr);
         $this->jssdkArr=$jssdkArr;
         $this->fxArr=$fxArr;

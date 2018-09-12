@@ -1,1 +1,140 @@
-<!--引入头部文件，如css--><include file="Common:header" />	<body style="background: none;">		<div class="wrapper wrapper-content animated fadeInRight">			<div class="row wrapper border-bottom white-bg page-heading">				<div class="col-lg-10">					<div style="margin-top: 10px;"></div>					<ol class="breadcrumb">						<li class="active">							<label>全部订单:&nbsp;一共<span style="color: #0d8ddb;font-weight: bold;font-size: 50px;">{$allcount}</span>单</label>						</li>						<div class="col-sm-4">							<div class="form-group">								<select name="status" id="shop" class="form-control">									<option value="0" selected>全部门店</option>									<foreach name="allshop" item="v">										<if condition="$v.did eq $sid"><option value="{$v.did}" selected>{$v.dname}</option>											<else/><option value="{$v.did}">{$v.dname}</option></if>									</foreach>								</select>							</div>						</div>					</ol>				</div>			</div>			<!--主体部分-->			<div class="row">				<div class="col-sm-12">					<div class="ibox">						<div class="ibox-content">							<div class="clients-list">								<div class="tab-content">									<div id="tab-2">										<div class="full-height-scroll">											<div class="table-responsive">												<table class="table table-striped table-bordered table-hover dataTables-example">													<thead>													<tr>														<th>提单号</th>														<th>商品图片</th>														<th>商品名称</th>														<th>订单来源</th>														<th>订单号</th>														<th>价格</th>														<th>数量</th>														<th>实付金额</th>														<th>手机号</th>														<th>用户名</th>														<th>添加时间</th>														<th>状态</th>													</tr>													</thead>													<tbody>													<foreach name="info" item="v">													<tr class="gradeX">														<td class="center">{$v.oid}</td>														<td><img src="__PUBLIC__/{$v.gtopimg}" width="45" height="45" /></td>														<td>{$v.gtitle}</td>														<td>{$v.dname}</td>														<td>{$v.onumber}</td>														<td>{$v.gyhprice}</td>														<td>{$v.onum}</td>														<td>{$v.opaymoney}</td>														<td>{$v.ouserphone}</td>														<td>{$v.ousername}</td>														<td>{$v.oaddtime}</td>														<td>															<if condition="$v.ostatus eq 0"><span style="color: white;background-color:#c7254e;padding:8px;width: 70px;height: 45px;border-radius: 3px;">待付款</span>																<elseif condition="$v.ostatus eq 1"/><span  style="color: white;background-color:#0d8ddb;padding:8px;width: 70px;height: 45px;border-radius: 3px;">待提货</span>																<elseif condition="$v.ostatus eq 2"/><span  style="color: white;background-color:#dadada;padding:8px;width: 70px;height: 45px;border-radius: 3px;">已提货</span>																<elseif condition="$v.ostatus eq 3"/><span  style="color: white;background-color:#d6e9c6;padding:8px;width: 70px;height: 45px;border-radius: 3px;">已退款</span>																<else/>															</if>														</td>													</tr>													</foreach>													</tbody>												</table>											</div>										</div>									</div>								</div>							</div>						</div>					</div>				</div>			</div>		</div>		<!--引入外部js文件-->		<include file="Common:footer" />		<script>			$(".loadimg").on("change", "input[type='file']", function() {				var filePath = $(this).val();				if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {					$(".fileerrorTip").html("").hide();					var arr = filePath.split('\\');					var fileName = arr[arr.length - 1];					$(".showFileName").html(fileName);				} else {					$(".showFileName").html("");					$(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();					return false				}			});		</script>		<script>            $(document).ready(function(){                $('.dataTables-example').DataTable({                    pageLength: 10,                    responsive: true,                    dom: '<"html5buttons"B>lTfgitp',                    buttons: [                        {                            extend: 'excel',                            title: 'ExampleFile'                        }                    ]                });            });		</script>	<script>		$('#shop').on('change',function () {			getval=$(this).val();			console.log('选择的商店id='+getval);			$.post("",{sid:getval},function (a) {				window.location.href="{:U('Orderlist/orderlist')}?sid="+getval;            })        });	</script>	</body></html>
+<!--引入头部文件，如css-->
+<include file="Common:header" />
+
+	<body style="background: none;">
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-10">
+					<div style="margin-top: 10px;"></div>
+					<ol class="breadcrumb">
+
+						<li class="active">
+							<label>全部订单:&nbsp;一共<span style="color: #0d8ddb;font-weight: bold;font-size: 25px;">{$allcount}</span>单</label>
+						</li>
+                      <div class="col-sm-4">
+								<div class="form-group">
+									<select name="status" id="shop" class="form-control">
+                                      <option value="0" selected>全部门店</option>
+									<foreach name="allshop" item="v">
+									<if condition="$v.did eq $sid"><option value="{$v.did}" selected>{$v.dname}</option>
+											<else/><option value="{$v.did}">{$v.dname}</option></if>
+									</foreach>
+									</select>
+								</div>
+					 </div>
+					</ol>
+				</div>
+			</div>
+			<!--主体部分-->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox">
+						<div class="ibox-content">
+							<div class="clients-list">
+								<div class="tab-content">
+									<div id="tab-2">
+										<div class="full-height-scroll">
+											<div class="table-responsive">
+												<table class="table table-striped  table-hover dataTables-example" style="margin-top:50px;">
+													<thead>
+													<tr>
+														<th>提单号</th>
+														<th>商品图片</th>
+														<th>商品名称</th>
+														<th>订单来源</th>
+														<th>订单号</th>
+														<th>价格</th>
+														<th>数量</th>
+														<th>实付金额</th>
+														<th>手机号</th>
+														<th>用户名</th>
+														<th>添加时间</th>
+														<th>状态</th>
+													</tr>
+													</thead>
+													<tbody>
+													<foreach name="info" item="v">
+													<tr class="gradeX">
+														<td class="center">{$v.oid}</td>
+														<td><img src="__PUBLIC__/{$v.gtopimg}" width="45" height="45" /></td>
+														<td>{$v.gtitle}</td>
+														<td>{$v.dname}</td>
+														<td>{$v.onumber}</td>
+														<td>{$v.gyhprice}</td>
+														<td style="width:85px;">{$v.onum}</td>
+														<td>{$v.opaymoney}</td>
+														<td>{$v.ouserphone}</td>
+														<td>{$v.ousername}</td>
+														<td>{$v.oaddtime}</td>
+														<td>
+															<if condition="$v.ostatus eq 0"><span style="color: white;background-color:#c7254e;padding:8px;width: 70px;height: 45px;border-radius: 3px;">待付款</span>
+																<elseif condition="$v.ostatus eq 1"/><span  style="color: white;background-color:#0d8ddb;padding:8px;width: 70px;height: 45px;border-radius: 3px;">待提货</span>
+																<elseif condition="$v.ostatus eq 2"/><span  style="color: white;background-color:#dadada;padding:8px;width: 70px;height: 45px;border-radius: 3px;">已提货</span>
+																<elseif condition="$v.ostatus eq 3"/><span  style="color: white;background-color:#d6e9c6;padding:8px;width: 70px;height: 45px;border-radius: 3px;">已退款</span>
+																<else/>
+															</if>
+														</td>
+													</tr>
+													</foreach>
+
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--引入外部js文件-->
+		<include file="Common:footer" />
+		<script>
+			$(".loadimg").on("change", "input[type='file']", function() {
+				var filePath = $(this).val();
+				if(filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+					$(".fileerrorTip").html("").hide();
+					var arr = filePath.split('\\');
+					var fileName = arr[arr.length - 1];
+					$(".showFileName").html(fileName);
+				} else {
+					$(".showFileName").html("");
+					$(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+					return false
+				}
+			});
+
+		</script>
+		<script>
+            $(document).ready(function(){
+           
+                $('.dataTables-example').DataTable({
+                    pageLength: 10,
+                    responsive: true,
+                    dom: '<"html5buttons"B>lTfgitp',
+                    buttons: [
+                        {
+                            extend: 'excel',
+                            title: 'ExampleFile'
+                        }
+                    ]
+
+                });
+
+            });
+		</script>
+      <script>
+      $('#shop').on('change',function () {
+			getval=$(this).val();
+			console.log('选择的商店id='+getval);
+			$.post("",{sid:getval},function (a) {
+				window.location.href="{:U('Orderlist/orderlist')}?sid="+getval;
+            })
+        });
+	</script>
+	</body>
+
+</html>

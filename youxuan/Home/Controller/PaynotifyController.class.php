@@ -48,7 +48,7 @@ class PaynotifyController extends Controller {
 			</xml>';
     }
     public function mymakesign($xml){
-        $key='184442ca548257bbee4e72e78ce251c6';
+        $key='wx07c7042328d04b81wx07c7042328d0';
         $arr=$this->FromXml($xml);
         $newarray=array();
         //对参数进行排序
@@ -64,7 +64,7 @@ class PaynotifyController extends Controller {
         foreach($newarray as $k=>$v){
             $s.=$v.'='.$arr[$v].'&';
         }
-        $mysign= strtoupper(md5($s.'key=184442ca548257bbee4e72e78ce251c6'));
+        $mysign= strtoupper(md5($s.'key=wx07c7042328d04b81wx07c7042328d0'));
         return $mysign;
     }
     function FromXml($xml)

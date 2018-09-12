@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css" />
       <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/aui-pull-refresh.css" />
-        <title>{$iske=='yes'?'代客下单-' :''}首页</title>
+       <title>{$iske=='yes'?'代客下单-' :''}首页</title>
     </head>
     <body>
        <section class="aui-refresh-content">
@@ -56,8 +56,8 @@
                     </div>
                     <div class="container-2">
                         <div class="left">
-                            <p style="margin-bottom: 0.2rem;">预售时间：{$v.gbuypretime}</p>
-                            <p>提货时间：{$v.gbuyendtime} 16:00</p>
+                            <p style="margin-bottom: 0.2rem;color:red;">预售时间：<span>{$v.gbuypretime}</span></p>
+                            <p style="color:red;">提货时间：<span>{$v.gbuyendtime} 18:00</span></p>
                         </div>
                          <if condition="$v['gendnum'] eq 0">
                             <div style="color: #999;padding:18px;font-size: 0.3333rem;border-radius: 5px;border: 1px solid #999;">已售罄</div>
@@ -78,7 +78,7 @@
             </foreach>
             <!-- 新增底部开始 -->
             <div class="goods-container">
-                <div class="addhead">鼎飞李购入驻指南</div>
+                <div class="addhead">五鼎飞李购入驻指南</div>
                 <div class="addfoot">
                     <div class="addleft">
                         <p class="addtxt">团长招募:</p>

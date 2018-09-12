@@ -17,26 +17,26 @@ class IndexController extends BaseController {
        if (empty($iske)){
            session('iske',null);
        }
-       //删除一个小时后的未付款订单
+      //删除一个小时后的未付款订单
        $allorder=M('order')->where('ostatus=0')->select();
-       foreach ($allorder as $k=>$v){//1535515436-1535514637
+       foreach ($allorder as $k=>$v){
            if(time()-$v['oaddtime']>3600){
                $goods=M('goods')->where('gid='.$v['ogid'])->find();
                $upbuynum['gendnum']=($goods['gendnum']+$v['buynum']);
                M('goods')->where('gid='.$v['ogid'])->save($upbuynum);
-               M('order')->where('oid='.$v['oid'])->delete();
+              M('order')->where('oid='.$v['oid'])->delete();
            }
        }
        //检查店铺状态
        $isopen=M('configinfo')->where('id=1')->getField('isopen');
        if (!$isopen){
            $imgpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan';
-           echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/mengopen.png" /></div>';
+           echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/mengopen.jpg" style="width:100%;height: 100%;" /></div>';
            exit();
        }
        if (!empty($iske)){
            session('iske',$iske);
-           $this->iske=$iske;
+         $this->iske=$iske;
        }
        if (empty($getsid)){
            $this->isurlempty($getsid);
@@ -45,9 +45,9 @@ class IndexController extends BaseController {
            if($islogin){
                //店铺
                $shopinfo=$this->getshopinfo($getsid);
-               if (empty($shopinfo)){
-                   $imgpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan';
-                   echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/iscolse1.png" /></div>';
+             if (empty($shopinfo)){
+                $imgpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan';
+                 echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="'.$imgpath.'/Public/home/images/other/iscolse1.png" /></div>';
                    exit();
                }
                $this->shopinfo=$shopinfo;
@@ -62,16 +62,21 @@ class IndexController extends BaseController {
                $this->usernum=$usernum;
                //商品
                $goodsmodel=M('goods');
-               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum,gbuypretime,gbuyendtime,gstatus,guptime')->select();
+               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum,gbuypretime,gbuyendtime,gstatus,guptime,gorder')->where('gstatus=1')->order('gorder asc')->select();
+              $noup=$goodsmodel->field('gid,guptime')->where('gstatus=0')->select();
                $uptimearr=array();
-               foreach ($goodsinfo as $k=>$v){
-                   $goodsinfo[$k]['salenum']=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".$v['gid'])->sum('buynum');
-                   if(!empty($v['guptime'])){//手动下架的忽略
-                       if (strtotime($v['guptime'])-time()<=0){
+              foreach ($noup as $kk=>$vv){
+                $ut=strtotime($vv['guptime'])-time();
+                  if(!empty($vv['guptime'])){//手动下架的忽略
+                       if ($ut<=0){
                            $uptimearr['gstatus']=1;
-                           $goodsmodel->where('gid='.$v['gid'])->save($uptimearr);
+                           $goodsmodel->where('gid='.$vv['gid'])->save($uptimearr);
                        }
                    }
+                  
+               }
+             foreach ($goodsinfo as $k=>$v){
+                   $goodsinfo[$k]['salenum']=$ordernummodel->where("ostatus=1 and ogid=".$v['gid'])->sum('buynum');
                    $goodsinfo[$k]['userinfo']=$ordernummodel
                        ->alias('o')
                        ->join("yx_user u on o.ouid=u.uid")
@@ -92,7 +97,7 @@ class IndexController extends BaseController {
                $fxArr['title'] = "五鼎飞李购(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
                $fxArr['link'] = $requrl;
                $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderurl.png';
-               $fxArr['desc'] = '亲，今天下单，明天下午16:00后来门店自提，在规定时间内，100%售后。';
+               $fxArr['desc'] = '亲，今天下单，明天下午18:00后来门店自提，在规定时间内，100%售后。';
                $fxArr['type'] = 'link';
                $this->jssdkArr=$jssdkArr;
                $this->fxArr=$fxArr;
@@ -102,7 +107,6 @@ class IndexController extends BaseController {
            }
 
        }
-
 
     }
     //微信登录入口
@@ -167,7 +171,7 @@ class IndexController extends BaseController {
         $getacctoken = json_decode($getaccess, true);
         return $getacctoken;
     }
-    function  changestatus(){
+  function  changestatus(){
         $infoModel=D('configinfo');
         $isopen=$infoModel->where('id=1')->getField('isopen');
         if ($isopen){

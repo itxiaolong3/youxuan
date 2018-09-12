@@ -66,10 +66,10 @@ class PayController extends Controller {
                    $num=explode('x', $goodcomment[$k]);
                     $preorder['buynum']=intval($num[1]);
                     $re=M('order')->add($preorder);
-                    //库存减少
+                  //库存减少
                     if ($re){
                         $upbuynum['gendnum']=$goods['gendnum']-intval($num[1]);
-                        M('goods')->where('gid='.$v)->save($upbuynum);
+                        M('goods')->where('gid='.$v)->save($upbuynum);  
                     }
                 }
             }else{
@@ -82,10 +82,10 @@ class PayController extends Controller {
                    $num=explode('x', $goodcomment[$k]);
                     $preorder['buynum']=intval($num[1]);
                     $re=M('order')->add($preorder);
-                    //库存减少
+                  //库存减少
                     if ($re){
                         $upbuynum['gendnum']=$goods['gendnum']-intval($num[1]);
-                        M('goods')->where('gid='.$v)->save($upbuynum);
+                        M('goods')->where('gid='.$v)->save($upbuynum);  
                     }
                 }
             }
@@ -120,7 +120,7 @@ class PayController extends Controller {
         $res['msg'] = 'ok';
         echo json_encode($res);
     }
-    //提交订单时检查库存
+  //提交订单时检查库存
     public function checkkucun(){
         $getgoods=I('goodids');
         $goodcomment=I('goodcomment');

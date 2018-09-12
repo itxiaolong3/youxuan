@@ -98,16 +98,21 @@ $(function(){
         //获取购物车中的所有商品
         getproductlist: function (sid) {
             var ShoppingCart = utils.getParam("ShoppingCart",sid);
-            //console.log(ShoppingCart);
-            if(ShoppingCart){
-                var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));//如果购物车没有商品会报错;??????但照样可以用;
-                var productlist = jsonstr.productlist;
-                orderdetail.totalNumber = jsonstr.totalNumber;
-                orderdetail.totalAmount = jsonstr.totalAmount;
-                return productlist;
+            if(ShoppingCart==null||ShoppingCart==''){
+                console.log('购物车的数据为'+ShoppingCart);
             }else{
-                return;
+                if(ShoppingCart){
+                    var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));//如果购物车没有商品会报错;??????但照样可以用;
+                    var productlist = jsonstr.productlist;
+                    orderdetail.totalNumber = jsonstr.totalNumber;
+                    orderdetail.totalAmount = jsonstr.totalAmount;
+                    return productlist;
+                }else{
+                    return;
+                }
             }
+            //console.log(ShoppingCart);
+
         },
         //获取某商品
         getoneproduct: function (id,sid) {
@@ -119,6 +124,21 @@ $(function(){
                 for (var i in productlist) {
                     if (productlist[i].id == id) {
                         result = productlist[i];
+                    }
+                }
+            }
+            return result;
+        },
+        //获取某商品数量
+        getoneproductnum: function (id,sid) {
+            var result = false;
+            var ShoppingCart = utils.getParam("ShoppingCart",sid);
+            if (ShoppingCart != null) {
+                var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
+                var productlist = jsonstr.productlist;
+                for (var i in productlist) {
+                    if (productlist[i].id == id) {
+                        result = productlist[i]['num'];
                     }
                 }
             }
@@ -143,47 +163,62 @@ $(function(){
         //删除购物车中商品
         deleteproduct: function (id,sid) {
             var ShoppingCart = utils.getParam("ShoppingCart",sid);
-            var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
-            var productlist = jsonstr.productlist;
-            var list = [];
-            for (var i in productlist) {
-                if (productlist[i]){
-                    if (productlist[i].id == id) {
-                        jsonstr.totalNumber = parseInt(jsonstr.totalNumber) - parseInt(productlist[i].num);
-                        jsonstr.totalAmount = parseFloat(jsonstr.totalAmount) - parseInt(productlist[i].num) * parseFloat(productlist[i].saleprice);
-                    } else {
-                        if(productlist[i].id){
-                            list.push(productlist[i]);
-                        }
-                    }
-                }
-            }
-            jsonstr.productlist = list;
-            orderdetail.totalNumber = jsonstr.totalNumber;
-            orderdetail.totalAmount = jsonstr.totalAmount;
-            utils.setParam("ShoppingCart", "'" + JSON.stringify(jsonstr),sid);
+           if(ShoppingCart==null||ShoppingCart==''){
+               console.log('删除购物车的'+ShoppingCart);
+           }else{
+               console.log('删除购物车中的数量不为空');
+               var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
+               var productlist = jsonstr.productlist;
+               var list = [];
+               for (var i in productlist) {
+                   if (productlist[i]){
+                       if (productlist[i].id == id) {
+                           jsonstr.totalNumber = parseInt(jsonstr.totalNumber) - parseInt(productlist[i].num);
+                           jsonstr.totalAmount = parseFloat(jsonstr.totalAmount) - parseInt(productlist[i].num) * parseFloat(productlist[i].saleprice);
+                       } else {
+                           if(productlist[i].id){
+                               list.push(productlist[i]);
+                           }
+                       }
+                   }
+               }
+               jsonstr.productlist = list;
+               orderdetail.totalNumber = jsonstr.totalNumber;
+               orderdetail.totalAmount = jsonstr.totalAmount;
+               utils.setParam("ShoppingCart", "'" + JSON.stringify(jsonstr),sid);
+           }
+
         },
         //获取购物车中商品数量
         getproducttotalnum: function (sid) {
             var ShoppingCart = utils.getParam("ShoppingCart",sid);
-            if (ShoppingCart){
-                var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
-                var productlist = jsonstr.productlist;
-                return jsonstr.totalNumber;
+            if(ShoppingCart==null||ShoppingCart==''){
+                console.log('购物车的数据为'+ShoppingCart);
             }else{
-                return 0;
+                if (ShoppingCart){
+                    var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
+                    var productlist = jsonstr.productlist;
+                    return jsonstr.totalNumber;
+                }else{
+                    return 0;
+                }
             }
         },
         //获取购物车中商品总价
-        getproducttotalAmount: function () {
-            var ShoppingCart = utils.getParam("ShoppingCart");
-            if (ShoppingCart){
-                var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
-                // var productlist = jsonstr.productlist;
-                return jsonstr.totalAmount;
+        getproducttotalAmount: function (sid) {
+            var ShoppingCart = utils.getParam("ShoppingCart",sid);
+            if(ShoppingCart==null||ShoppingCart==''){
+                console.log('购物车的数据为'+ShoppingCart);
             }else{
-                return 0;
+                if (ShoppingCart){
+                    var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
+                    // var productlist = jsonstr.productlist;
+                    return jsonstr.totalAmount;
+                }else{
+                    return 0;
+                }
             }
+
         },
 
         //清除购物车某商品

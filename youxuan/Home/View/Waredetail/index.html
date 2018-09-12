@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no" />
@@ -90,7 +89,7 @@
                 <div class="container-2">
                     <div class="left">
                         <p style="margin-bottom: 0.2rem;">预售时间：{$goodsinfo.gbuypretime}</p>
-                        <p>提货时间：{$goodsinfo.gbuyendtime} 16:00</p>
+                        <p>提货时间：{$goodsinfo.gbuyendtime} 18:00</p>
                     </div>
                     <div class="right">
                         已售<span style="color: #e70012;"> {$salenum} </span>份
@@ -104,26 +103,7 @@
                         <div class="plus">+</div>
                     </div>
                 </div>
-               <div class="container-3">
-                   <div class="container-title">颜色：</div>
-                   <div class="right-2">
-                       <label><input class="aui-radio" type="radio" name="radio" checked> 黄色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                       <label><input class="aui-radio" type="radio" name="radio"> 绿色</label>
-                   </div>
-               </div>
-               <div class="container-3">
-                   <div class="container-title">规格：</div>
-                   <div class="right-2">
-                       <label><input class="aui-radio" type="radio" name="radio2" checked> 选项一</label>
-                       <label><input class="aui-radio" type="radio" name="radio2"> 选项二</label>
-                   </div>
-               </div>
-               <div class="container-4">
+                <div class="container-4">
                     <p class="container-title">商品详情</p>
                     <p class="content"><span>供应商：</span>{$goodsinfo.gboss}</p>
                     <p class="content"><span>品牌：</span>{$goodsinfo.gpingpai|default="暂无"}</p>
@@ -195,7 +175,7 @@
                 el: '.swiper-pagination'
             },
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 stopOnLastSlide: false,
                 disableOnInteraction: false
             },
@@ -253,7 +233,7 @@
             sid:sid
         };
         cart.addproduct(product);
-
+       
     }
     /*立即购买*/
     function topay(gid,gtopimg,gtitle,gdes,gyhprice,gprice) {

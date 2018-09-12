@@ -34,20 +34,18 @@ class OrderlistController extends Controller
                     ->where('did='.$getsid)
                     ->select();
             }
-
             foreach ($allinfo as $k=>$v){
                 $allinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
                 $allinfo[$k]['opaymoney']=$v['opaymoney'];
             }
             $this->info=$allinfo;
-            $this->sid=$getsid;
-            if(empty($getsid)){
+          $this->sid=$getsid;
+           if(empty($getsid)){
                 $this->allcount=$orderModel->where('ostatus<3')->count();
             }else{
                 $this->allcount=$orderModel->where('ostatus<3 and osid='.$getsid)->count();
             }
-            $this->allcount=$orderModel->where('ostatus<3')->count();
-            $this->allshop=M('shop')->field('did,discolse,dname')->select();
+           $this->allshop=M('shop')->field('did,discolse,dname')->select();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
@@ -72,7 +70,7 @@ class OrderlistController extends Controller
                 $allinfo[$k]['opaymoney']=$v['opaymoney'];
             }
             $this->info=$allinfo;
-            $this->nopaycount=$orderModel->count();
+           $this->nopaycount=$orderModel->where('ostatus=0')->count();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
@@ -96,6 +94,7 @@ class OrderlistController extends Controller
                 $allinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
             }
             $this->info=$allinfo;
+           $this->paycount=$orderModel->where('ostatus=1')->count();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
@@ -118,6 +117,7 @@ class OrderlistController extends Controller
                 $allinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
             }
             $this->info=$allinfo;
+           $this->finishedcount=$orderModel->where('ostatus=2')->count();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
