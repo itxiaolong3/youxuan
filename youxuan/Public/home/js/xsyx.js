@@ -145,9 +145,9 @@ $(function(){
             return result;
         },
         //判断购物车中是否存在商品
-        existproduct: function (id) {
+        existproduct: function (id,sid) {
             var result = false;
-            var ShoppingCart = utils.getParam("ShoppingCart");
+            var ShoppingCart = utils.getParam("ShoppingCart",sid);
             if (ShoppingCart != null) {
                 var jsonstr = JSON.parse(ShoppingCart.substr(1, ShoppingCart.length));
                 var productlist = jsonstr.productlist;
