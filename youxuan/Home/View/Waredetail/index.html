@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/ware-detail.css" />
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/swiper.css" />
         <title>商品详情</title>
+        <style>
+            .swiper-container {
+                width: 100%;
+                height: 9.2rem;
+            }
+
+            .cover img {
+                width: 100%;
+                height: 9.2rem;
+            }
+
+            .swiper-pagination-bullet {
+                width: 0.2rem;
+                height: 0.2rem;
+                margin: 0 0.1rem !important;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: #e70012;
+            }
+        </style>
+
     </head>
     <body>
         <main id="app">
@@ -25,11 +47,20 @@
             </div>
            <div class="detail-container">
                 <div class="cover">
-                    <ul id="banner-ul">
+                    <ul class="swiper-container banner-ul">
+                        <div class="swiper-wrapper">
+                            <foreach name="goodsinfo['thums']" item="v">
+                            <li class="swiper-slide"><img src="{$v}" /></li>
+                            </foreach>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </ul>
+
+                    <!--<ul id="banner-ul">
                         <foreach name="goodsinfo['thums']" item="v">
                         <li><img src="{$v}" /></li>
-                        <!--<li><img src="__PUBLIC__/home/images/other/goods_2.jpg" /></li>-->
-                        <!--<li><img src="__PUBLIC__/home/images/other/ware_cover.jpg" /></li>-->
+                        <li><img src="__PUBLIC__/home/images/other/goods_2.jpg" /></li>
+                        <li><img src="__PUBLIC__/home/images/other/ware_cover.jpg" /></li>
                         </foreach>
                     </ul>
                     <div id="dot">
@@ -38,7 +69,7 @@
                             <li></li>
                             </foreach>
                         </ul>
-                    </div>
+                    </div>-->
 
                 </div>
                 <div class="cover-footer">
@@ -58,7 +89,7 @@
                 <div class="container-2">
                     <div class="left">
                         <p style="margin-bottom: 0.2rem;">预售时间：{$goodsinfo.gbuypretime}</p>
-                        <p>提货时间：{$goodsinfo.gbuyendtime} 16:00</p>
+                        <p>提货时间：{$goodsinfo.gbuyendtime} 18:00</p>
                     </div>
                     <div class="right">
                         已售<span style="color: #e70012;"> {$salenum} </span>份
@@ -136,8 +167,23 @@
     </script>
     <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/swiper.js"></script>
     <script>
-        //倒计时
+        /*轮播图*/
+        var mySwiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination'
+            },
+            autoplay: {
+                delay: 2000,
+                stopOnLastSlide: false,
+                disableOnInteraction: false
+            },
+            loop: true
+        })
+    </script>
+    <script>
+        /*倒计时*/
         var currentTime = Date.parse(new Date())/1000;//获取当前时间戳
         var endTime = Date.parse('{$goodsinfo.gendtime}')/1000;//结束时间戳
         var downTime = parseInt(endTime - currentTime);//要结束的时间减去当前时间得出的时间戳放在这
@@ -175,7 +221,7 @@
 <script>
     function addcart(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid) {
         var getnum=$(".right .count").html();
-        //保存的数据
+        /*保存的数据*/
         product={
             id:gid,
             name:gtitle,
@@ -187,9 +233,9 @@
             sid:sid
         };
         cart.addproduct(product);
-        //console.log("详情页中得到的数目"+getnum);
+       
     }
-    //立即购买
+    /*立即购买*/
     function topay(gid,gtopimg,gtitle,gdes,gyhprice,gprice) {
         var getnum=$(".right .count").html();
         goodsinfo={

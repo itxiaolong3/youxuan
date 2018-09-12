@@ -52,7 +52,7 @@
 														<td><img src="__PUBLIC__/{$v.dheaderimg}" width="60" height="60" /></td>
 														<td>{$v.dname}</td>
 														<td>{$v.dphone}</td>
-														<td width="70"><if condition="$v.discolse eq 0"><span style="background-color: #0d8ddb;color:white;padding: 5px;">正在营业</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">已停营</span></if></td>
+														<td width="90"><if condition="$v.discolse eq 0"><span style="background-color: #0d8ddb;padding: 5px;color:white;">正在营业</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">已停营</span></if></td>
 														<td>{$v.daddress}</td>
 														<!--<td>{$v.dpretime}</td>-->
 														<!--<td>{$v.dendtime}</td>-->
@@ -65,7 +65,7 @@
 															<input type="button" onClick="copyUrl('{$v.did}')" class="btn btn-info btn-xs"  href="javascript:;" style="margin-top: 10px;" value="复制链接"/>
 															<a class="btn btn-primary btn-xs"  href="__MODULE__/Shoplist/editshop?did={$v.did}" target="main" style="margin-top: 10px;">修改</a>
 															<a type="button" class="btn btn-danger btn-xs" data-toggle="modal" href="javascript:deletes('{$v.did}');" style="margin-top: 10px;">删除</a>
-															<a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:colses('{$v.did}','{$v.discolse}');" style="margin-top: 10px;"><if condition="$v.discolse eq 0">关闭店铺<else/>开启店铺</if></a>
+                                                          <a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:colses('{$v.did}','{$v.discolse}');" style="margin-top: 10px;"><if condition="$v.discolse eq 0">关闭店铺<else/>开启店铺</if></a>
 														</td>
 													</tr>
 													</foreach>
@@ -151,7 +151,7 @@
             function deletes(id) {
                 getid=id;
                 swal({
-                    title: "确定要删除该商店？"+getid,
+                    title: "确定要删除该店铺吗？",
                     text: "删除之后无法恢复",
                     type: "warning",
                     showCancelButton: true,
@@ -179,7 +179,7 @@
                 })
 
             }
-            function colses(id,iscolse) {
+           function colses(id,iscolse) {
                 isc='';
                if(iscolse==1){
                 isc='开启';
@@ -188,7 +188,7 @@
 			   }
                 getid=id;
                 swal({
-                    title: "确定要"+isc+"该店铺吗？"+getid,
+                    title: "确定要"+isc+"该店铺吗？",
                     text: "温馨提示",
                     type: "warning",
                     showCancelButton: true,

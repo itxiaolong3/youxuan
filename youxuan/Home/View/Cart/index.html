@@ -39,6 +39,7 @@
                         </div>
                     </div>
                     </div>
+                    
                 </foreach>
             <div class="no-container hid">
                 <img class="no-order" src="__PUBLIC__/home/images/other/no_ware.png">
@@ -53,7 +54,7 @@
                 <div class="price">
                     <span class="text-1">合计：</span>
                     <span class="text-2">￥</span>
-                    <span class="text-3">29.9</span>
+                    <span class="text-3">0.00</span>
                 </div>
                 <a class="btn" onclick="gopay();">立即购买(1)</a>
                 <div class="btns hid" onclick="delcat();">删除</div>
@@ -69,6 +70,47 @@
 <script>
     var getgoodid= [];
     var paygoods= [];
+  //var onegoodnum=[];
+    $(function () {
+        var getgoodnum=cart.getproducttotalnum("{$sid}");
+        var getalltotal=cart.getproducttotalAmount("{$sid}");
+        var geteverycount=0;
+      var count=0;
+      var isexit=false;
+      var getnum=0;
+        getnum=cart.getproducttotalnum("{$sid}");
+        if (getnum<=0){
+            //alert('没数据了');
+           $('.btn').html('立即购买');
+            chooseshop.num=0;
+          var deleid= [];
+            delcat();
+        }
+        console.log('总价格'+getalltotal);
+      $(".text-3").html(getalltotal.toFixed(2));
+       $('.btn').html('立即购买('+getnum+')');
+        console.log('数量'+getgoodnum);
+        for(var i = 0; i < $(".list-container .item").length; i++){
+            if($(".item").eq(i).find('.checkbox').is('.uncheckbox')){
+               var iteminput = $(".item").eq(i).find(".info .top input");
+                count= iteminput.val();
+              isexit=cart.existproduct(count,"{$sid}");
+                if (!isexit){
+                   $(".item").eq(i).find(".info .top input").val(0);
+                    iteminput.parent().parent().parent().hide();
+                   cart.deleteproduct(count,"{$sid}");
+                    //alert('不存在'+isexit);
+               
+                }
+              
+                var goodid = $(".item").eq(i).find(".info .top input").val();
+                //onegoodnum.push(cart.getoneproductnum(goodid,"{$sid}"));
+                geteverycount=cart.getoneproductnum(goodid,"{$sid}");
+                $(".list-container .item").eq(i).find(".info .bottom .right .count").html(geteverycount);
+            }
+        }
+       // console.log(onegoodnum);
+    });
     function gopay() {
         if(chooseshop.num==0){
             alert('请选择购买商品');
@@ -77,11 +119,16 @@
             for(var i = 0; i < $(".list-container .item").length; i++){
                 if($(".item").eq(i).find('.checkbox').is('.uncheckbox')){
                     var goodid = $(".item").eq(i).find(".info .top input").val();
+                  //alert(goodid);
+                  if(goodid!=0){
                     getgoodid.push(goodid);
                     paygoods.push(cart.getoneproduct(goodid,"{$sid}"))
+                     }
+                    
 
                 }
             }
+          
             var totalprice=$(".text-3").html();
             console.log(paygoods);
             console.log(getgoodid)
@@ -109,7 +156,7 @@
             }
         }
         if(deleid.length==0){
-            alert('请选择删除的商品');
+           // alert('请选择删除的商品');
             return false;
         }
         console.log(deleid);

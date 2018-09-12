@@ -1,197 +1,197 @@
-<!--引入头部文件，如css-->
-<include file="Common:header" />
-
-	<body style="background: none;">
-
-		<div class="wrapper wrapper-content animated fadeInRight">
-			<!--主体部分-->
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="clients-list">
-						<div class="table-responsive">
-							<div id="tab-2" class="tab-pane">
-								<div class="panel-body">
-									<form method="post" class="form-horizontal"  enctype="multipart/form-data">
-									<fieldset class="form-horizontal">
-										<input type="hidden" name="did" value="{$shopconfig.did}">
-										<div class="form-group">
-											<label class="col-sm-2 control-label">店铺头像：</label>
-											<div class="layui-upload col-sm-10">
-												<button type="button" class="layui-btn" id="test1">头像图片</button>
-												<div class="layui-upload-list">
-													<if condition="$shopconfig.dheaderimg eq '' ">
-														<input type="hidden" id="file_upload_image" required="required" name="dheaderimg" multiple="true" value=""/>
-														<div id="showimg">
-
-														</div>
-														<p id="demoText"></p>
-														<else />
-														<input type="hidden" id="file_upload_image" required="required" name="dheaderimg" multiple="true" value="{$shopconfig.dheaderimg}"/>
-														<div id="showimg">
-															<li>
-																<img class='layui-upload-img' id='showone' src="__PUBLIC__/{$shopconfig.dheaderimg}" style='width:100px;height:100px;'>
-																<img class='button' onclick="deletefimg('__PUBLIC__/{$shopconfig.dheaderimg}');" id='oneimgclose' src="__PUBLIC__/images/fancy_close.png">
-															</li>
-														</div>
-														<p id="demoText"></p>
-													</if>
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="layui-upload">
-												<label class="col-sm-2 control-label">预售时间：</label>
-												<div class="layui-inline col-sm-10" >
-													<div class="layui-input-inline">
-														<input type="text" class="layui-input" name="dpretime" id="test11" value="{$shopconfig.dpretime}" placeholder="选填">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="layui-upload">
-												<label class="col-sm-2 control-label">提货时间：</label>
-												<div class="layui-inline col-sm-10" >
-													<div class="layui-input-inline">
-														<input type="text" class="layui-input" name="dendtime" id="test12" value="{$shopconfig.dendtime}" placeholder="选填">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group"><label class="col-sm-2 control-label">手机:</label>
-											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dphone}" name="dphone" required="required" placeholder="手机号"/></div>
-										</div>
-
-										<div class="form-group"><label class="col-sm-2 control-label">昵称:</label>
-											<div class="col-sm-10"><input type="text" class="form-control" name="dnickname" value="{$shopconfig.dnickname}" required="required" placeholder="昵称"/></div>
-										</div>
-										<div class="form-group"><label class="col-sm-2 control-label">个人签名:</label>
-											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dsign}" name="dsign" required="required" placeholder="个人签名"/></div>
-										</div>
-									</fieldset>
-										<div class="col-sm-10" style="width: 100%;text-align: center;">
-											<button class ="ladda-button ladda-button-demo btn btn-primary"data-style ="zoom-in" id="postdata">保存并提交</button>
-										</div>
-									</form>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<!--引入头部文件，如css-->
-		<include file="Common:footer" />
-		<script type="text/javascript">
-            var path='__PUBLIC__';
-            var url='__URL__';
-		</script>
-		<!--时间选择-->
-		<script>
-            layui.use('laydate', function(){
-                var laydate = layui.laydate;
-                laydate.render({
-                    elem: '#test11'
-                    ,format: 'MM月dd日'
-                });
-                laydate.render({
-                    elem: '#test12'
-                    ,format: 'MM月dd日'
-                });
-            });
-		</script>
-		<script>
-            $(document).ready(function(){
-
-                var l = $( '.ladda-button-demo' ).ladda();
-                $('#postdata').click(function () {
-                        l.ladda( 'start' );
-                        var data = $('form').serializeArray();
-                        //开始提交数据进行保存
-                        $.post("",data,function(e){
-                            e = JSON.parse(e);
-                            console.log(e);
-                            if(e.status==1){
-                                window.location.reload();
-                                l.ladda('stop');
-                            }else{
-                                swal({
-                                    title: "保存失败",
-                                    text: e.msg
-                                });
-                                l.ladda('stop');
-							}
-                        })
-
-                })
-
-            });
-		</script>
-		<script>
-            layui.use('upload', function(){
-                var $ = layui.jquery
-                    ,upload = layui.upload;
-                //封面图片上传
-                var uploadInst = upload.render({
-                    elem: '#test1'
-                    ,url: "{:U('image/uploadfortp')}"
-                    ,before: function(obj){
-                        //预读本地文件示例，不支持ie8
-                    }
-                    ,done: function(res){
-                        //如果上传失败
-                        if(res.code > 0){
-                            return layer.msg('上传失败');
-                        }
-                        console.log(res);
-                        //var obj=JSON.parse(res);
-                        console.log(res.data);
-                        var newElement = "<li><img class='layui-upload-img' id='showone' src='" +"__PUBLIC__/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' id='oneimgclose' src="+window.path+"/images/fancy_close.png></li>";
-                        if ($("#file_upload_image").val()){
-                            $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
-                            $("#showone").attr('src',"__PUBLIC__/admin/uploads/"+res.data);
-                        }else{
-                            $("#showimg").append(newElement);//deleteqrcodeimg
-                            $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
-                        }
-                        $("#oneimgclose").bind("click", deletefimg);
-                        $('#demo1').show();
-                        //上传成功
-                    }
-                    ,error: function(){
-                        //演示失败状态，并实现重传
-                        var demoText = $('#demoText');
-                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                        demoText.find('.demo-reload').on('click', function(){
-                            uploadInst.upload();
-                        });
-                    }
-                });
-            });
-		</script>
-		<script>
-            function deletefimg(imgss) {
-                if(imgss=='[object Object]' || imgss=='' || imgss=='undefined'){
-                    //alert('进入无值');
-                    var src=$(this).siblings('img').attr('src');
-                }else{
-                    $('#showimg li').remove();
-                    var src=imgss;
-                }
-                $.ajax({
-                    type: "POST", //访问WebService使用Post方式请求
-                    url: "{:U('Addgoods/delone')}", //调用WebService的地址和方法名称组合---WsURL/方法名
-                    data: "src=" + src,
-                    success: function(data){
-                        console.log(data);
-                    }
-                });
-                $("#file_upload_image").attr('value','');
-                $(this).parent().remove();
-            }
-		</script>
-	</body>
-
+<!--引入头部文件，如css-->
+<include file="Common:header" />
+
+	<body style="background: none;">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<!--主体部分-->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="clients-list">
+						<div class="table-responsive">
+							<div id="tab-2" class="tab-pane">
+								<div class="panel-body">
+									<form method="post" class="form-horizontal"  enctype="multipart/form-data">
+									<fieldset class="form-horizontal">
+										<input type="hidden" name="did" value="{$shopconfig.did}">
+										<div class="form-group">
+											<label class="col-sm-2 control-label">店铺头像：</label>
+											<div class="layui-upload col-sm-10">
+												<button type="button" class="layui-btn" id="test1">头像图片</button>
+												<div class="layui-upload-list">
+													<if condition="$shopconfig.dheaderimg eq '' ">
+														<input type="hidden" id="file_upload_image" required="required" name="dheaderimg" multiple="true" value=""/>
+														<div id="showimg">
+
+														</div>
+														<p id="demoText"></p>
+														<else />
+														<input type="hidden" id="file_upload_image" required="required" name="dheaderimg" multiple="true" value="{$shopconfig.dheaderimg}"/>
+														<div id="showimg">
+															<li>
+																<img class='layui-upload-img' id='showone' src="__PUBLIC__/{$shopconfig.dheaderimg}" style='width:100px;height:100px;'>
+																<img class='button' onclick="deletefimg('__PUBLIC__/{$shopconfig.dheaderimg}');" id='oneimgclose' src="__PUBLIC__/images/fancy_close.png">
+															</li>
+														</div>
+														<p id="demoText"></p>
+													</if>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">预售时间：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" name="dpretime" id="test11" value="{$shopconfig.dpretime}" placeholder="选填">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="layui-upload">
+												<label class="col-sm-2 control-label">提货时间：</label>
+												<div class="layui-inline col-sm-10" >
+													<div class="layui-input-inline">
+														<input type="text" class="layui-input" name="dendtime" id="test12" value="{$shopconfig.dendtime}" placeholder="选填">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group"><label class="col-sm-2 control-label">手机:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dphone}" name="dphone" required="required" placeholder="手机号"/></div>
+										</div>
+
+										<div class="form-group"><label class="col-sm-2 control-label">昵称:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" name="dnickname" value="{$shopconfig.dnickname}" required="required" placeholder="昵称"/></div>
+										</div>
+										<div class="form-group"><label class="col-sm-2 control-label">个人签名:</label>
+											<div class="col-sm-10"><input type="text" class="form-control" value="{$shopconfig.dsign}" name="dsign" required="required" placeholder="个人签名"/></div>
+										</div>
+									</fieldset>
+										<div class="col-sm-10" style="width: 100%;text-align: center;">
+											<button class ="ladda-button ladda-button-demo btn btn-primary"data-style ="zoom-in" id="postdata">保存并提交</button>
+										</div>
+									</form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--引入头部文件，如css-->
+		<include file="Common:footer" />
+		<script type="text/javascript">
+            var path='__PUBLIC__';
+            var url='__URL__';
+		</script>
+		<!--时间选择-->
+		<script>
+            layui.use('laydate', function(){
+                var laydate = layui.laydate;
+                laydate.render({
+                    elem: '#test11'
+                    ,format: 'MM月dd日'
+                });
+                laydate.render({
+                    elem: '#test12'
+                    ,format: 'MM月dd日'
+                });
+            });
+		</script>
+		<script>
+            $(document).ready(function(){
+
+                var l = $( '.ladda-button-demo' ).ladda();
+                $('#postdata').click(function () {
+                        l.ladda( 'start' );
+                        var data = $('form').serializeArray();
+                        //开始提交数据进行保存
+                        $.post("",data,function(e){
+                            e = JSON.parse(e);
+                            console.log(e);
+                            if(e.status==1){
+                                window.location.reload();
+                                l.ladda('stop');
+                            }else{
+                                swal({
+                                    title: "保存失败",
+                                    text: e.msg
+                                });
+                                l.ladda('stop');
+							}
+                        })
+
+                })
+
+            });
+		</script>
+		<script>
+            layui.use('upload', function(){
+                var $ = layui.jquery
+                    ,upload = layui.upload;
+                //封面图片上传
+                var uploadInst = upload.render({
+                    elem: '#test1'
+                    ,url: "{:U('image/uploadfortp')}"
+                    ,before: function(obj){
+                        //预读本地文件示例，不支持ie8
+                    }
+                    ,done: function(res){
+                        //如果上传失败
+                        if(res.code > 0){
+                            return layer.msg('上传失败');
+                        }
+                        console.log(res);
+                        //var obj=JSON.parse(res);
+                        console.log(res.data);
+                        var newElement = "<li><img class='layui-upload-img' id='showone' src='" +"__PUBLIC__/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' id='oneimgclose' src="+window.path+"/images/fancy_close.png></li>";
+                        if ($("#file_upload_image").val()){
+                            $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
+                            $("#showone").attr('src',"__PUBLIC__/admin/uploads/"+res.data);
+                        }else{
+                            $("#showimg").append(newElement);//deleteqrcodeimg
+                            $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
+                        }
+                        $("#oneimgclose").bind("click", deletefimg);
+                        $('#demo1').show();
+                        //上传成功
+                    }
+                    ,error: function(){
+                        //演示失败状态，并实现重传
+                        var demoText = $('#demoText');
+                        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                        demoText.find('.demo-reload').on('click', function(){
+                            uploadInst.upload();
+                        });
+                    }
+                });
+            });
+		</script>
+		<script>
+            function deletefimg(imgss) {
+                if(imgss=='[object Object]' || imgss=='' || imgss=='undefined'){
+                    //alert('进入无值');
+                    var src=$(this).siblings('img').attr('src');
+                }else{
+                    $('#showimg li').remove();
+                    var src=imgss;
+                }
+                $.ajax({
+                    type: "POST", //访问WebService使用Post方式请求
+                    url: "{:U('Addgoods/delone')}", //调用WebService的地址和方法名称组合---WsURL/方法名
+                    data: "src=" + src,
+                    success: function(data){
+                        console.log(data);
+                    }
+                });
+                $("#file_upload_image").attr('value','');
+                $(this).parent().remove();
+            }
+		</script>
+	</body>
+
 </html>

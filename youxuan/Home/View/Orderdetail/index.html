@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/order-detail.css" />
     <title>{$iske=='yes'?'代客下单-' :''}订单确认</title>
+  <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
 </head>
 <body>
 <div class="header-container">
@@ -21,7 +22,7 @@
 <div class="detail-container">
     <div class="info-container">
         <div class="top">
-            <span>收货人：</span>
+            <span>{$iske=='yes'?'代客姓名' :'收货人'}：</span>
             <input placeholder="联系人" value="{$userinfo.nickname}" name="nickname" id="username" />
             <input placeholder="手机号码" value="{$userinfo.phone}"  name="phone" id="userphone"/>
         </div>
@@ -47,7 +48,7 @@
                     </div>
                     <div class="bottom">
                         <div class="left"><span>￥</span>{$onegood.saleprice}&nbsp;&nbsp;<s>￥{$onegood.gprice}</s></div>
-                        <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;16:00提货</div>
+                        <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;18:00提货</div>
                     </div>
                 </div>
             </div>
@@ -68,7 +69,7 @@
                         </div>
                         <div class="bottom">
                             <div class="left"><span>￥</span>{$v.saleprice}&nbsp;&nbsp;<s>￥{$v.gprice}</s></div>
-                            <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;16:00提货</div>
+                            <div class="right">{$shopinfo.dendtime}&nbsp;&nbsp;18:00提货</div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +120,7 @@
     <div class="flex-foot">
         <p>提货地址：<span>{$shopinfo.daddress|default="暂无地址"}</span></p>
         <p>（自提点：{$shopinfo.dname} {$shopinfo.dphone|default="暂无"}）</p>
-        <h4>{$shopinfo.dendtime} 16:00提货</h4>
+        <h4>{$shopinfo.dendtime} 18:00提货</h4>
         <div class="flex-btn">
             <div class="flex-btns">取消付款</div>
             <div class="flex-btns"><a onclick="pay();">确认订单</a></div>
@@ -149,54 +150,54 @@
         $.post(
             "{:U('Pay/checkkucun')}",
             {
-               'goodids':checkgoodid,
+               'goodids':checkgoodid, 
                 'goodcomment':mycomment
             },function (e) {
               e=JSON.parse(e);
               if (e.status==1){
-
                   console.log('可以');
-                  for(var i = 0; i < $(".list-container .item").length; i++){
-                      var goodid = $(".item").eq(i).find(".info .top input").val();
-                      var comment = $(".item").eq(i).find(".info .top .comment input").val();
-                      getgoodid.push(goodid);
-                      goodcomment.push(comment);
-                  }
-                  if("{$onegoodsize}"==1){
-                      totalprice="{$onegood.totalprice}";
-                  }else{
-                      totalprice="{$totalprice}";
-                  }
-                  username=$("#username").val();
-                  userphone=$("#userphone").val();
-                  //提交数据到确认支付页面并保存订单
-                  var sid="{$sid}";
-                  var parames = new Array();
-                  parames.push({ name: "sid", value: sid});
-                  parames.push({ name: "username", value: username});
-                  parames.push({ name: "userphone", value: userphone});
-                  parames.push({ name: "totalprice", value: totalprice});
-                  parames.push({ name: "goodid", value: JSON.stringify(getgoodid)});
-                  parames.push({ name: "goodcomment", value: JSON.stringify(goodcomment)});
-                  //删除购物车的数据
-                  for(var i=0;i<getgoodid.length;i++){
-                      cart.deleteproduct(getgoodid[i],sid)
-                  }
+                 username=$("#username").val();
+                 userphone=$("#userphone").val();
                   if (username==''||userphone==''){
                       alert('手机或者收货人不可为空');
                       return false;
                   }else{
+                      for(var i = 0; i < $(".list-container .item").length; i++){
+                          var goodid = $(".item").eq(i).find(".info .top input").val();
+                          var comment = $(".item").eq(i).find(".info .top .comment input").val();
+                          getgoodid.push(goodid);
+                          goodcomment.push(comment);
+                      }
+                      if("{$onegoodsize}"==1){
+                          totalprice="{$onegood.totalprice}";
+                      }else{
+                          totalprice="{$totalprice}";
+                      }
+                  
+                    console.log('用户名'+userphone);
+                    console.log('手机号'+userphone);
+                      //提交数据到确认支付页面并保存订单
+                      var sid="{$sid}";
+                      var parames = new Array();
+                      parames.push({ name: "sid", value: sid});
+                      parames.push({ name: "username", value: username});
+                      parames.push({ name: "userphone", value: userphone});
+                      parames.push({ name: "totalprice", value: totalprice});
+                      parames.push({ name: "goodid", value: JSON.stringify(getgoodid)});
+                      parames.push({ name: "goodcomment", value: JSON.stringify(goodcomment)});
+                      //删除购物车的数据
+                      for(var i=0;i<getgoodid.length;i++){
+                          cart.deleteproduct(getgoodid[i],sid)
+                      }
                       Post("{:U('Pay/index')}",parames);
                   }
               }else{
-                  alert('商品库存不足，请重新现在购买数量');
+                 alert('商品库存不足，请重新现在购买数量');
                   console.log('库存有限哦，不能提交');
-
+                  
               }
         });
-
-
-
+        
     }
     /*
     *功能： 模拟form表单的提交

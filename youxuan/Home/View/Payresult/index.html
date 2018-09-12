@@ -23,16 +23,16 @@
                 {$goodid}
         </span></p>
     </div>
-    <div class="btn-container">
+   <div class="btn-container">
         <a class="btn1" href="{:U('Index/index',array('sid'=>$sid))}">继续购物</a>
-        <a class="btn2" href="{:U('Orderdetail/detail',array('ordernum'=>$ordernum,'total'=>$total))}" onclick="return alert('请将提醒消息发送到本店微信群：“兴盛优选11619润泽园小区雅堂小超店群，提醒老板及时处理您的订单！”？');">提醒老板接单</a>
+        <a class="btn2" href="{:U('Orderdetail/detail',array('ordernum'=>$ordernum,'total'=>$total))}" onclick="return alert('请将提醒消息发送到本店微信群：“{$getaddress}店群，提醒老板及时处理您的订单！”？');">提醒老板接单</a>
     </div>
     <div class="text-container">
-        点击上面的<span style="color: #f00;">【提醒老板接单】</span>按钮，将提醒消息发送到本店微信群：<span style="color: #f00;">兴盛优选11619润泽园小区雅堂小超店 </span>群，提醒老板及时处理您的订单！
+        点击上面的<span style="color: #f00;">【提醒老板接单】</span>按钮，将提醒消息发送到本店微信群：<span style="color: #f00;">{$getaddress}店 </span>群，提醒老板及时处理您的订单！
     </div>
     <div class="bottom-container">
         <img src="__PUBLIC__/home/images/icon/info.jpg" />
-        <div>安全提醒：芙蓉兴盛不会以任何理由要求您提供银行卡信息或支付额外费用，请谨防钓鱼链接或诈骗电话。</div>
+        <div>安全提醒：五鼎飞李购不会以任何理由要求您提供银行卡信息或支付额外费用，请谨防钓鱼链接或诈骗电话。</div>
     </div>
 	<script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>

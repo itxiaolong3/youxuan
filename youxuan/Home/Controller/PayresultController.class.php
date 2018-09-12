@@ -19,11 +19,15 @@ class PayresultController extends BaseController {
        }
        $goodid = substr($goodid,0,strlen($goodid)-1);
       /// var_dump($goodid);
+      $getsid=$goods[0]['osid'];
        $this->goods=$goods;
        $this->goodid=$goodid;
        $this->ordernum=$getordernum;
        $this->total=$gettotal;
-       $this->sid=$goods[0]['osid'];
+       $this->sid=$getsid;
+       //查询店铺名和地址
+       $getaddress=M('shop')->where('did='.$getsid)->getField('daddress');
+       $this->getaddress=$getaddress;
       $this->display('Payresult/index');
     }
 

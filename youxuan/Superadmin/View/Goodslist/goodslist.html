@@ -27,10 +27,10 @@
 												<table class="table table-striped  dataTables-example">
 													<thead>
 													<tr>
-														<th>id</th>
+														<th>排序号</th>
 														<th>封面图</th>
 														<th>商品名称</th>
-														<th>状态</th>
+                                                      	<th>状态</th>
 														<th>预售时间</th>
 														<th>提货时间</th>
 														<th>提成</th>
@@ -44,10 +44,10 @@
 													<tbody>
 													<foreach name="info" item="v">
 													<tr class="gradeX">
-														<td class="center">{$v.gid}</td>
+														<td class="center">{$v.gorder}</td>
 														<td><img src="__PUBLIC__/{$v.gtopimg}" width="60" height="60" /></td>
 														<td>{$v.gtitle}</td>
-														<td width="70"><if condition="$v.gstatus eq 1"><span style="background-color: #0d8ddb;color:white;padding: 5px;">已上架</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">待上架</span></if></td>
+                                                      	<td width="70"><if condition="$v.gstatus eq 1"><span style="background-color: #0d8ddb;color:white;padding: 5px;">已上架</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">待上架</span></if></td>
 														<td>{$v.gbuypretime}</td>
 														<td>{$v.gbuyendtime}</td>
 														<td>{$v.gticheng}</td>
@@ -58,7 +58,8 @@
 														<td>
 															<a class="btn btn-primary btn-xs"  href="__MODULE__/Goodslist/editgoods?gid={$v.gid}" target="main" style="margin-top: 10px;">修改</a>
 															<a type="button" class="btn btn-danger btn-xs" data-toggle="modal" href="javascript:deletes('{$v.gid}');" style="margin-top: 10px;">删除</a>
-															<a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:changestatus('{$v.gid}','{$v.gstatus}');" style="margin-top: 10px;"><if condition="$v.gstatus eq 1">下架<else/>上架</if></a>
+                                                          	<a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:changestatus('{$v.gid}','{$v.gstatus}');" style="margin-top: 10px;"><if condition="$v.gstatus eq 1">下架<else/>上架</if></a>
+
 														</td>
 													</tr>
 													</foreach>
@@ -144,7 +145,7 @@
             function deletes(id) {
                 getid=id;
                 swal({
-                    title: "确定要删除该商品？"+getid,
+                    title: "确定要删除该商品？",
                     text: "删除之后无法恢复",
                     type: "warning",
                     showCancelButton: true,
@@ -172,7 +173,7 @@
                 })
 
             }
-            function changestatus(id,iscolse) {
+          function changestatus(id,iscolse) {
                 isc='';
                 if(iscolse==0){
                     isc='上架';
@@ -181,7 +182,7 @@
                 }
                 getid=id;
                 swal({
-                    title: "确定要"+isc+"该商品吗？"+getid,
+                    title: "确定要"+isc+"该商品吗？",
                     text: "温馨提示",
                     type: "warning",
                     showCancelButton: true,
@@ -197,10 +198,12 @@
                         function(e){
                             console.log(e);
                             obj=JSON.parse(e);
-                            if(obj.status==1){
+                            if(obj.status){
                                 swal("操作成功", "温馨提示", "success");
                                 window.location.reload();
-                            }else{
+                            }else if(obj.status==2){
+                                swal("操作失败", "请清除已有预设上架时间", "fail");
+							}else{
                                 swal("操作失败", "温馨提示", "fail");
                                 window.location.reload();
                             }

@@ -1,5 +1,35 @@
-<!--引入头部文件，如css-->
-<include file="Common:header" />
+<?php if (!defined('THINK_PATH')) exit();?><!--引入头部文件，如css-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><?php echo ($title); ?></title>
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/animate.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/style.css" rel="stylesheet">
+    <!-- Ladda style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!--多图上传的css-->
+    <link href="/youxuan/youxuan/Public/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <!--layer-->
+    <link href="/youxuan/youxuan/Public/admin/js/layer/css/layui.css" rel="stylesheet">
+    <script src="/youxuan/youxuan/Public/admin/js/layer/layui.js" charset="utf-8"></script>
+
+
+</head>
 <style type="text/css">
 	*{
 		margin: 0px;
@@ -153,7 +183,7 @@
 								<button type="button" class="layui-btn" id="test1">封面图片</button>
 								<div class="layui-upload-list">
 									<input type="hidden" id="file_upload_image" required="required" name="gtopimg" multiple="true" value=""/>
-									<!--<a href="javascript:deletefimg();" title="点击删除"><img style="display: none;margin-left: 120px;" id="deletef" src="__PUBLIC__/admin/js/img/uploadify-cancel.png">-->
+									<!--<a href="javascript:deletefimg();" title="点击删除"><img style="display: none;margin-left: 120px;" id="deletef" src="/youxuan/youxuan/Public/admin/js/img/uploadify-cancel.png">-->
 									<!--</a>-->
 									<!--<img class="layui-upload-img"  id="demo1" style="display: none;margin-left: -140px;" width="100" height="100">-->
 									<div id="showimg">
@@ -196,9 +226,38 @@
 		</div>
 	</div>
 	<!--引入外部js文件-->
-	<include file="Common:footer" />
+	<!--这里写引入的js文件-->
+<!-- Mainly scripts -->
+<script src="/youxuan/youxuan/Public/admin/js/jquery-3.1.1.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/bootstrap.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="/youxuan/youxuan/Public/admin/js/plugins/dataTables/datatables.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/youxuan/youxuan/Public/admin/js/inspinia.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/pace/pace.min.js"></script>
+<!-- Sweet alert -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Page-Level Scripts -->
+<!-- Toastr script -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/toastr/toastr.min.js"></script>
+<!-- SUMMERNOTE -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/summernote/summernote.min.js"></script>
+<!-- Data picker -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="https://cdn.bootcss.com/summernote/0.8.10/lang/summernote-zh-CN.js"></script>
+<!-- Select2 -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/select2/select2.full.min.js"></script>
+<!-- Ladda -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/spin.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.jquery.min.js"></script>
+<!-- iCheck -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/iCheck/icheck.min.js"></script>
 	<!--引入uploadfiyjs-->
-	<script src="__PUBLIC__/admin/js/uploadify/jquery.uploadify.js"></script>
+	<script src="/youxuan/youxuan/Public/admin/js/uploadify/jquery.uploadify.js"></script>
 		<!--多图上传的js开始-->
 	<!--非layer的多图片上传引入步骤
 	1，引入uploadfiyjs,swfupload.js,handlers.js
@@ -208,11 +267,11 @@
 	5，在接收多图片时需要剔除首位的斜杠
 	-->
 		<script type="text/javascript">
-            var path='__PUBLIC__';
-            var url='__URL__';
+            var path='/youxuan/youxuan/Public';
+            var url='/youxuan/youxuan/index.php/Superadmin/Addgoods';
 		</script>
-	<script type="text/javascript" src="__PUBLIC__/js/swfupload.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/js/handlers.js"></script>
+	<script type="text/javascript" src="/youxuan/youxuan/Public/js/swfupload.js"></script>
+		<script type="text/javascript" src="/youxuan/youxuan/Public/js/handlers.js"></script>
 		<!--多图上传的js结束-->
 
 		<!--layerjs部分-->
@@ -246,7 +305,7 @@
                 //封面图片上传
                 var uploadInst = upload.render({
                     elem: '#test1'
-                    ,url: "{:U('image/uploadfortp')}"
+                    ,url: "<?php echo U('image/uploadfortp');?>"
                     ,before: function(obj){
                         //预读本地文件示例，不支持ie8
 //                        obj.preview(function(index, file, result){
@@ -261,14 +320,14 @@
                         console.log(res);
                         //var obj=JSON.parse(res);
 						console.log(res.data);
-                        var newElement = "<li><img class='layui-upload-img' id='showone' src='" +"__PUBLIC__/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' id='oneimgclose' src="+window.path+"/images/fancy_close.png></li>";
+                        var newElement = "<li><img class='layui-upload-img' id='showone' src='" +"/youxuan/youxuan/Public/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' id='oneimgclose' src="+window.path+"/images/fancy_close.png></li>";
                         if ($("#file_upload_image").val()!='images/nopic.png'){
                             if($("#file_upload_image").val()==''){
                                 $("#showimg").append(newElement);//deleteqrcodeimg
                                 $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
                             }else{
                                 $("#file_upload_image").attr('value',"admin/uploads/"+res.data);
-                                $("#showone").attr('src',"__PUBLIC__/admin/uploads/"+res.data);
+                                $("#showone").attr('src',"/youxuan/youxuan/Public/admin/uploads/"+res.data);
                             }
 
                         }else{
@@ -291,7 +350,7 @@
                 //多图片上传
                 upload.render({
                     elem: '#test3'
-                    ,url: "{:U('image/uploadfortp')}"
+                    ,url: "<?php echo U('image/uploadfortp');?>"
                     ,multiple: true
                     ,before: function(obj){
                         //预读本地文件示例，不支持ie8
@@ -303,14 +362,14 @@
                         //每个文件提交一次触发一次。详见“请求成功的回调”
                         //alert(res);
                         console.log(res);
-                        var newElement = "<li><img class='layui-upload-img'  src='" +"__PUBLIC__/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' src="+window.path+"/images/fancy_close.png></li>";
+                        var newElement = "<li><img class='layui-upload-img'  src='" +"/youxuan/youxuan/Public/admin/uploads/"+res.data + "' style='width:100px;height:100px;'><img class='button' src="+window.path+"/images/fancy_close.png></li>";
                         $("#demo3").append(newElement);
                         $("img.button").last().bind("click", del);
                         var $svalue=$('#manyimg').val();
                         if($svalue==''){
-                            $('#manyimg').val("|"+"__PUBLIC__/admin/uploads/"+res.data);
+                            $('#manyimg').val("|"+"/youxuan/youxuan/Public/admin/uploads/"+res.data);
                         }else{
-                            $('#manyimg').val($svalue+"|"+"__PUBLIC__/admin/uploads/"+res.data);
+                            $('#manyimg').val($svalue+"|"+"/youxuan/youxuan/Public/admin/uploads/"+res.data);
                         }
                         console.log('打印我');
 
@@ -354,7 +413,7 @@
                     var formData = new FormData();
                     formData.append("file", file);
                     $.ajax({
-                        url: "{:U('image/uploadfornotice')}",//路径是你控制器中上传图片的方法，
+                        url: "<?php echo U('image/uploadfornotice');?>",//路径是你控制器中上传图片的方法，
                         data: formData,
                         cache: false,
                         contentType: false,
@@ -386,7 +445,7 @@
                             e = JSON.parse(e);
                             console.log(e);
                             if(e.status==1){
-                                window.location.href = "{:U('Goodslist/goodslist')}";
+                                window.location.href = "<?php echo U('Goodslist/goodslist');?>";
                                 l.ladda('stop');
                             }else{
                                 swal({
@@ -408,7 +467,7 @@
                 //alert(src);
                 $.ajax({
                     type: "POST", //访问WebService使用Post方式请求
-                    url: "{:U('Addgoods/delone')}", //调用WebService的地址和方法名称组合---WsURL/方法名
+                    url: "<?php echo U('Addgoods/delone');?>", //调用WebService的地址和方法名称组合---WsURL/方法名
                     data: "src=" + src,
                     success: function(data){
                         console.log(data);

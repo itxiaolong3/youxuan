@@ -40,14 +40,14 @@ class ShoplistController extends Controller{
         $object = new \QRcode();
         $object->png($url, false, $errorCorrectionLevel, $matrixPointSize, 2);
     }
-    //删除店铺closeshop
+    //删除店铺
     function deleteshop(){
         $upCtypeModel=M('shop');
         $arr=array();
         if (!empty($_POST)){
             $getid=$_POST['id'];
             $data['dis_delete']=1;
-            $re=$upCtypeModel->where('did='.$getid)->save($data);
+           $re=$upCtypeModel->where('did='.$getid)->delete();
             if ($re){
                 $arr['status']=1;
                 $arr['msg']='删除成功';
@@ -60,14 +60,14 @@ class ShoplistController extends Controller{
         }
 
     }
-    //关闭店铺
+   //关闭店铺
     function closeshop(){
         $upCtypeModel=M('shop');
         $arr=array();
         if (!empty($_POST)){
             $getid=$_POST['id'];
+         
             $colsestatus=$upCtypeModel->where('did='.$getid)->getField('discolse');
-
             if ($colsestatus){
                 //如果是关闭的
                 $data['discolse']=0;
@@ -122,16 +122,6 @@ class ShoplistController extends Controller{
             }else if(empty(I('daddress'))){
                 $arr['status']=-4;
                 $arr['msg']='提货地址不可为空';
-                echo json_encode($arr);
-                exit();
-            }else if(empty(I('dpretime'))){
-                $arr['status']=-5;
-                $arr['msg']='预售时间不可为空';
-                echo json_encode($arr);
-                exit();
-            }else if(empty(I('dendtime'))){
-                $arr['status']=-5;
-                $arr['msg']='提货时间不可为空';
                 echo json_encode($arr);
                 exit();
             }else{

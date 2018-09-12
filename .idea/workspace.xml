@@ -11,15 +11,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IndexController.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php">
+      <file leaf-file-name="AddgoodsController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/AddgoodsController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="63" />
+            <state relative-caret-position="552">
+              <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addgoods.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Addgoods/addgoods.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding>
-                <marker date="1536488410640" expanded="true" signature="1053:1072" ph="..." />
-                <marker date="1536488410640" expanded="true" signature="1704:1723" ph="..." />
+                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+                <marker date="1536769189943" expanded="true" signature="9677:9702" ph="..." />
+                <marker date="1536769189943" expanded="true" signature="10959:10974" ph="..." />
+                <marker date="1536769189943" expanded="true" signature="12128:12153" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_basic.html" pinned="false" current-in-tab="false">
+        <entry file="file://F:/php资料/前端/Static_Full_Version/form_basic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="52" column="3" lean-forward="false" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="50" />
+              <folding>
+                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#1084#1089#0" expanded="true" />
+                <element signature="n#script#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="e#2592#2783#0" expanded="false" />
+                <element signature="e#2632#2767#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/footer.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="667">
+              <caret line="29" column="72" lean-forward="false" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,6 +90,7 @@
       <find>$(document).ready(function(){</find>
       <find>shop</find>
       <find>$iske</find>
+      <find>Checkboxes &amp;amp</find>
     </findStrings>
     <dirStrings>
       <dir>E:\mydemo\youxuan\youxuan</dir>
@@ -57,7 +107,6 @@
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/PayresultController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Home/View/Payresult/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Home/View/Orderdetail/detail.html" />
-        <option value="$PROJECT_DIR$/youxuan/Common/Conf/config.php" />
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/PayController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Public/home/css/order.css" />
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/WaredetailController.class.php" />
@@ -72,9 +121,7 @@
         <option value="$PROJECT_DIR$/youxuan/Home/Common/BaseController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/Controller/ShoplistController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Shoplist/shoplist.html" />
-        <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Addgoods/addgoods.html" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/editgoods.html" />
-        <option value="$PROJECT_DIR$/youxuan/Superadmin/Controller/AddgoodsController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Goodslist/goodslist.html" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/Controller/GoodslistController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Orderlist/nopay.html" />
@@ -86,6 +133,13 @@
         <option value="$PROJECT_DIR$/youxuan/Home/View/Indexadmin/index.html" />
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexadminController.class.php" />
         <option value="$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/youxuan/Admin/View/User/mylogin.html" />
+        <option value="$PROJECT_DIR$/youxuan/Common/Conf/config.php" />
+        <option value="$PROJECT_DIR$/youxuan/Superadmin/Controller/AddgoodsController.class.php" />
+        <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Common/header.html" />
+        <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Common/footer.html" />
+        <option value="F:/php资料/前端/Static_Full_Version/form_basic.html" />
+        <option value="$PROJECT_DIR$/youxuan/Superadmin/View/Addgoods/addgoods.html" />
       </list>
     </option>
   </component>
@@ -96,8 +150,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="17" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="58" />
     <option name="width" value="1364" />
     <option name="height" value="729" />
   </component>
@@ -116,8 +170,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,32 +186,107 @@
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Common" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Common" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Conf" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Home" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="awesome-bootstrap-checkbox" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="plugins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Superadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Superadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Superadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Addgoods" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="youxuan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="youxuan" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Superadmin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Common" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,11 +295,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\Phpdemo\youxuan\youxuan\Public\admin\js" />
+      <recent name="H:\Phpdemo\youxuan\youxuan\Public\admin\css\plugins" />
+      <recent name="H:\Phpdemo\youxuan\youxuan\Public\admin\js\plugins" />
       <recent name="E:\mydemo\youxuan\youxuan\Public\home\images\other" />
       <recent name="E:\mydemo\youxuan\youxuan\Superadmin\View\Index" />
-      <recent name="E:\mydemo\youxuan\youxuan\Superadmin\View\Goodslist" />
-      <recent name="E:\mydemo\youxuan\youxuan\Public\home\images\icon" />
-      <recent name="E:\mydemo\youxuan\youxuan\Home\Controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -207,18 +334,22 @@
       <workItem from="1535935927705" duration="29364000" />
       <workItem from="1535976142697" duration="3327000" />
       <workItem from="1536022651063" duration="6715000" />
-      <workItem from="1536482557725" duration="5356000" />
+      <workItem from="1536482557725" duration="5507000" />
+      <workItem from="1536587750167" duration="19000" />
+      <workItem from="1536683141794" duration="1027000" />
+      <workItem from="1536759866138" duration="186000" />
+      <workItem from="1536761675154" duration="4711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99484000" />
+    <option name="totallyTimeSpent" value="105578000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19322917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -250,53 +381,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/Common/access_token.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Public/home/images/icon/gotopay.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Common/Conf/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/OrderController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-207">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/CartController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Cart/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="138" column="13" lean-forward="false" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youxuan/Home/View/Login/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-447">
@@ -372,20 +456,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/youxuan/Public/admin/js/plugins/dataTables/datatables.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6036">
@@ -439,7 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -454,7 +523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="102" column="95" lean-forward="false" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -469,22 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Addgoods/addgoods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="163" column="15" lean-forward="true" selection-start-line="163" selection-start-column="15" selection-end-line="163" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/AddgoodsController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -513,7 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3358">
           <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="59" selection-end-line="35" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -521,10 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="33" />
-          <folding>
-            <element signature="e#835#1318#0#PHP" expanded="false" />
-            <element signature="e#1891#2635#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -539,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="47" column="13" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="47" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -547,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1587">
           <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="39" selection-end-line="69" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -555,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="74" column="32" lean-forward="false" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -563,7 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="9" column="49" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -571,7 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2463">
           <caret line="317" column="13" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="317" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -579,9 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
           <caret line="98" column="73" lean-forward="true" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="73" />
-          <folding>
-            <element signature="n#script#5;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -589,9 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="e#121#152#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,7 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -607,7 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -615,19 +649,116 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <marker date="1536481940902" expanded="true" signature="214:233" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/youxuan/Home/Controller/IndexController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="63" />
+        <state relative-caret-position="621">
+          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
           <folding>
-            <marker date="1536488410640" expanded="true" signature="1053:1072" ph="..." />
-            <marker date="1536488410640" expanded="true" signature="1704:1723" ph="..." />
+            <marker date="1536763060177" expanded="true" signature="1053:1072" ph="..." />
+            <marker date="1536763060177" expanded="true" signature="1704:1723" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Admin/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Admin/View/User/mylogin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/Controller/AddgoodsController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/admin/js/plugins/iCheck/icheck.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/admin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Public/admin/js/jquery-3.1.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/php资料/前端/Static_Full_Version/form_basic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="52" column="3" lean-forward="false" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="50" />
+          <folding>
+            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#1084#1089#0" expanded="true" />
+            <element signature="n#script#6;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#2592#2783#0" expanded="false" />
+            <element signature="e#2632#2767#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Common/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="29" column="72" lean-forward="false" selection-start-line="29" selection-start-column="72" selection-end-line="29" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/youxuan/Superadmin/View/Addgoods/addgoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <marker date="1536769189943" expanded="true" signature="9677:9702" ph="..." />
+            <marker date="1536769189943" expanded="true" signature="10959:10974" ph="..." />
+            <marker date="1536769189943" expanded="true" signature="12128:12153" ph="..." />
           </folding>
         </state>
       </provider>
