@@ -12,11 +12,11 @@ class BaseController extends Controller
             echo '<div class="no-container2 hid"style="text-align: center;"><img class="no-order" src="public/home/images/other/no_url.png" /></div>';
         }
     }
-
+	
     function getshopinfo($sid)
     {
         $shopmodel = M('shop');
-        $shopinfo = $shopmodel->field('did,dname,dheaderimg,dphone,dpretime,dendtime,dsign,daddress')->where("discole=0 and did=" . $sid)->find();
+        $shopinfo = $shopmodel->field('did,dname,dheaderimg,dphone,dpretime,dendtime,dsign,daddress')->where("discolse=0 and did=" . $sid)->find();
         return $shopinfo;
     }
 

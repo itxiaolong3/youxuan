@@ -8,7 +8,11 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/order-detail.css" />
     <title>{$iske=='yes'?'代客下单-' :''}订单确认</title>
+<<<<<<< HEAD
   <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
+=======
+    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
 </head>
 <body>
 <div class="header-container">
@@ -76,19 +80,6 @@
             </foreach>
         </if>
 
-        <!--<div class="item">-->
-        <!--<img class="image" src="__PUBLIC__/home/images/other/ware_2.jpg" />-->
-        <!--<div class="info">-->
-        <!--<div class="top">-->
-        <!--<p class="name">葡萄 2至3个/份 约2至2.5斤</p>-->
-        <!--<p class="describe">2至3个&nbsp;&nbsp;<span>x1</span></p>-->
-        <!--</div>-->
-        <!--<div class="bottom">-->
-        <!--<div class="left"><span>￥</span>29.9&nbsp;&nbsp;<s>￥38.8</s></div>-->
-        <!--<div class="right">06月29号&nbsp;&nbsp;16:00提货</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
     </div>
     <div class="price-container">
         <if condition="$onegoodsize eq 1">
@@ -134,7 +125,6 @@
 </script>
 <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
 <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
-<script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
 <script>
     var getgoodid= [];
     var goodcomment= [];
@@ -156,8 +146,11 @@
               e=JSON.parse(e);
               if (e.status==1){
                   console.log('可以');
+<<<<<<< HEAD
                  username=$("#username").val();
                  userphone=$("#userphone").val();
+=======
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                   if (username==''||userphone==''){
                       alert('手机或者收货人不可为空');
                       return false;
@@ -173,9 +166,14 @@
                       }else{
                           totalprice="{$totalprice}";
                       }
+<<<<<<< HEAD
                   
                     console.log('用户名'+userphone);
                     console.log('手机号'+userphone);
+=======
+                      username=$("#username").val();
+                      userphone=$("#userphone").val();
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                       //提交数据到确认支付页面并保存订单
                       var sid="{$sid}";
                       var parames = new Array();
@@ -198,6 +196,11 @@
               }
         });
         
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
     }
     /*
     *功能： 模拟form表单的提交

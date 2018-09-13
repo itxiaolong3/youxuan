@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"appId":"wx07c7042328d04b81","nonceStr":"etxzway3tyuc44qugrgrza6fsbydjuc6","package":"prepay_id=wx12223453069112b3a2ef34e61564036510","signType":"MD5","timeStamp":"1536762893","paySign":"0474277157BAA8C64569F3942A120A55"}
+=======
+{"appId":"wx07c7042328d04b81","nonceStr":"8za48thbktlrwgen69kc4hpx341cy78f","package":"prepay_id=wx120932562019587c96bee7ca0659064776","signType":"MD5","timeStamp":"1536715976","paySign":"59B4D328F8130F6B829FF21672480636"}
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13

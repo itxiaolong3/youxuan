@@ -126,7 +126,7 @@ class PayController extends Controller {
         $goodcomment=I('goodcomment');
         $isok=1;
         foreach ($getgoods as $k=>$v){
-            $goodsinfo=M('goods')->where('gid='.$v)->find();
+            $goodsinfo=M('goods')->where('gid='.$v.' and gstatus=1')->find();
             $num=explode('x', $goodcomment[$k]);
             $buynum=intval($num[1]);
             if ($goodsinfo['gendnum']<$buynum||$goodsinfo['gendnum']<=0){

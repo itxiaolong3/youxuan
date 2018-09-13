@@ -1,5 +1,6 @@
 <xml><appid><![CDATA[wx07c7042328d04b81]]></appid>
 <bank_type><![CDATA[CFT]]></bank_type>
+<<<<<<< HEAD
 <cash_fee><![CDATA[1050]]></cash_fee>
 <device_info><![CDATA[12]]></device_info>
 <fee_type><![CDATA[CNY]]></fee_type>
@@ -16,3 +17,21 @@
 <trade_type><![CDATA[JSAPI]]></trade_type>
 <transaction_id><![CDATA[4200000159201809121626533394]]></transaction_id>
 </xml>支付返回的签名=6C891B569DC104C6004F9E61013CDA8A回调再次签名=6C891B569DC104C6004F9E61013CDA8A
+=======
+<cash_fee><![CDATA[690]]></cash_fee>
+<device_info><![CDATA[18]]></device_info>
+<fee_type><![CDATA[CNY]]></fee_type>
+<is_subscribe><![CDATA[Y]]></is_subscribe>
+<mch_id><![CDATA[1511152431]]></mch_id>
+<nonce_str><![CDATA[pmnwa19mwffbd7u62qo5d7eienqpvsg6]]></nonce_str>
+<openid><![CDATA[ouQGF0np6ZXm99Abwh3StAO3PtJU]]></openid>
+<out_trade_no><![CDATA[118327129998]]></out_trade_no>
+<result_code><![CDATA[SUCCESS]]></result_code>
+<return_code><![CDATA[SUCCESS]]></return_code>
+<sign><![CDATA[13B5AA8718F718AEF1D6B5E0939648CE]]></sign>
+<time_end><![CDATA[20180912093300]]></time_end>
+<total_fee>690</total_fee>
+<trade_type><![CDATA[JSAPI]]></trade_type>
+<transaction_id><![CDATA[4200000179201809123639062402]]></transaction_id>
+</xml>支付返回的签名=13B5AA8718F718AEF1D6B5E0939648CE回调再次签名=13B5AA8718F718AEF1D6B5E0939648CE
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13

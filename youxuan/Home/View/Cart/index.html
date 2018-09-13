@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="user-scalable=no" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/cart.css" />
-        <title>购物车</title>
-    </head>
-    <body>
-         <div class="header-container">
-            <a class="left" href="{:U('Index/index',array('sid'=>$sid))}">
-                <img src="__PUBLIC__/home/images/icon/left.png" />
-                <span>首页</span>
-            </a>
-            <div class="middle">购物车</div>
-            <div class="right">编辑</div>
-        </div>
-        <div class="list-container">
-                <foreach  name="goods" item="v">
-                    <div class="item">
-                    <div class="checkbox uncheckbox"></div>
-                    <img class="image" src="__PUBLIC__/{$v.imgurl}" />
-                    <div class="info">
-                        <div class="top">
-                            <input type="hidden" value="{$v.id}"/>
-                            <p class="name">{$v.name} </p>
-                            <p class="describe">{$v.gdes}</p>
-                        </div>
-                        <div class="bottom">
-                            <div class="left"><span>￥</span>{$v.saleprice}</div>
-                            <div class="right">
-                                <a class="minus" onclick="updatenumjian('{$v.id}','{$v.num}')">-</a>
-                                <div class="count">{$v.num}</div>
-                                <a class="plus" onclick="updatanumadd('{$v.id}','{$v.num}')">+</a>
-                            </div>
-                        </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/cart.css" />
+    <title>购物车</title>
+</head>
+<body>
+<div class="header-container">
+    <a class="left" href="{:U('Index/index',array('sid'=>$sid))}">
+        <img src="__PUBLIC__/home/images/icon/left.png" />
+        <span>首页</span>
+    </a>
+    <div class="middle">购物车</div>
+    <div class="right">编辑</div>
+</div>
+<div class="list-container">
+    <foreach  name="goods" item="v">
+        <div class="item">
+            <div class="checkbox uncheckbox"></div>
+            <img class="image" src="__PUBLIC__/{$v.imgurl}" />
+            <div class="info">
+                <div class="top">
+                    <input type="hidden" value="{$v.id}"/>
+                    <p class="name">{$v.name} </p>
+                    <p class="describe">{$v.gdes}</p>
+                </div>
+                <div class="bottom">
+                    <div class="left"><span>￥</span>{$v.saleprice}</div>
+                    <div class="right">
+                        <a class="minus" onclick="updatenumjian('{$v.id}','{$v.num}')">-</a>
+                        <div class="count">{$v.num}</div>
+                        <a class="plus" onclick="updatanumadd('{$v.id}','{$v.num}')">+</a>
                     </div>
-                    </div>
+<<<<<<< HEAD
                     
                 </foreach>
             <div class="no-container hid">
@@ -55,26 +53,52 @@
                     <span class="text-1">合计：</span>
                     <span class="text-2">￥</span>
                     <span class="text-3">0.00</span>
+=======
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                 </div>
-                <a class="btn" onclick="gopay();">立即购买(1)</a>
-                <div class="btns hid" onclick="delcat();">删除</div>
             </div>
         </div>
-    </body>
-    <script>
-        var jsfori=0;
-        var  jsforsid=0;
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+
+    </foreach>
+    <div class="no-container hid">
+        <img class="no-order" src="__PUBLIC__/home/images/other/no_ware.png">
+    </div>
+</div>
+<div class="footer-container">
+    <div id="check" class="left">
+        <div class="checkbox uncheckbox"></div>
+        <span>全选</span>
+    </div>
+    <div class="right">
+        <div class="price">
+            <span class="text-1">合计：</span>
+            <span class="text-2">￥</span>
+            <span class="text-3">0.00</span>
+        </div>
+        <a class="btn" onclick="gopay();">立即购买(1)</a>
+        <div class="btns hid" onclick="delcat();">删除</div>
+    </div>
+</div>
+</body>
+<script>
+    var jsfori=0;
+    var  jsforsid=0;
+</script>
+<script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
 <script>
     var getgoodid= [];
     var paygoods= [];
+<<<<<<< HEAD
   //var onegoodnum=[];
+=======
+    //var onegoodnum=[];
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
     $(function () {
         var getgoodnum=cart.getproducttotalnum("{$sid}");
         var getalltotal=cart.getproducttotalAmount("{$sid}");
         var geteverycount=0;
+<<<<<<< HEAD
       var count=0;
       var isexit=false;
       var getnum=0;
@@ -103,13 +127,47 @@
                
                 }
               
+=======
+        var count=0;
+        var isexit=false;
+        var getnum=0;
+        getnum=cart.getproducttotalnum("{$sid}");
+        if (getnum<=0){
+            //alert('没数据了');
+            $('.btn').html('立即购买');
+            chooseshop.num=0;
+            var deleid= [];
+            delcat();
+        }
+        console.log('总价格'+getalltotal);
+        $(".text-3").html(getalltotal.toFixed(2));
+        $('.btn').html('立即购买('+getnum+')');
+        console.log('数量'+getgoodnum);
+        for(var i = 0; i < $(".list-container .item").length; i++){
+            if($(".item").eq(i).find('.checkbox').is('.uncheckbox')){
+                var iteminput = $(".item").eq(i).find(".info .top input");
+                count= iteminput.val();
+                isexit=cart.existproduct(count,"{$sid}");
+                if (!isexit){
+                    $(".item").eq(i).find(".info .top input").val(0);
+                    iteminput.parent().parent().parent().hide();
+                    cart.deleteproduct(count,"{$sid}");
+                    //alert('不存在'+isexit);
+
+                }
+
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                 var goodid = $(".item").eq(i).find(".info .top input").val();
                 //onegoodnum.push(cart.getoneproductnum(goodid,"{$sid}"));
                 geteverycount=cart.getoneproductnum(goodid,"{$sid}");
                 $(".list-container .item").eq(i).find(".info .bottom .right .count").html(geteverycount);
             }
         }
+<<<<<<< HEAD
        // console.log(onegoodnum);
+=======
+        // console.log(onegoodnum);
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
     });
     function gopay() {
         if(chooseshop.num==0){
@@ -119,6 +177,7 @@
             for(var i = 0; i < $(".list-container .item").length; i++){
                 if($(".item").eq(i).find('.checkbox').is('.uncheckbox')){
                     var goodid = $(".item").eq(i).find(".info .top input").val();
+<<<<<<< HEAD
                   //alert(goodid);
                   if(goodid!=0){
                     getgoodid.push(goodid);
@@ -129,6 +188,18 @@
                 }
             }
           
+=======
+                    //alert(goodid);
+                    if(goodid!=0){
+                        getgoodid.push(goodid);
+                        paygoods.push(cart.getoneproduct(goodid,"{$sid}"))
+                    }
+
+
+                }
+            }
+
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
             var totalprice=$(".text-3").html();
             console.log(paygoods);
             console.log(getgoodid)
@@ -140,7 +211,7 @@
             parames.push({ name: "goodtypenums", value: chooseshop.num});
             parames.push({ name: "goods", value: JSON.stringify(paygoods)});
             Post("{:U('Orderdetail/index')}",parames);
-           //window.location.href="{:U('Orderdetail/index',array('sid'=>$sid))}";
+            //window.location.href="{:U('Orderdetail/index',array('sid'=>$sid))}";
         }
     }
     //删除商品
@@ -156,7 +227,11 @@
             }
         }
         if(deleid.length==0){
+<<<<<<< HEAD
            // alert('请选择删除的商品');
+=======
+            //alert('请选择删除的商品');
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
             return false;
         }
         console.log(deleid);
@@ -171,9 +246,9 @@
             if(window.confirm('是否删除该商品？')){
                 cart.deleteproduct(id,"{$sid}");
                 updatadata();
-                 return true;
+                return true;
             }else{
-                 return false;
+                return false;
             }
             return false;
         }else{

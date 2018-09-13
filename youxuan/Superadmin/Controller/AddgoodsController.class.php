@@ -13,6 +13,11 @@ class AddgoodsController extends Controller{
             //var_dump(I('post.'));
             $arr=array();
             $data=I('post.');
+<<<<<<< HEAD
+=======
+            var_dump($data);
+            exit();
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
             $data['gaddtime']=time();
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);
@@ -23,23 +28,39 @@ class AddgoodsController extends Controller{
                 echo json_encode($arr);
                 exit();
             }
+<<<<<<< HEAD
             else if(empty($data['gtitle'])){
+=======
+            else if(empty(I('gtitle'))){
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                 $arr['status']=-2;
                 $arr['msg']='商品名不可为空';
                 echo json_encode($arr);
                 exit();
+<<<<<<< HEAD
             }else if(empty($data['gyhprice'])){
+=======
+            }else if(empty(I('gyhprice'))){
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                 $arr['status']=-3;
                 $arr['msg']='价格不可为空';
                 echo json_encode($arr);
                 exit();
+<<<<<<< HEAD
             }else if(empty($data['gticheng'])){
+=======
+            }else if(empty(I('gticheng'))){
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                 $arr['status']=-4;
                 $arr['msg']='提成不可为空';
                 echo json_encode($arr);
                 exit();
             }else{
+<<<<<<< HEAD
               if(empty($data['guptime'])){
+=======
+              if(empty(I('guptime'))){
+>>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
                     $data['gstatus']=1;
                 }
                 $re = $classModel->data($data)->add();
