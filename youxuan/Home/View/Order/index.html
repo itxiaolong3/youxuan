@@ -32,6 +32,7 @@
                 </div>
                 <else />
                 <foreach name="allorderinfo" item="v">
+                    <a href="{:U('Orderdetail/detail',array('ordernum'=>$v.onumber))}">
                     <div class="item">
                         <div class="title">
                             <p>订单编号：{$v.onumber}</p>
@@ -61,6 +62,7 @@
                             <if condition="$v.ostatus eq 0">
                                 <div class="right" onclick="gotopay('{$v.oid}','{$v.ogid}','{$v.gyhprice}','{$v.onumber}','{$v.onum}');">去付款</div>
                                 <elseif condition="$v.ostatus eq 1"/>
+                                <div class="right" onclick="gototishi('{$v.onumber}');">提醒老板</div>
                                 <div class="right" onclick="comfin('{$v.oid}',2,'{$v.onum}')">确认提货</div>
                                 <else />
                                 <div class="right disable">已完成</div>
@@ -68,6 +70,7 @@
 
                         </div>
                     </div>
+                    </a>
                 </foreach>
             </if>
         </div>
@@ -113,7 +116,7 @@
                 </div>
                 <else />
                 <foreach name="payinfo" item="v">
-                    <div class="item">
+                    <div class="item" onclick="" >
                         <div class="title">
                             <p>订单编号：{$v.onumber}</p>
                             <p style="color: #e70012;">待提货</p>
@@ -222,6 +225,13 @@
             //删除购物车的数据
             //cart.deleteproduct(ogid,sid);
             Post("{:U('Pay/index')}",parames);
+        }
+        //去提示老板
+        function gototishi(onumber) {
+            var sid="{$sid}";
+            var parames = new Array();
+            parames.push({ name: "ordernum", value: onumber});
+            Post("{:U('Orderdetail/detail')}",parames);
         }
         function comfin(oid,status,onum) {
             if(window.confirm('是否确认收货？')){

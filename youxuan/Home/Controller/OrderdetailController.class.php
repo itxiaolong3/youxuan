@@ -40,6 +40,11 @@ class OrderdetailController extends BaseController {
         //当前请求的全路径$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         $getordernum=I('ordernum');
         $gettotal=I('total');
+        if (empty($gettotal)){
+            if(!empty($getordernum)){
+                $gettotal= M('order')->where('onumber='.$getordernum)->sum('opaymoney');
+            }
+        }
         $goods=M('order')->where('onumber='.$getordernum)->select();
         $goodid='';
         foreach ($goods as $k=>$v){

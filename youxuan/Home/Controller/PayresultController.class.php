@@ -12,6 +12,11 @@ class PayresultController extends BaseController {
    {
        $getordernum=I('ordernum');
        $gettotal=I('total');
+       if (empty($gettotal)){
+           if(!empty($getordernum)){
+               $gettotal= M('order')->where('onumber='.$getordernum)->sum('opaymoney');
+           }
+       }
        $goods=M('order')->where('onumber='.$getordernum)->select();
        $goodid='';
        foreach ($goods as $k=>$v){

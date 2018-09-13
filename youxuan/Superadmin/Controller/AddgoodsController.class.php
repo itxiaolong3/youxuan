@@ -13,6 +13,8 @@ class AddgoodsController extends Controller{
             //var_dump(I('post.'));
             $arr=array();
             $data=I('post.');
+            var_dump($data);
+            exit();
             $data['gaddtime']=time();
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);

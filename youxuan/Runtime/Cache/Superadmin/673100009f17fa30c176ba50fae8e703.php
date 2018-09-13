@@ -58,7 +58,7 @@
                     <ul class="nav nav-second-level collapse">
                         <li><a href="/youxuan/youxuan/index.php/Superadmin/Goodslist/goodslist" target="main">商品列表</a></li>
                         <li><a href="/youxuan/youxuan/index.php/Superadmin/Addgoods/addgoods" target="main">添加商品</a></li>
-                        <li><a href="/youxuan/youxuan/index.php/Superadmin/Goodslist/goodtichen" target="main">商品提成表</a></li>
+                       <li><a href="/youxuan/youxuan/index.php/Superadmin/Goodslist/goodtichen" target="main">商品提成表</a></li>
                     </ul>
                 </li>
                 <li class="active"><a href="/youxuan/youxuan/index.php/Superadmin/Configinfo/configinfo" target="main"><i

@@ -36,8 +36,12 @@
 				<div class="col-lg-10">
 					<div style="margin-top: 10px;"></div>
 					<ol class="breadcrumb">
+						<li>
+							<a href="<?php echo U('index/index');?>" target="_parent">首页</a>
+						</li>
+
 						<li class="active">
-							<label>商品列表展示</label>
+							<strong>商家列表展示</strong>
 						</li>
 					</ol>
 				</div>
@@ -55,38 +59,40 @@
 												<table class="table table-striped  dataTables-example">
 													<thead>
 													<tr>
-														<th>排序号</th>
+														<th>id</th>
 														<th>封面图</th>
-														<th>商品名称</th>
-                                                      	<th>状态</th>
-														<th>预售时间</th>
-														<th>提货时间</th>
-														<th>提成</th>
-														<th>价格</th>
-														<th>品牌</th>
-														<th>供销商</th>
+														<th>店名</th>
+														<th>手机号</th>
+														<th>状态</th>
+														<th>提货地址</th>
+														<!--<th>预售时间</th>-->
+														<!--<th>提货时间</th>-->
 														<th>添加时间</th>
+														<th>店铺链接</th>
+														<th>店面二维码</th>
 														<th>操作</th>
 													</tr>
 													</thead>
 													<tbody>
 													<?php if(is_array($info)): foreach($info as $key=>$v): ?><tr class="gradeX">
-														<td class="center"><?php echo ($v["gorder"]); ?></td>
-														<td><img src="/youxuan/youxuan/Public/<?php echo ($v["gtopimg"]); ?>" width="60" height="60" /></td>
-														<td><?php echo ($v["gtitle"]); ?></td>
-                                                      	<td width="70"><?php if($v["gstatus"] == 1): ?><span style="background-color: #0d8ddb;color:white;padding: 5px;">已上架</span><?php else: ?><span  style="background-color: lightgray;padding: 5px;color:white;">待上架</span><?php endif; ?></td>
-														<td><?php echo ($v["gbuypretime"]); ?></td>
-														<td><?php echo ($v["gbuyendtime"]); ?></td>
-														<td><?php echo ($v["gticheng"]); ?></td>
-														<td><?php echo ($v["gyhprice"]); ?></td>
-														<td><?php echo ($v["gpingpai"]); ?></td>
-														<td><?php echo ($v["gboss"]); ?></td>
-														<td><?php echo ($v["gaddtime"]); ?></td>
+														<td class="center"><?php echo ($v["did"]); ?></td>
+														<td><img src="/youxuan/youxuan/Public/<?php echo ($v["dheaderimg"]); ?>" width="60" height="60" /></td>
+														<td><?php echo ($v["dname"]); ?></td>
+														<td><?php echo ($v["dphone"]); ?></td>
+														<td width="90"><?php if($v["discolse"] == 0): ?><span style="background-color: #0d8ddb;padding: 5px;color:white;">正在营业</span><?php else: ?><span  style="background-color: lightgray;padding: 5px;color:white;">已停营</span><?php endif; ?></td>
+														<td><?php echo ($v["daddress"]); ?></td>
+														<!--<td><?php echo ($v["dpretime"]); ?></td>-->
+														<!--<td><?php echo ($v["dendtime"]); ?></td>-->
+														<td><?php echo ($v["daddtime"]); ?></td>
+														<td id="urlid<?php echo ($v["did"]); ?>"><?php echo ($v["durl"]); ?></td>
+														<td><img src="/youxuan/youxuan/index.php/Superadmin/Shoplist/getqrcorde?sid=<?php echo ($v["did"]); ?>" width="60" height="60" /></td>
+														<!--/youxuan/youxuan/index.php/Superadmin-->
+														<!--/youxuan/youxuan-->
 														<td>
-															<a class="btn btn-primary btn-xs"  href="/youxuan/youxuan/index.php/Superadmin/Goodslist/editgoods?gid=<?php echo ($v["gid"]); ?>" target="main" style="margin-top: 10px;">修改</a>
-															<a type="button" class="btn btn-danger btn-xs" data-toggle="modal" href="javascript:deletes('<?php echo ($v["gid"]); ?>');" style="margin-top: 10px;">删除</a>
-                                                          	<a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:changestatus('<?php echo ($v["gid"]); ?>','<?php echo ($v["gstatus"]); ?>');" style="margin-top: 10px;"><?php if($v["gstatus"] == 1): ?>下架<?php else: ?>上架<?php endif; ?></a>
-
+															<input type="button" onClick="copyUrl('<?php echo ($v["did"]); ?>')" class="btn btn-info btn-xs"  href="javascript:;" style="margin-top: 10px;" value="复制链接"/>
+															<a class="btn btn-primary btn-xs"  href="/youxuan/youxuan/index.php/Superadmin/Shoplist/editshop?did=<?php echo ($v["did"]); ?>" target="main" style="margin-top: 10px;">修改</a>
+															<a type="button" class="btn btn-danger btn-xs" data-toggle="modal" href="javascript:deletes('<?php echo ($v["did"]); ?>');" style="margin-top: 10px;">删除</a>
+                                                          <a type="button" class="btn btn-info btn-xs" data-toggle="modal" href="javascript:colses('<?php echo ($v["did"]); ?>','<?php echo ($v["discolse"]); ?>');" style="margin-top: 10px;"><?php if($v["discolse"] == 0): ?>关闭店铺<?php else: ?>开启店铺<?php endif; ?></a>
 														</td>
 													</tr><?php endforeach; endif; ?>
 
@@ -198,7 +204,7 @@
             function deletes(id) {
                 getid=id;
                 swal({
-                    title: "确定要删除该商品？",
+                    title: "确定要删除该店铺吗？",
                     text: "删除之后无法恢复",
                     type: "warning",
                     showCancelButton: true,
@@ -207,9 +213,9 @@
                     closeOnConfirm: false
                 }, function() {
                     $.post(
-                        "<?php echo U('Goodslist/deletegoods');?>",
+                        "<?php echo U('Shoplist/deleteshop');?>",
                         {
-                            gid:getid
+                            id:getid
                         },
                         function(e){
                             console.log(e);
@@ -226,16 +232,16 @@
                 })
 
             }
-          function changestatus(id,iscolse) {
+           function colses(id,iscolse) {
                 isc='';
-                if(iscolse==0){
-                    isc='上架';
-                }else{
-                    isc='下架'
-                }
+               if(iscolse==1){
+                isc='开启';
+			   }else{
+                   isc='关闭'
+			   }
                 getid=id;
                 swal({
-                    title: "确定要"+isc+"该商品吗？",
+                    title: "确定要"+isc+"该店铺吗？",
                     text: "温馨提示",
                     type: "warning",
                     showCancelButton: true,
@@ -244,7 +250,7 @@
                     closeOnConfirm: false
                 }, function() {
                     $.post(
-                        "<?php echo U('Goodslist/changegoods');?>",
+                        "<?php echo U('Shoplist/closeshop');?>",
                         {
                             id:getid
                         },
@@ -254,9 +260,7 @@
                             if(obj.status){
                                 swal("操作成功", "温馨提示", "success");
                                 window.location.reload();
-                            }else if(obj.status==2){
-                                swal("操作失败", "请清除已有预设上架时间", "fail");
-							}else{
+                            }else{
                                 swal("操作失败", "温馨提示", "fail");
                                 window.location.reload();
                             }
@@ -267,10 +271,28 @@
             }
 		</script>
 		<script>
-//			function shownotice(data,id) {
-//				$("#noticedata").html();
-//				$("#noticedata").html(data);
-//            }
+			function shownotice(data,id) {
+				$("#noticedata").html();
+				$("#noticedata").html(data);
+            }
+		</script>
+		<script type="text/javascript">
+            layui.use('layer', function(){ //独立版的layer无需执行这一句
+                var $ = layui.jquery, layer = layui.layer;
+            }); //独立版的layer无需执行这一句
+            function copyUrl(did)
+            {
+                var Url2=document.getElementById("urlid"+did).innerText;
+                var oInput = document.createElement('input');
+                oInput.value = Url2;
+                document.body.appendChild(oInput);
+                oInput.select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                oInput.className = 'oInput';
+                oInput.style.display='none';
+                layer.msg('已复制到粘贴板');
+                //alert('复制成功');
+            }
 		</script>
 	</body>
 
