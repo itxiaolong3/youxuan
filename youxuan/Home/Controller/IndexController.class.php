@@ -53,7 +53,7 @@ class IndexController extends BaseController {
                $this->shopinfo=$shopinfo;
                //购买指数
                $ordernummodel=M('order');
-               $ordernum=$ordernummodel->where('osid='.$getsid." and ostatus=1")->sum('onum');
+               $ordernum=$ordernummodel->where("ostatus=1")->sum('onum');
                //$yimai=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".)->count();
                $this->ordernum=$ordernum;
                //粉丝数

@@ -1,0 +1,15 @@
+[ 2018-09-13T23:45:05+08:00 ] ::1 /youxuan/youxuan/index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000747s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001912s ]
+SQL: SHOW COLUMNS FROM `yx_order` [ RunTime:0.0369s ]
+SQL: SELECT * FROM `yx_order` WHERE ( ostatus=0 )  [ RunTime:0.0013s ]
+SQL: SHOW COLUMNS FROM `yx_configinfo` [ RunTime:0.0112s ]
+ERR: 1054:Unknown column 'isopen' in 'field list'
+ [ SQL语句 ] : SELECT `isopen` FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1  
+ERR: 1054:Unknown column 'isopen' in 'field list'
+ [ SQL语句 ] : SELECT `isopen` FROM `yx_configinfo` WHERE ( id=1 ) LIMIT 1  
+

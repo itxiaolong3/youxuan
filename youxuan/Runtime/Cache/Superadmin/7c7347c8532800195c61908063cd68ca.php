@@ -40,19 +40,25 @@
 	}
 	.box{
 		width: 100%;
-		height: 50px;
 	}
 	.box input{
 		display: none;
 	}
 	.box label{
-		width: 15%;
+		width: 100px;
 		height: 50px;
-		display: inline-block;
+		float: left;
+	}
+	input{
+		display: none;
+	}
+	.box label{
+		width: 120px;
+		height: 50px;
 		line-height: 50px;
 		position: relative;
 		text-align: center;
-		
+		margin-right: -35px
 	}
 	.box label:active{
 		background: #EEEEEE;
@@ -72,34 +78,9 @@
 		background-color: green;
 	}
 
-	.line{
-		width: 100%;
-		height: 1px;
-		background: #CCCCCC;
-		opacity: 0.3;
-	}
+
 </style>
 	<body style="background: none;">
-	<div class="box">
-		<input type="checkbox"  id="checkbox1"/><label for="checkbox1">选项一</label>
-	</div>
-	<div class="line"></div>
-	<div class="box">
-		<input type="checkbox"  id="checkbox2"/><label for="checkbox2">选项二</label>
-	</div>
-	<div class="line"></div>
-	<div class="box">
-		<input type="checkbox"  id="checkbox3"/><label for="checkbox3">选项三</label>
-	</div>
-	<div class="line"></div>
-	<div class="box">
-		<input type="checkbox"  id="checkbox4"/><label for="checkbox4">选项四</label>
-	</div>
-	<div class="line"></div>
-	<div class="box">
-		<input type="checkbox"  id="checkbox5"/><label for="checkbox5">选项五</label>
-	</div>
-	<div class="line"></div>
 	<div class="table-responsive">
 		<div id="tab-2" class="tab-pane">
 			<div class="panel-body ibox-content">
@@ -109,6 +90,68 @@
 					<fieldset class="form-horizontal">
 						<div class="form-group"><label class="col-sm-2 control-label">商品名称:</label>
 							<div class="col-sm-10"><input type="text" class="form-control" name="gtitle" required="required" placeholder="商品名称"></div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">颜色:</label>
+							<div class="col-sm-10">
+								<div class="box">
+									<input type="checkbox" name="color[]"  id="checkbox1" value="红色1"/><label for="checkbox1">红色</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  name="color[]"    id="checkbox2" value="红色2"/><label for="checkbox2">绿色</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox" name="color[]"    id="checkbox3" value="红色3"/><label for="checkbox3">选项三</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox" name="color[]"    id="checkbox7"/><label for="checkbox7">选项五</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox" name="color[]"    id="checkbox8"/><label for="checkbox8">选项四</label>
+								</div>
+
+
+							</div>
+						</div>
+						<div class="form-group"><label class="col-sm-2 control-label">规格:</label>
+							<div class="col-sm-10">
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox1"/><label for="ggcheckbox1">选项一</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox2"/><label for="ggcheckbox2">选项二</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox3"/><label for="ggcheckbox3">选项三</label>
+								</div>
+								<div class="line"></div>
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox4"/><label for="ggcheckbox4">选项四</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox5"/><label for="ggcheckbox5">选项五</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox6"/><label for="ggcheckbox4">选项四</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox7"/><label for="ggcheckbox5">选项五</label>
+								</div>
+
+								<div class="box">
+									<input type="checkbox"  id="ggcheckbox8"/><label for="ggcheckbox4">选项四</label>
+								</div>
+
+
+							</div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">商品简介:</label>
 							<div class="col-sm-10"><input type="text" class="form-control" name="gdes" required="required" placeholder="商品简介，广告语"></div>
@@ -477,6 +520,13 @@
                 $(this).parent().remove();
 
             }
+            //ischeck=$("#checkbox2").is(":checked");
+
+            $("#checkbox1").change(function() {
+                ischeck=$(this).is(":checked");
+                $(this).attr('checked',ischeck);
+                console.log('选择'+ischeck);
+            });
 
 		</script>
 

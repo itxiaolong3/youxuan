@@ -49,6 +49,7 @@ class ShoplistController extends Controller{
             $data['dis_delete']=1;
            $re=$upCtypeModel->where('did='.$getid)->delete();
             if ($re){
+                M('order')->where('osid='.$getid)->delete();
                 $arr['status']=1;
                 $arr['msg']='删除成功';
                 echo json_encode($arr);
