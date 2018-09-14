@@ -80,37 +80,37 @@ class OrderadminController extends Controller {
         $arr=array();
         if($re){
             //确认提货
-            if ($getstatus==2){
-                //在交易表中填加一条提成记录
-                $jiaoyi['rtype']=0;
-                //这里的余额只是提供交易表中使用，具体计算方法如下：提成类型-退款类型-提现类型-提现表中的提现中金额
-                //余额的计算是在插入数据成功后再更新
-                $jiaoyi['ryue']=0;
-                $getsid=M('order')->where('oid='.$getoid)->find();
-                //获取提成金额
-                $goods=M('goods')->where('gid='.$getsid['ogid'])->find();
-                $jiaoyi['rmoney']=$goods['gticheng']*$getonum;
-                $jiaoyi['rsid']=$getsid['osid'];
-                $jiaoyi['raddtime']=time();
-                $jiaoyi['rordertime']=date('Y-m-d h:i:s',time());
-                $getid=M('jiaoyi')->add($jiaoyi);
-                //更新余额
-                if ($getsid){
-                    //提成类型
-                    $tctotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=0")->sum('rmoney');
-                    //退款类型
-                    $tktotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=1")->sum('rmoney');
-                    //提现类型
-                    //$txtotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=2")->sum('rmoney');
-                    $txtotal=M('tixian')->where('xsid='.$getsid['osid'].' and xtype=1')->sum('xshenprice');
-                    //提现表中的提现中金额
-                    $txzhongtotal=M('tixian')->where('xsid='.$getsid['osid'].' and xtype=0')->sum('xshenprice');
-                    $yue=$tctotal-($tktotal+$txtotal+$txzhongtotal);
-                    $yuedata['ryue']=$yue;
-                    //更新余额
-                    M('jiaoyi')->where('rid='.$getid)->save($yuedata);
-                }
-            }
+//            if ($getstatus==2){
+//                //在交易表中填加一条提成记录
+//                $jiaoyi['rtype']=0;
+//                //这里的余额只是提供交易表中使用，具体计算方法如下：提成类型-退款类型-提现类型-提现表中的提现中金额
+//                //余额的计算是在插入数据成功后再更新
+//                $jiaoyi['ryue']=0;
+//                $getsid=M('order')->where('oid='.$getoid)->find();
+//                //获取提成金额
+//                $goods=M('goods')->where('gid='.$getsid['ogid'])->find();
+//                $jiaoyi['rmoney']=$goods['gticheng']*$getonum;
+//                $jiaoyi['rsid']=$getsid['osid'];
+//                $jiaoyi['raddtime']=time();
+//                $jiaoyi['rordertime']=date('Y-m-d h:i:s',time());
+//                $getid=M('jiaoyi')->add($jiaoyi);
+//                //更新余额
+//                if ($getsid){
+//                    //提成类型
+//                    $tctotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=0")->sum('rmoney');
+//                    //退款类型
+//                    $tktotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=1")->sum('rmoney');
+//                    //提现类型
+//                    //$txtotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=2")->sum('rmoney');
+//                    $txtotal=M('tixian')->where('xsid='.$getsid['osid'].' and xtype=1')->sum('xshenprice');
+//                    //提现表中的提现中金额
+//                    $txzhongtotal=M('tixian')->where('xsid='.$getsid['osid'].' and xtype=0')->sum('xshenprice');
+//                    $yue=$tctotal-($tktotal+$txtotal+$txzhongtotal);
+//                    $yuedata['ryue']=$yue;
+//                    //更新余额
+//                    M('jiaoyi')->where('rid='.$getid)->save($yuedata);
+//                }
+//            }
             $arr['code']=0;
             echo json_encode($arr);
         }else{

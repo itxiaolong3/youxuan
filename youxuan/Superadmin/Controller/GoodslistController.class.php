@@ -113,6 +113,12 @@ class GoodslistController extends Controller{
             $id=I('gid');
             $arr=array();
             $data=I('post.');
+            $colors=I('color');
+            $formats=I('format');
+            $colorstr=implode(',',$colors);
+            $formatstr=implode(',',$formats);
+            $data['gcolor']=$colorstr;
+            $data['gformat']=$formatstr;
             $data['gaddtime']=time();
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);
@@ -166,6 +172,16 @@ class GoodslistController extends Controller{
             $goodsdata['gcomment']=htmlspecialchars_decode($goodsdata['gcomment']);
             $thums=explode('|',$goodsdata['gimgs']);
             $this->assign('arrs',$thums);
+            //规格
+            $getcolor=M('color')->select();
+            $getformat=M('format')->select();
+            $this->colors=$getcolor;
+            $this->formats=$getformat;
+            $getthiscolor=explode(',',$goodsdata['gcolor']);
+            $getthisformat=explode(',',$goodsdata['gformat']);
+            //var_dump($getthiscolor);
+            $this->thiscolor=$getthiscolor;
+            $this->thisformat=$getthisformat;
             $this->classinfo=$goodsdata;
             //var_dump($classdata);
             $this->display();

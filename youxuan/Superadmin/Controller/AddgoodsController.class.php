@@ -10,9 +10,15 @@ use Think\Controller;
 class AddgoodsController extends Controller{
     function addgoods(){
         if(IS_POST){
-            //var_dump(I('post.'));
             $arr=array();
             $data=I('post.');
+            $colors=I('color');
+            $formats=I('format');
+            $colorstr=implode(',',$colors);
+            $formatstr=implode(',',$formats);
+            $data['gcolor']=$colorstr;
+            $data['gformat']=$formatstr;
+
             $data['gaddtime']=time();
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);
@@ -58,6 +64,10 @@ class AddgoodsController extends Controller{
             }
 
         }else{
+            $getcolor=M('color')->select();
+            $getformat=M('format')->select();
+            $this->colors=$getcolor;
+            $this->formats=$getformat;
             $this->display();
         }
 

@@ -12,7 +12,7 @@
 				</li>
 
 				<li class="active">
-					<strong>颜色</strong>
+					<strong>尺寸</strong>
 				</li>
 			</ol>
 		</div>
@@ -31,16 +31,16 @@
 									<tbody>
 									<tr>
 										<th>id</th>
-										<th>颜色</th>
+										<th>尺寸</th>
 										<th>操作</th>
 									</tr>
-									<foreach name="colorinfo" item="vv">
+									<foreach name="formatinfo" item="vv">
 										<tr>
-											<td>{$vv.cid}</td>
-											<td>{$vv.cname}</td>
+											<td>{$vv.ggid}</td>
+											<td>{$vv.ggname}</td>
 											<td>
-												<a type="button" class="btn btn-primary btn-xs" data-toggle="modal" href="javascript:deleteuser('{$vv.cid}');">移除</a>
-												<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal4"  onclick="doedit('{$vv.cid}','{$vv.cname}')">修改信息</button>
+												<a type="button" class="btn btn-primary btn-xs" data-toggle="modal" href="javascript:deleteuser('{$vv.ggid}');">移除</a>
+												<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal4"  onclick="doedit('{$vv.ggid}','{$vv.ggname}')">修改信息</button>
 											</td>
 										</tr>
 									</foreach>
@@ -75,12 +75,12 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 							<div class="ibox-content">
-								<form method="post" class="form-horizontal" action="">
-									<input type="hidden" placeholder="自动获取" name="cid" id="getid"  class="form-control" required="required">
+								<form method="post" class="form-horizontal" action="" enctype="multipart/form-data">
+									<input type="hidden" placeholder="自动获取" name="ggid" id="getid"  class="form-control" required="required">
 									<div class="form-group">
-										<label class="col-sm-2 control-label">颜色</label>
+										<label class="col-sm-2 control-label">尺寸</label>
 										<div class="col-sm-10">
-											<input type="text" placeholder="黄色" name="cname" id="getname"  class="form-control" required="required">
+											<input type="text" placeholder="37码" name="ggname" id="getname"  class="form-control" required="required">
 										</div>
 									</div>
 									<div class="col-sm-10" style="width: 100%;text-align: center;">
@@ -119,11 +119,11 @@
 					<div class="col-lg-12">
 						<div class="ibox float-e-margins">
 							<div class="ibox-content">
-								<form method="post" class="form-horizontal">
+								<form method="post" class="form-horizontal"  enctype="multipart/form-data">
 									<div class="form-group">
-										<label class="col-sm-2 control-label">颜色</label>
+										<label class="col-sm-2 control-label">尺寸</label>
 										<div class="col-sm-10">
-											<input type="text" placeholder="如：黄色" id="colors" name="cname" class="form-control" required="required">
+											<input type="text" placeholder="如：37码" id="colors" name="ggname" class="form-control" required="required">
 										</div>
 									</div>
 									<div class="col-sm-10" style="width: 100%;text-align: center;">
@@ -175,9 +175,9 @@
             closeOnConfirm: true
         }, function() {
             $.post(
-                "{:U('Addcolor/index')}",
+                "{:U('Addformat/index')}",
                 {
-                    cid:id
+                    ggid:id
                 },
                 function(e){
                     obj=JSON.parse(e);
@@ -206,7 +206,7 @@
         l.ladda( 'start' );
         var data = $('#colors').val();
         //开始提交数据进行保存
-        $.post("{:U('Addcolor/addcolor')}",{cname:data},function(e){
+        $.post("{:U('Addformat/addformat')}",{ggname:data},function(e){
             e1 = JSON.parse(e);
             console.log(e1);
             if(e1.status==1){
@@ -214,7 +214,7 @@
                 l.ladda('stop');
             }else if(e1.status==-3){
                 swal({
-                    title: "该颜色已存在",
+                    title: "该尺寸已存在",
                     text: "添加失败"
                 });
                 l.ladda('stop');
@@ -243,10 +243,10 @@
             getid=$("#getid").val();
             getname=$("#getname").val();
             $.post(
-                "{:U('Addcolor/editcolor')}",
+                "{:U('Addformat/editformat')}",
                 {
-                    'cname':getname,
-                    'cid':getid,
+                    'ggname':getname,
+                    'ggid':getid,
                 }
                 ,function(e){
                     e = JSON.parse(e);
@@ -256,8 +256,8 @@
                         l.ladda('stop');
                     }else if(e.status==-3){
                         swal({
-                            title: "该颜色已存在",
-                            text: "添加失败"
+                            title: "该尺寸已存在",
+                            text: "修改失败"
                         });
                         l.ladda('stop');
                     }else{

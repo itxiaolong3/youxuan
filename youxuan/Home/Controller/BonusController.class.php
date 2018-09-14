@@ -25,7 +25,7 @@ class BonusController extends Controller {
            ->alias('o')
            ->join("yx_goods g on o.ogid=g.gid")
            ->field("o.buynum,o.ordertime,o.oaddtime,o.ogid,o.osid,g.gtitle,g.gticheng")//需要显示的字段
-           ->where('o.ostatus=2'.' and to_days(ordertime) = to_days(now())')
+           ->where('o.ostatus>0'.' and to_days(ordertime) = to_days(now())')
            ->select();//所有信息
        $totaltoday=array();
        foreach ($todayticheng as $k=>$v){
@@ -40,7 +40,7 @@ class BonusController extends Controller {
            ->alias('o')
            ->join("yx_goods g on o.ogid=g.gid")
            ->field("o.buynum,o.ordertime,o.oaddtime,o.ogid,o.osid,g.gtitle,g.gticheng")//需要显示的字段
-           ->where('o.ostatus=2'." and YEARWEEK(date_format(ordertime,'%Y-%m-%d')) = YEARWEEK(now())")
+           ->where('o.ostatus>0'." and YEARWEEK(date_format(ordertime,'%Y-%m-%d')) = YEARWEEK(now())")
            ->select();//所有信息
        $totalweek=array();
        foreach ($weekticheng as $k=>$v){
@@ -55,7 +55,7 @@ class BonusController extends Controller {
            ->alias('o')
            ->join("yx_goods g on o.ogid=g.gid")
            ->field("o.buynum,o.ordertime,o.oaddtime,o.ogid,o.osid,g.gtitle,g.gticheng")//需要显示的字段
-           ->where('o.ostatus=2'." and DATE_FORMAT( ordertime, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )")
+           ->where('o.ostatus>0'." and DATE_FORMAT( ordertime, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' )")
            ->select();//所有信息
        $totalmonth=array();
        foreach ($monthticheng as $k=>$v){
@@ -70,7 +70,7 @@ class BonusController extends Controller {
            ->alias('o')
            ->join("yx_goods g on o.ogid=g.gid")
            ->field("o.buynum,o.ordertime,o.oaddtime,o.ogid,o.osid,g.gtitle,g.gticheng")//需要显示的字段
-           ->where('o.ostatus=2')
+           ->where('o.ostatus>0')
            ->select();//所有信息
        $totalall=array();
        foreach ($allticheng as $k=>$v){

@@ -23,13 +23,47 @@ class PaynotifyController extends Controller {
           	$data['ostatus']=1;
           	$data['opaymoney']=$reArr['total_fee']/100;
             M('order')->where('onumber='.$reArr['out_trade_no'])->save($data);
+            //立即生效订单分成开始
+            $getonumber=$reArr['out_trade_no'];
+            $allorderinfo=M('order')->where('onumber='.$reArr['out_trade_no'])->select();
+            foreach ($allorderinfo as $k=>$vv){
+                //在交易表中填加一条提成记录
+                $jiaoyi['rtype']=0;
+                //这里的余额只是提供交易表中使用，具体计算方法如下：提成类型-退款类型-提现类型-提现表中的提现中金额
+                //余额的计算是在插入数据成功后再更新
+                $jiaoyi['ryue']=0;
+               // $getsid=M('order')->where('oid='.$orderinfo['oid'])->find();
+                //获取提成金额
+                $goods=M('goods')->where('gid='.$vv['ogid'])->find();
+                $jiaoyi['rmoney']=$goods['gticheng']*$vv['buynum'];
+                $jiaoyi['rsid']=$vv['osid'];
+                $jiaoyi['raddtime']=time();
+                $jiaoyi['rordertime']=date('Y-m-d h:i:s',time());
+                $getid=M('jiaoyi')->add($jiaoyi);
+                //更新余额
+                    //提成类型
+                    $tctotal=M('jiaoyi')->where('rsid='.$vv['osid']." and rtype=0")->sum('rmoney');
+                    //退款类型
+                    $tktotal=M('jiaoyi')->where('rsid='.$vv['osid']." and rtype=1")->sum('rmoney');
+                    //提现类型
+                    //$txtotal=M('jiaoyi')->where('rsid='.$getsid['osid']." and rtype=2")->sum('rmoney');
+                    $txtotal=M('tixian')->where('xsid='.$vv['osid'].' and xtype=1')->sum('xshenprice');
+                    //提现表中的提现中金额
+                    $txzhongtotal=M('tixian')->where('xsid='.$vv['osid'].' and xtype=0')->sum('xshenprice');
+                    $yue=$tctotal-($tktotal+$txtotal+$txzhongtotal);
+                    $yuedata['ryue']=$yue;
+                    //更新余额
+                    M('jiaoyi')->where('rid='.$getid)->save($yuedata);
+
+            }
+            //立即生成订单结束
             file_put_contents($file,$postXml);
             file_put_contents($file,'支付返回的签名='.$reArr['sign'].'回调再次签名='.$sign,FILE_APPEND);
         }else{
             file_put_contents($file,'签名不一样返回的签名='.$reArr['sign'].'签名不一样回调再次签名='.$sign);
 
         }
-        if($reArr['sign'] != $sign) return '<xml> 
+        if($reArr['sign'] != $sign) echo '<xml> 
 				<return_code><![CDATA[FAIL]]></return_code>
 				<return_msg><![CDATA[签名失败]]></return_msg>
 				</xml>';
@@ -42,7 +76,7 @@ class PaynotifyController extends Controller {
 //				<return_msg><![CDATA[OK]]></return_msg>
 //				</xml>';
 
-        return '<xml> 
+        echo '<xml> 
 			<return_code><![CDATA[SUCCESS]]></return_code>
 			<return_msg><![CDATA[OK]]></return_msg>
 			</xml>';

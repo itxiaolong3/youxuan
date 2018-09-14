@@ -55,72 +55,26 @@
 		<div id="tab-2" class="tab-pane">
 			<div class="panel-body ibox-content">
 				<form method="post" class="form-horizontal"  enctype="multipart/form-data">
-
-
 					<fieldset class="form-horizontal">
 						<div class="form-group"><label class="col-sm-2 control-label">商品名称:</label>
 							<div class="col-sm-10"><input type="text" class="form-control" name="gtitle" required="required" placeholder="商品名称"></div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">颜色:</label>
 							<div class="col-sm-10">
-								<div class="box">
-									<input type="checkbox" name="color[]"  id="checkbox1" value="红色1"/><label for="checkbox1">红色</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  name="color[]"    id="checkbox2" value="红色2"/><label for="checkbox2">绿色</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox3" value="红色3"/><label for="checkbox3">选项三</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox7"/><label for="checkbox7">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox8"/><label for="checkbox8">选项四</label>
-								</div>
-
-
+								<foreach name="colors" item="v" key="k">
+									<div class="box">
+										<input type="checkbox" name="color[]"  id="checkbox{$k}" value="{$v.cname}"/><label for="checkbox{$k}">{$v.cname}</label>
+									</div>
+								</foreach>
 							</div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">规格:</label>
 							<div class="col-sm-10">
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox1"/><label for="ggcheckbox1">选项一</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox2"/><label for="ggcheckbox2">选项二</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox3"/><label for="ggcheckbox3">选项三</label>
-								</div>
-								<div class="line"></div>
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox4"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox5"/><label for="ggcheckbox5">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox6"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox7"/><label for="ggcheckbox5">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox8"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-
+								<foreach name="formats" item="v" key="k">
+									<div class="box">
+										<input type="checkbox" name="format[]"  id="ggcheckbox2{$k}" value="{$v.ggname}"/><label for="ggcheckbox2{$k}">{$v.ggname}</label>
+									</div>
+								</foreach>
 							</div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">商品简介:</label>
@@ -461,13 +415,6 @@
                 $(this).parent().remove();
 
             }
-            //ischeck=$("#checkbox2").is(":checked");
-
-            $("#checkbox1").change(function() {
-                ischeck=$(this).is(":checked");
-                $(this).attr('checked',ischeck);
-                console.log('选择'+ischeck);
-            });
 
 		</script>
 

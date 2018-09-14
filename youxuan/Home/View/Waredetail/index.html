@@ -1,223 +1,242 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="user-scalable=no" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/ware-detail.css" />
-        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/swiper.css" />
-        <title>商品详情</title>
-        <style>
-            .swiper-container {
-                width: 100%;
-                height: 9.2rem;
-            }
 
-            .cover img {
-                width: 100%;
-                height: 9.2rem;
-            }
-
-            .swiper-pagination-bullet {
-                width: 0.2rem;
-                height: 0.2rem;
-                margin: 0 0.1rem !important;
-            }
-
-            .swiper-pagination-bullet-active {
-                background: #e70012;
-            }
-        </style>
-
-    </head>
-    <body>
-        <main id="app">
-            <div class="header-container">
-                <a class="left" onclick="javascript:history.back();">
-                    <img src="__PUBLIC__/home/images/icon/left.png" />
-                    <span>返回</span>
-                </a>
-                <div class="middle">商品详情</div>
-                <a class="right"></a>
-            </div>
-            <div class="nav-container">
-                <div class="nav" style="color: #e70012;">商品详情</div>
-                <div class="nav">购买记录</div>
-            </div>
-           <div class="detail-container">
-                <div class="cover">
-                    <ul class="swiper-container banner-ul">
-                        <div class="swiper-wrapper">
-                            <foreach name="goodsinfo['thums']" item="v">
-                            <li class="swiper-slide"><img src="{$v}" /></li>
-                            </foreach>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </ul>
-
-                    <!--<ul id="banner-ul">
-                        <foreach name="goodsinfo['thums']" item="v">
-                        <li><img src="{$v}" /></li>
-                        <li><img src="__PUBLIC__/home/images/other/goods_2.jpg" /></li>
-                        <li><img src="__PUBLIC__/home/images/other/ware_cover.jpg" /></li>
-                        </foreach>
-                    </ul>
-                    <div id="dot">
-                        <ul>
-                            <foreach name="goodsinfo['thums']" item="v">
-                            <li></li>
-                            </foreach>
-                        </ul>
-                    </div>-->
-
-                </div>
-                <div class="cover-footer">
-                    <div class="left"><span>￥</span>{$goodsinfo.gyhprice}&nbsp;&nbsp;<s>￥{$goodsinfo.gprice}</s></div>
-                    <div class="right">
-                        <p class="top">距离本商品结束还剩</p>
-                        <p id="time" class="bottom"></p>
-                    </div>
-                </div>
-                <div class="container-1">
-                    <p class="top">{$goodsinfo.gtitle}</p>
-                    <div class="bottom">
-                        <p>{$goodsinfo.gdes}</p>
-                        <p>关注人数：{$salenum}</p>
-                    </div>
-                </div>
-                <div class="container-2">
-                    <div class="left">
-                        <p style="margin-bottom: 0.2rem;">预售时间：{$goodsinfo.gbuypretime}</p>
-                        <p>提货时间：{$goodsinfo.gbuyendtime} 18:00</p>
-                    </div>
-                    <div class="right">
-                        已售<span style="color: #e70012;"> {$salenum} </span>份
-                    </div>
-                </div>
-                <div class="container-3">
-                    <div class="container-title">数量：</div>
-                    <div class="right">
-                        <div class="minus">-</div>
-                        <div class="count">1</div>
-                        <div class="plus">+</div>
-                    </div>
-                </div>
-                <div class="container-4">
-                    <p class="container-title">商品详情</p>
-                    <p class="content"><span>供应商：</span>{$goodsinfo.gboss}</p>
-                    <p class="content"><span>品牌：</span>{$goodsinfo.gpingpai|default="暂无"}</p>
-                    <p class="content"><span>规格：</span>1份</p>
-                    <p class="content"><span>产地：</span>{$goodsinfo.gaddress}</p>
-                </div>
-                <div class="container-5">
-                    <p class="container-title">图文详情</p>
-                    <div class="content">{$goodsinfo.gcomment}</div>
-                    <!--<img class="image" src="__PUBLIC__/home/images/other/ware_detail.jpg" />-->
-                </div>
-                <div class="container-6">
-                    <img src="__PUBLIC__/home/images/other/ware_flow.jpg" />
-                </div>
-            </div>
-             <div class="record-container hid">
-                <div class="record-title">
-                    目前共<span>{$usernum}人</span>参与购买，商品共销售<span>{$salenum|default=0}份</span>
-                </div>
-                 <foreach name="selluserinfo" item="v">
-                <div class="record-item">
-                    <!--这里的头像地址得去掉public-->
-                    <div class="left"><img src="{$v.headerimg}"></div>
-                    <div class="right">
-                        <p>{$v.nickname}</p>
-                        <p><span>{$v.onum}</span>份</p>
-                        <p>{$v.oaddtime}</p>
-                    </div>
-                </div>
-                 </foreach>
-
-                <!--<div class="record-item">-->
-                    <!--<div class="left"></div>-->
-                    <!--<div class="right">-->
-                        <!--<p>用户名称</p>-->
-                        <!--<p><span>1</span>份</p>-->
-                        <!--<p>2018-04-20</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            </div>
-            <if condition="$goodsinfo['gendnum'] eq 0">
-                <div class="nogood">
-                    已售罄
-                </div>
-                <else/>
-                <div class="footer-container">
-                    <a class="icon" onclick="postcartdata();">
-                        <img src="__PUBLIC__/home/images/icon/cart.png" />
-                        <div class="badge hid">0</div>
-                    </a>
-                    <a class="btn-1" onclick="addcart('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}','{$sid}');">加入购物车</a>
-                    <a class="btn-2" onclick="topay('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}');">立即购买</a>
-                </div>
-            </if>
-
-        </main>
-    </body>
-    <script>
-        var jsfori=0;
-        var  jsforsid="{$sid}";
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/swiper.js"></script>
-    <script>
-        /*轮播图*/
-        var mySwiper = new Swiper('.swiper-container', {
-            pagination: {
-                el: '.swiper-pagination'
-            },
-            autoplay: {
-                delay: 2000,
-                stopOnLastSlide: false,
-                disableOnInteraction: false
-            },
-            loop: true
-        })
-    </script>
-    <script>
-        /*倒计时*/
-        var currentTime = Date.parse(new Date())/1000;//获取当前时间戳
-        var endTime = Date.parse('{$goodsinfo.gendtime}')/1000;//结束时间戳
-        var downTime = parseInt(endTime - currentTime);//要结束的时间减去当前时间得出的时间戳放在这
-        console.log(downTime);
-        function go(){
-            downTimes=setInterval(function(){
-                var h = 0;
-                m = 0;
-                s = 0;
-                if(downTime > 0){
-                    h = Math.floor(downTime / (60 * 60));
-                    m = Math.floor(downTime / 60) - (h * 60);
-                    s = Math.floor(downTime) - (h * 60 * 60) - (m * 60);
-                    if (h <= 9){
-                        h = '0' + h;
-                    }
-                    if (m <= 9){
-                        m = '0' + m;
-                    }
-                    if (s <= 9){
-                        s = '0' + s;
-                    }
-                }else{
-                    h = 0;
-                    m = 0;
-                    s = 0;
-                }
-                $("#time").html(h + ' ： ' + m + ' ： ' + s);
-                downTime--;
-            },1000);
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/ware-detail.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/swiper.css" />
+    <title>商品详情</title>
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 9.2rem;
         }
 
-        go();
-    </script>
+        .cover img {
+            width: 100%;
+            height: 9.2rem;
+        }
+
+        .swiper-pagination-bullet {
+            width: 0.2rem;
+            height: 0.2rem;
+            margin: 0 0.1rem !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #e70012;
+        }
+    </style>
+
+</head>
+<body>
+<main id="app">
+    <div class="header-container">
+        <a class="left" onclick="javascript:history.back();">
+            <img src="__PUBLIC__/home/images/icon/left.png" />
+            <span>返回</span>
+        </a>
+        <div class="middle">商品详情</div>
+        <a class="right"></a>
+    </div>
+    <div class="nav-container">
+        <div class="nav" style="color: #e70012;">商品详情</div>
+        <div class="nav">购买记录</div>
+    </div>
+    <div class="detail-container">
+        <div class="cover">
+            <ul class="swiper-container banner-ul">
+                <div class="swiper-wrapper">
+                    <foreach name="goodsinfo['thums']" item="v">
+                        <li class="swiper-slide"><img src="{$v}" /></li>
+                    </foreach>
+                </div>
+                <div class="swiper-pagination"></div>
+            </ul>
+
+            <!--<ul id="banner-ul">
+                <foreach name="goodsinfo['thums']" item="v">
+                <li><img src="{$v}" /></li>
+                <li><img src="__PUBLIC__/home/images/other/goods_2.jpg" /></li>
+                <li><img src="__PUBLIC__/home/images/other/ware_cover.jpg" /></li>
+                </foreach>
+            </ul>
+            <div id="dot">
+                <ul>
+                    <foreach name="goodsinfo['thums']" item="v">
+                    <li></li>
+                    </foreach>
+                </ul>
+            </div>-->
+
+        </div>
+        <div class="cover-footer">
+            <div class="left"><span>￥</span>{$goodsinfo.gyhprice}&nbsp;&nbsp;<s>￥{$goodsinfo.gprice}</s></div>
+            <div class="right">
+                <p class="top">距离本商品结束还剩</p>
+                <p id="time" class="bottom"></p>
+            </div>
+        </div>
+        <div class="container-1">
+            <p class="top">{$goodsinfo.gtitle}</p>
+            <div class="bottom">
+                <p>{$goodsinfo.gdes}</p>
+                <p>关注人数：{$salenum}</p>
+            </div>
+        </div>
+        <div class="container-2">
+            <div class="left">
+                <p style="margin-bottom: 0.2rem;">预售时间：{$goodsinfo.gbuypretime}</p>
+                <p>提货时间：{$goodsinfo.gbuyendtime} 16:00</p>
+            </div>
+            <div class="right">
+                已售<span style="color: #e70012;"> {$salenum} </span>份
+            </div>
+        </div>
+        <div class="container-3">
+            <div class="container-title">数量：</div>
+            <div class="right">
+                <div class="minus">-</div>
+                <div class="count">1</div>
+                <div class="plus">+</div>
+            </div>
+        </div>
+        <if condition="empty($goodsinfo['gcolor'][0]) neq true">
+            <div class="container-3">
+                <div class="container-title">颜色：</div>
+                <div class="right-2">
+                    <foreach name="goodsinfo['gcolor']" item="v" key="k">
+                        <label><input class="aui-radio" type="radio" name="colors"> {$v}</label>
+                    </foreach>
+                </div>
+            </div><else/></if>
+        <if condition="empty($goodsinfo['gformat'][0]) neq true">
+            <div class="container-3">
+                <div class="container-title">规格：</div>
+                <div class="right-2">
+                    <foreach name="goodsinfo['gformat']" item="v" key="k">
+                        <label><input class="aui-radio" type="radio" name="formats">{$v}</label>
+                    </foreach>
+                </div>
+            </div><else/></if>
+        <div class="container-4">
+            <p class="container-title">商品详情</p>
+            <p class="content"><span>供应商：</span>{$goodsinfo.gboss}</p>
+            <p class="content"><span>品牌：</span>{$goodsinfo.gpingpai|default="暂无"}</p>
+            <p class="content"><span>规格：</span>1份</p>
+            <p class="content"><span>产地：</span>{$goodsinfo.gaddress}</p>
+        </div>
+        <div class="container-5">
+            <p class="container-title">图文详情</p>
+            <div class="content">{$goodsinfo.gcomment}</div>
+            <!--<img class="image" src="__PUBLIC__/home/images/other/ware_detail.jpg" />-->
+        </div>
+        <div class="container-6">
+            <img src="__PUBLIC__/home/images/other/ware_flow.jpg" />
+        </div>
+    </div>
+    <div class="record-container hid">
+        <div class="record-title">
+            目前共<span>{$usernum}人</span>参与购买，商品共销售<span>{$salenum|default=0}份</span>
+        </div>
+        <foreach name="selluserinfo" item="v">
+            <div class="record-item">
+                <!--这里的头像地址得去掉public-->
+                <div class="left"><img src="{$v.headerimg}"></div>
+                <div class="right">
+                    <p>{$v.nickname}</p>
+                    <p><span>{$v.onum}</span>份</p>
+                    <p>{$v.oaddtime}</p>
+                </div>
+            </div>
+        </foreach>
+
+        <!--<div class="record-item">-->
+        <!--<div class="left"></div>-->
+        <!--<div class="right">-->
+        <!--<p>用户名称</p>-->
+        <!--<p><span>1</span>份</p>-->
+        <!--<p>2018-04-20</p>-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+    <if condition="$goodsinfo['gendnum'] eq 0">
+        <div class="nogood">
+            已售罄
+        </div>
+        <else/>
+        <div class="footer-container">
+            <a class="icon" onclick="postcartdata();">
+                <img src="__PUBLIC__/home/images/icon/cart.png" />
+                <div class="badge hid">0</div>
+            </a>
+            <a class="btn-1" onclick="addcart('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}','{$sid}');">加入购物车</a>
+            <a class="btn-2" onclick="topay('{$goodsinfo.gid}','{$goodsinfo.gtopimg}','{$goodsinfo.gtitle}','{$goodsinfo.gdes}','{$goodsinfo.gyhprice}','{$v.gprice}');">立即购买</a>
+        </div>
+    </if>
+
+</main>
+</body>
+<script>
+    var jsfori=0;
+    var  jsforsid="{$sid}";
+</script>
+<script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/swiper.js"></script>
+<script>
+    /*轮播图*/
+    var mySwiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: false
+        },
+        loop: true
+    })
+</script>
+<script>
+    /*倒计时*/
+    var currentTime = Date.parse(new Date())/1000;//获取当前时间戳
+    var endTime = Date.parse('{$goodsinfo.gendtime}')/1000;//结束时间戳
+    var downTime = parseInt(endTime - currentTime);//要结束的时间减去当前时间得出的时间戳放在这
+    console.log(downTime);
+    function go(){
+        downTimes=setInterval(function(){
+            var h = 0;
+            m = 0;
+            s = 0;
+            if(downTime > 0){
+                h = Math.floor(downTime / (60 * 60));
+                m = Math.floor(downTime / 60) - (h * 60);
+                s = Math.floor(downTime) - (h * 60 * 60) - (m * 60);
+                if (h <= 9){
+                    h = '0' + h;
+                }
+                if (m <= 9){
+                    m = '0' + m;
+                }
+                if (s <= 9){
+                    s = '0' + s;
+                }
+            }else{
+                h = 0;
+                m = 0;
+                s = 0;
+            }
+            $("#time").html(h + ' ： ' + m + ' ： ' + s);
+            downTime--;
+        },1000);
+    }
+
+    go();
+</script>
 <script>
     function addcart(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid) {
         var getnum=$(".right .count").html();
@@ -232,8 +251,21 @@
             imgurl:gtopimg,
             sid:sid
         };
-        cart.addproduct(product);
-       
+        if ({$goodsinfo['gcolor'][0]}!=null){
+            alert('有值')
+            var val=$('input:radio[name="gcolor"]:checked').val();
+            if(val==null){
+                alert("请选择颜色"+$('input:radio[name="gcolor"]').val());
+                return false;
+            }else{
+                cart.addproduct(product);
+            }
+        }else{
+            没值
+        }
+
+
+
     }
     /*立即购买*/
     function topay(gid,gtopimg,gtitle,gdes,gyhprice,gprice) {

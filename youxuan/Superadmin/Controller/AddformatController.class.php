@@ -7,13 +7,13 @@
  */
 namespace Superadmin\Controller;
 use Think\Controller;
-class AddcolorController extends Controller{
+class AddformatController extends Controller{
     function index(){
-        $colorModel = M('color');
+        $formatModel = M('format');
         if (IS_POST) {
-            $getid = I('cid');
+            $getid = I('ggid');
             $arr = array();
-                $re = $colorModel->where('cid=' . $getid)->delete();
+                $re = $formatModel->where('ggid=' . $getid)->delete();
                 if ($re) {
                     $arr['status'] = 1;
                     $arr['msg'] = '删除成功';
@@ -24,26 +24,26 @@ class AddcolorController extends Controller{
                     echo json_encode($arr);
                 }
         } else {
-            $colorinfo = $colorModel->select();
-            $this->colorinfo = $colorinfo;
-            $this->display('Addcolor/index');
+            $formatinfo = $formatModel->select();
+            $this->formatinfo = $formatinfo;
+            $this->display('Addformat/index');
         }
 
 
     }
     //增加颜色
-    function Addcolor()
+    function Addformat()
     {
         $data = I('post.');
-        $superModel = M('color');
+        $superModel = M('format');
 
         $arr = array();
-        if (empty($data['cname'])) {
+        if (empty($data['ggname'])) {
             $arr['status'] = -1;
             $arr['msg'] = '添加失败';
             echo json_encode($arr);
         }else {
-            $info=$superModel->where("cname="."'".$data['cname']."'")->find();
+            $info=$superModel->where("ggname="."'".$data['ggname']."'")->find();
             if($info){
                 //颜色已经存在
                 $arr['status'] = -3;
@@ -68,24 +68,24 @@ class AddcolorController extends Controller{
     }
 
     //编辑
-    function editcolor()
+    function editformat()
     {
-        $adminModel = M('color');
+        $adminModel = M('format');
         $arr = array();
-        $id = I('cid');
-        $data['cname'] = $_POST['cname'];
-        if (empty($data['cname'])) {
+        $id = I('ggid');
+        $data['ggname'] = $_POST['ggname'];
+        if (empty($data['ggname'])) {
             $arr['status'] = -1;
             $arr['msg'] = '添加失败';
             echo json_encode($arr);
         } else {
-            $info=$adminModel->where("cname="."'".$data['cname']."'")->find();
-            if ($info){
+            $info=$adminModel->where("ggname="."'".$data['ggname']."'")->find();
+            if($info){
                 $arr['status'] = -3;
-                $arr['msg'] = '该颜色存在，添加失败';
+                $arr['msg'] = '已存在该尺寸';
                 echo json_encode($arr);
             }else{
-                $re = $adminModel->where('cid=' . $id)->save($data);
+                $re = $adminModel->where('ggid=' . $id)->save($data);
                 if ($re) {
                     $arr['status'] = 1;
                     $arr['msg'] = '编辑成功';

@@ -1,32 +1,34 @@
 <?php if (!defined('THINK_PATH')) exit();?><!--引入头部文件，如css-->
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title><?php echo ($title); ?></title>
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/css/animate.css" rel="stylesheet">
-    <link href="/youxuan/youxuan/Public/admin/css/style.css" rel="stylesheet">
-    <!-- Ladda style -->
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
-    <!-- Sweet Alert -->
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <!-- Toastr style -->
-    <link href="/youxuan/youxuan/Public/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    <!--多图上传的css-->
-    <link href="/youxuan/youxuan/Public/css/default.css" rel="stylesheet" type="text/css" />
-    <!--layer-->
-    <link href="/youxuan/youxuan/Public/admin/js/layer/css/layui.css" rel="stylesheet">
-    <script src="/youxuan/youxuan/Public/admin/js/layer/layui.js" charset="utf-8"></script>
-
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><?php echo ($title); ?></title>
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/animate.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/style.css" rel="stylesheet">
+    <!-- Ladda style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!--多图上传的css-->
+    <link href="/youxuan/youxuan/Public/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <!--layer-->
+    <link href="/youxuan/youxuan/Public/admin/js/layer/css/layui.css" rel="stylesheet">
+    <script src="/youxuan/youxuan/Public/admin/js/layer/layui.js" charset="utf-8"></script>
+
+
 </head>
 <style type="text/css">
 	*{
@@ -37,21 +39,26 @@
 		outline: none;
 	}
 	.box{
-		width: 140px;
+		width: 100%;
+	}
+	.box input{
+		display: none;
+	}
+	.box label{
+		width: 100px;
 		height: 50px;
 		float: left;
-		margin-right: -55px;
 	}
 	input{
 		display: none;
 	}
 	.box label{
-		width: 90%;
+		width: 120px;
 		height: 50px;
-		display: inline-block;
 		line-height: 50px;
 		position: relative;
 		text-align: center;
+		margin-right: -35px
 	}
 	.box label:active{
 		background: #EEEEEE;
@@ -71,11 +78,12 @@
 		background-color: green;
 	}
 
+
 </style>
 	<body style="background: none;">
 	<div class="table-responsive">
 		<div id="tab-2" class="tab-pane">
-			<div class="panel-body">
+			<div class="panel-body ibox-content">
 				<form method="post" class="form-horizontal"  enctype="multipart/form-data">
 					<fieldset class="form-horizontal">
 						<div class="form-group"><label class="col-sm-2 control-label">商品名称:</label>
@@ -83,76 +91,16 @@
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">颜色:</label>
 							<div class="col-sm-10">
-								<div class="box">
-									<input type="checkbox" name="color[]"  id="checkbox1" value="红色1"/><label for="checkbox1">红色</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  name="color[]"    id="checkbox2" value="红色2"/><label for="checkbox2">绿色</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox3" value="红色3"/><label for="checkbox3">选项三</label>
-								</div>
-								<div class="line"></div>
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox4" value="红色4"/><label for="checkbox4">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox5" value="红色5"/><label for="checkbox5">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox6" value="红色6"/><label for="checkbox6">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox7"/><label for="checkbox7">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox" name="color[]"    id="checkbox8"/><label for="checkbox8">选项四</label>
-								</div>
-
-
+								<?php if(is_array($colors)): foreach($colors as $k=>$v): ?><div class="box">
+										<input type="checkbox" name="color[]"  id="checkbox<?php echo ($k); ?>" value="<?php echo ($v["cname"]); ?>"/><label for="checkbox<?php echo ($k); ?>"><?php echo ($v["cname"]); ?></label>
+									</div><?php endforeach; endif; ?>
 							</div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">规格:</label>
 							<div class="col-sm-10">
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox1"/><label for="ggcheckbox1">选项一</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox2"/><label for="ggcheckbox2">选项二</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox3"/><label for="ggcheckbox3">选项三</label>
-								</div>
-								<div class="line"></div>
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox4"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox5"/><label for="ggcheckbox5">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox6"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox7"/><label for="ggcheckbox5">选项五</label>
-								</div>
-
-								<div class="box">
-									<input type="checkbox"  id="ggcheckbox8"/><label for="ggcheckbox4">选项四</label>
-								</div>
-
-
+								<?php if(is_array($formats)): foreach($formats as $k=>$v): ?><div class="box">
+										<input type="checkbox" name="format[]"  id="ggcheckbox2<?php echo ($k); ?>" value="<?php echo ($v["ggname"]); ?>"/><label for="ggcheckbox2<?php echo ($k); ?>"><?php echo ($v["ggname"]); ?></label>
+									</div><?php endforeach; endif; ?>
 							</div>
 						</div>
 						<div class="form-group"><label class="col-sm-2 control-label">商品简介:</label>
@@ -271,34 +219,36 @@
 		</div>
 	</div>
 	<!--引入外部js文件-->
-	<!--这里写引入的js文件-->
-<!-- Mainly scripts -->
-<script src="/youxuan/youxuan/Public/admin/js/jquery-3.1.1.min.js"></script>
-<script src="/youxuan/youxuan/Public/admin/js/bootstrap.min.js"></script>
-<script src="/youxuan/youxuan/Public/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="/youxuan/youxuan/Public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<script src="/youxuan/youxuan/Public/admin/js/plugins/dataTables/datatables.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="/youxuan/youxuan/Public/admin/js/inspinia.js"></script>
-<script src="/youxuan/youxuan/Public/admin/js/plugins/pace/pace.min.js"></script>
-<!-- Sweet alert -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
-<!-- Page-Level Scripts -->
-<!-- Toastr script -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/toastr/toastr.min.js"></script>
-<!-- SUMMERNOTE -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/summernote/summernote.min.js"></script>
-<!-- Data picker -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="https://cdn.bootcss.com/summernote/0.8.10/lang/summernote-zh-CN.js"></script>
-<!-- Select2 -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/select2/select2.full.min.js"></script>
-<!-- Ladda -->
-<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/spin.min.js"></script>
-<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.min.js"></script>
+	<!--这里写引入的js文件-->
+<!-- Mainly scripts -->
+<script src="/youxuan/youxuan/Public/admin/js/jquery-3.1.1.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/bootstrap.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="/youxuan/youxuan/Public/admin/js/plugins/dataTables/datatables.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/youxuan/youxuan/Public/admin/js/inspinia.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/pace/pace.min.js"></script>
+<!-- Sweet alert -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Page-Level Scripts -->
+<!-- Toastr script -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/toastr/toastr.min.js"></script>
+<!-- SUMMERNOTE -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/summernote/summernote.min.js"></script>
+<!-- Data picker -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="https://cdn.bootcss.com/summernote/0.8.10/lang/summernote-zh-CN.js"></script>
+<!-- Select2 -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/select2/select2.full.min.js"></script>
+<!-- Ladda -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/spin.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.min.js"></script>
 <script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.jquery.min.js"></script>
+<!-- iCheck -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/iCheck/icheck.min.js"></script>
 	<!--引入uploadfiyjs-->
 	<script src="/youxuan/youxuan/Public/admin/js/uploadify/jquery.uploadify.js"></script>
 		<!--多图上传的js开始-->
@@ -521,14 +471,19 @@
 
             }
             //ischeck=$("#checkbox2").is(":checked");
-
-            $("#checkbox1").change(function() {
-                ischeck=$(this).is(":checked");
-                $(this).attr('checked',ischeck);
-                console.log('选择'+ischeck);
-            });
+			
 
 		</script>
+
+	<script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+	</script>
+
 	</body>
 
 </html>

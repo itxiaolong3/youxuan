@@ -1,4 +1,34 @@
-<include file="Common:header" />
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><?php echo ($title); ?></title>
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/animate.css" rel="stylesheet">
+    <link href="/youxuan/youxuan/Public/admin/css/style.css" rel="stylesheet">
+    <!-- Ladda style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!--多图上传的css-->
+    <link href="/youxuan/youxuan/Public/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/youxuan/youxuan/Public/admin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <!--layer-->
+    <link href="/youxuan/youxuan/Public/admin/js/layer/css/layui.css" rel="stylesheet">
+    <script src="/youxuan/youxuan/Public/admin/js/layer/layui.js" charset="utf-8"></script>
+
+
+</head>
 
 <body style="background: none;">
 
@@ -34,16 +64,14 @@
 										<th>颜色</th>
 										<th>操作</th>
 									</tr>
-									<foreach name="colorinfo" item="vv">
-										<tr>
-											<td>{$vv.cid}</td>
-											<td>{$vv.cname}</td>
+									<?php if(is_array($colorinfo)): foreach($colorinfo as $key=>$vv): ?><tr>
+											<td><?php echo ($vv["cid"]); ?></td>
+											<td><?php echo ($vv["cname"]); ?></td>
 											<td>
-												<a type="button" class="btn btn-primary btn-xs" data-toggle="modal" href="javascript:deleteuser('{$vv.cid}');">移除</a>
-												<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal4"  onclick="doedit('{$vv.cid}','{$vv.cname}')">修改信息</button>
+												<a type="button" class="btn btn-primary btn-xs" data-toggle="modal" href="javascript:deleteuser('<?php echo ($vv["cid"]); ?>');">移除</a>
+												<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal4"  onclick="doedit('<?php echo ($vv["cid"]); ?>','<?php echo ($vv["cname"]); ?>')">修改信息</button>
 											</td>
-										</tr>
-									</foreach>
+										</tr><?php endforeach; endif; ?>
 
 									</tbody>
 								</table>
@@ -146,7 +174,36 @@
 </div>
 </div>
 <!--引入头部文件，如css-->
-<include file="Common:footer" />
+<!--这里写引入的js文件-->
+<!-- Mainly scripts -->
+<script src="/youxuan/youxuan/Public/admin/js/jquery-3.1.1.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/bootstrap.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<script src="/youxuan/youxuan/Public/admin/js/plugins/dataTables/datatables.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/youxuan/youxuan/Public/admin/js/inspinia.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/pace/pace.min.js"></script>
+<!-- Sweet alert -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
+<!-- Page-Level Scripts -->
+<!-- Toastr script -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/toastr/toastr.min.js"></script>
+<!-- SUMMERNOTE -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/summernote/summernote.min.js"></script>
+<!-- Data picker -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="https://cdn.bootcss.com/summernote/0.8.10/lang/summernote-zh-CN.js"></script>
+<!-- Select2 -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/select2/select2.full.min.js"></script>
+<!-- Ladda -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/spin.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.min.js"></script>
+<script src="/youxuan/youxuan/Public/admin/js/plugins/ladda/ladda.jquery.min.js"></script>
+<!-- iCheck -->
+<script src="/youxuan/youxuan/Public/admin/js/plugins/iCheck/icheck.min.js"></script>
 <script>
     $(".loadimg").on("change", "input[type='file']", function() {
         var filePath = $(this).val();
@@ -175,7 +232,7 @@
             closeOnConfirm: true
         }, function() {
             $.post(
-                "{:U('Addcolor/index')}",
+                "<?php echo U('Addcolor/index');?>",
                 {
                     cid:id
                 },
@@ -206,7 +263,7 @@
         l.ladda( 'start' );
         var data = $('#colors').val();
         //开始提交数据进行保存
-        $.post("{:U('Addcolor/addcolor')}",{cname:data},function(e){
+        $.post("<?php echo U('Addcolor/addcolor');?>",{cname:data},function(e){
             e1 = JSON.parse(e);
             console.log(e1);
             if(e1.status==1){
@@ -243,7 +300,7 @@
             getid=$("#getid").val();
             getname=$("#getname").val();
             $.post(
-                "{:U('Addcolor/editcolor')}",
+                "<?php echo U('Addcolor/editcolor');?>",
                 {
                     'cname':getname,
                     'cid':getid,

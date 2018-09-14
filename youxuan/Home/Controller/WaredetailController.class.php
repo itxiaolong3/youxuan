@@ -22,7 +22,11 @@ class WaredetailController extends BaseController {
            $goodsinfo['gcomment']=htmlspecialchars_decode($goodsinfo['gcomment']);
            $imgs=array();
            $thums=explode('|',$goodsinfo['gimgs']);
+           $colors=explode(',',$goodsinfo['gcolor']);
+           $formats=explode(',',$goodsinfo['gformat']);
            $goodsinfo['thums']=$thums;
+           $goodsinfo['gcolor']=$colors;
+           $goodsinfo['gformat']=$formats;
            $this->goodsinfo=$goodsinfo;
            //销量
            $ordermodel=M('order');

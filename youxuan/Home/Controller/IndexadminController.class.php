@@ -26,7 +26,7 @@ class IndexadminController extends BaseController {
                    //获取商店信息
                    $this->shopinfo=$shopinfo;
                    //今日订单数
-              		 $gettodaynum=M('order')->where('osid='.$shopinfo['did'].' and to_days(ordertime) = to_days(now())')->count();
+              		 $gettodaynum=M('order')->where('osid='.$shopinfo['did'].' and to_days(ordertime) = to_days(now())')->sum('buynum');
                		$this->todaynum=$gettodaynum;
               		 //今日收益
               		 $gettodaymoney=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=0".' and to_days(rordertime) = to_days(now())')->sum('rmoney');
