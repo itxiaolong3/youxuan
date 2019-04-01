@@ -16,8 +16,8 @@ use Think\Controller;
 class CashapplyController extends Controller {
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
        //提成类型
        $tctotal=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=0")->sum('rmoney');
@@ -57,6 +57,34 @@ class CashapplyController extends Controller {
             $this->redirect("Cash/index");
         }else{
             $this->redirect('Cash/index', "", 1, '提现出现异常');
+        }
+    }
+   //判断提现金额
+    function istixian(){
+        $getphone=cookie('session_phone');
+        $getpassword=cookie('session_password');
+        $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
+        //提成类型
+        $tctotal=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=0")->sum('rmoney');
+        //退款类型
+        $tktotal=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=1")->sum('rmoney');
+        //提现类型，这里应该是提现表中已经打款的提现类型，而不是记录表中的提现类型。否则会跟提现中金额冲突了，会导致数据有误
+        //$txtotal=M('jiaoyi')->where('rsid='.$shopinfo['did']." and rtype=2")->sum('rmoney');
+        $txtotal=M('tixian')->where('xsid='.$shopinfo['did'].' and xtype=1')->sum('xshenprice');
+        //提现表中的提现中金额
+        $txzhongtotal=M('tixian')->where('xsid='.$shopinfo['did'].' and xtype=0')->sum('xshenprice');
+        $yue=$tctotal-($tktotal+$txtotal+$txzhongtotal);
+        $getmoney=I('txmoney');
+        $arr=array();
+        if ($yue-$getmoney>=0){
+            $arr['status']=1;
+            $arr['msg']='可以提现';
+           $arr['res']=$enablemoney-$getmoney;
+            echo json_encode($arr);
+        }else{
+            $arr['status']=0;
+            $arr['msg']='余额不足';
+            echo json_encode($arr);
         }
     }
 

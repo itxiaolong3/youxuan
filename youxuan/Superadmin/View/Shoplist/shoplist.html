@@ -8,12 +8,8 @@
 				<div class="col-lg-10">
 					<div style="margin-top: 10px;"></div>
 					<ol class="breadcrumb">
-						<li>
-							<a href="{:U('index/index')}" target="_parent">首页</a>
-						</li>
-
 						<li class="active">
-							<strong>商家列表展示</strong>
+							<label>店铺总数:&nbsp;一共<span style="color: #0d8ddb;font-weight: bold;font-size: 25px;">{$counts}</span>家</label>
 						</li>
 					</ol>
 				</div>
@@ -34,6 +30,8 @@
 														<th>id</th>
 														<th>封面图</th>
 														<th>店名</th>
+                                                       <th>门店编号</th>
+                                                      <th>团长姓名</th>
 														<th>手机号</th>
 														<th>状态</th>
 														<th>提货地址</th>
@@ -51,6 +49,8 @@
 														<td class="center">{$v.did}</td>
 														<td><img src="__PUBLIC__/{$v.dheaderimg}" width="60" height="60" /></td>
 														<td>{$v.dname}</td>
+                                                      <td>{$v.dnum|default='待填'}</td>
+                                                      <td>{$v.dnickname|default='待填'}</td>
 														<td>{$v.dphone}</td>
 														<td width="90"><if condition="$v.discolse eq 0"><span style="background-color: #0d8ddb;padding: 5px;color:white;">正在营业</span><else/><span  style="background-color: lightgray;padding: 5px;color:white;">已停营</span></if></td>
 														<td>{$v.daddress}</td>

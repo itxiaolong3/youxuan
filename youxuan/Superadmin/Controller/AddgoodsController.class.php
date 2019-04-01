@@ -10,6 +10,7 @@ use Think\Controller;
 class AddgoodsController extends Controller{
     function addgoods(){
         if(IS_POST){
+            //var_dump(I('post.'));
             $arr=array();
             $data=I('post.');
             $colors=I('color');
@@ -18,7 +19,6 @@ class AddgoodsController extends Controller{
             $formatstr=implode(',',$formats);
             $data['gcolor']=$colorstr;
             $data['gformat']=$formatstr;
-
             $data['gaddtime']=time();
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);
@@ -29,24 +29,23 @@ class AddgoodsController extends Controller{
                 echo json_encode($arr);
                 exit();
             }
-            else if(empty($data['gtitle'])){
-
+            else if(empty(I('gtitle'))){
                 $arr['status']=-2;
                 $arr['msg']='商品名不可为空';
                 echo json_encode($arr);
                 exit();
-            }else if(empty($data['gyhprice'])){
+            }else if(empty(I('gyhprice'))){
                 $arr['status']=-3;
                 $arr['msg']='价格不可为空';
                 echo json_encode($arr);
                 exit();
-            }else if(empty($data['gticheng'])){
+            }else if(empty(I('gticheng'))){
                 $arr['status']=-4;
                 $arr['msg']='提成不可为空';
                 echo json_encode($arr);
                 exit();
             }else{
-              if(empty($data['guptime'])){
+              if(empty(I('guptime'))){
                     $data['gstatus']=1;
                 }
                 $re = $classModel->data($data)->add();

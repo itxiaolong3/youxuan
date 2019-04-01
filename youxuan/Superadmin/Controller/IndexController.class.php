@@ -16,6 +16,8 @@ class indexController extends \Think\Controller{
             // var_dump($configinfo);
             $this->name=$getphone;
             $this->title='总管理员首页';
+            $isadmin=M('admin')->where("name="."'".$getphone."'")->getField('isadmin');
+            $this->isadmin=$isadmin;
             $this->display("Index/index");
         }else{
             $this.redirect(__MODULE__."/User/mylogin");

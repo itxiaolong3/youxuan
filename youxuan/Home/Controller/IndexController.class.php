@@ -53,7 +53,8 @@ class IndexController extends BaseController {
                $this->shopinfo=$shopinfo;
                //购买指数
                $ordernummodel=M('order');
-               $ordernum=$ordernummodel->where("ostatus=1")->sum('onum');
+               //$ordernum=$ordernummodel->where('osid='.$getsid." and ostatus=1")->sum('onum');
+              $ordernum=$ordernummodel->where("ostatus>0")->sum('buynum');
                //$yimai=$ordernummodel->where('osid='.$getsid." and ostatus=1 and ogid=".)->count();
                $this->ordernum=$ordernum;
                //粉丝数
@@ -62,8 +63,8 @@ class IndexController extends BaseController {
                $this->usernum=$usernum;
                //商品
                $goodsmodel=M('goods');
-               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum,gbuypretime,gbuyendtime,gstatus,guptime,gorder')->where('gstatus=1')->order('gorder asc')->select();
-              $noup=$goodsmodel->field('gid,guptime')->where('gstatus=0')->select();
+               $goodsinfo=$goodsmodel->field('gid,gboss,sid,gtopimg,gtitle,gyhprice,gprice,gdes,gendnum,gbuypretime,gbuyendtime,gstatus,guptime,gorder,gcolor,gformat')->where('gstatus=1 and g_isdelete=0')->order('gorder asc')->select();
+              $noup=$goodsmodel->field('gid,guptime')->where('gstatus=0 and g_isdelete=0')->select();
                $uptimearr=array();
               foreach ($noup as $kk=>$vv){
                 $ut=strtotime($vv['guptime'])-time();
@@ -85,6 +86,8 @@ class IndexController extends BaseController {
                        ->limit(3)
                        ->select();//所有信息
                }
+               $allgoodid=$goodsmodel->field('gid')->where('gstatus=1 and g_isdelete=0')->select();
+               $this->goodid=$allgoodid;
                $this->goodsinfo=$goodsinfo;
                $this->sid=$getsid;
                //分享
@@ -93,14 +96,16 @@ class IndexController extends BaseController {
                $jssdkArr['timestamp'] = time();
                $jssdkArr['nonceStr'] = md5(time());
                $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
-               //分享数据
-               $fxArr['title'] = "五鼎飞李购(今日商品)".$shopinfo['dphone'].' '.$shopinfo['daddress'];
+               //分享数据.$shopinfo['dphone']
+               $fxArr['title'] = "五鼎飞李购(今日酸奶)".' '.$shopinfo['daddress'];
                $fxArr['link'] = $requrl;
                $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderurl.png';
-               $fxArr['desc'] = '亲，今天下单，明天下午18:00后来门店自提，在规定时间内，100%售后。';
+               $fxArr['desc'] = '亲，每周送货时间为周一、周三、周五。在规定时间内，100%售后';
                $fxArr['type'] = 'link';
                $this->jssdkArr=$jssdkArr;
                $this->fxArr=$fxArr;
+               $rootpath='http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan/Public/';
+               $this->rootpath=$rootpath;
                $this->display('Index/index');
            }else{
                $this->wxLogin($getsid);

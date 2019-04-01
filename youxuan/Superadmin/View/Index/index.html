@@ -33,7 +33,7 @@
                        <li><a href="__MODULE__/Goodslist/goodtichen" target="main">商品提成表</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">规格管理</span> <span
+              <li><a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">规格管理</span> <span
                         class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="__MODULE__/Addcolor/index" target="main">颜色管理</a></li>
@@ -71,6 +71,7 @@
                                 class="fa fa-shield"></i> <span class="nav-label">售后订单</span></a></li>
                     </ul>
                 </li>
+                <if condition="$isadmin eq 0">
                 <li><a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">人员管理</span><span
                         class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
@@ -79,6 +80,8 @@
                                 class="nav-label">用户管理</span></a></li>
                     </ul>
                 </li>
+                    <else/>
+                </if>
             </ul>
         </div>
     </nav>

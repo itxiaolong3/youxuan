@@ -43,6 +43,8 @@
 														<tr>
 															<th>id</th>
 															<th>订单来源</th>
+															<th>门店编号</th>
+															<th>团长姓名</th>
 															<th>交易金额</th>
 															<th>账户余额</th>
 															<th>操作时间</th>
@@ -51,6 +53,8 @@
 														<tr>
 															<td>{$v.rid}</td>
 															<td>{$v.dname}</td>
+															<td>{$v.dnum}</td>
+															<td>{$v.dnickname|default='待填'}</td>
 															<td>{$v.rmoney}</td>
 															<td>{$v.ryue}</td>
 															<td>{$v.raddtime}</td>
@@ -70,6 +74,8 @@
 													<tr>
 														<th>id</th>
 														<th>订单来源</th>
+														<th>门店编号</th>
+														<th>团长姓名</th>
 														<th>交易金额</th>
 														<th>账户余额</th>
 														<th>操作时间</th>
@@ -78,6 +84,8 @@
 														<tr>
 															<td>{$v1.rid}</td>
 															<td>{$v1.dname}</td>
+															<td>{$v.dnum}</td>
+															<td>{$v.dnickname|default='待填'}</td>
 															<td>{$v1.rmoney}</td>
 															<td>{$v1.ryue}</td>
 															<td>{$v1.raddtime}</td>
@@ -97,17 +105,21 @@
 													<tr>
 														<th>id</th>
 														<th>订单来源</th>
+														<th>门店编号</th>
+														<th>团长姓名</th>
 														<th>交易金额</th>
 														<th>账户余额</th>
 														<th>操作时间</th>
 													</tr>
-													<foreach name="tixianinfo" item="v2">
+													<foreach name="ticheninfo" item="v">
 														<tr>
-															<td>{$v2.rid}</td>
-															<td>{$v2.dname}</td>
-															<td>{$v2.rmoney}</td>
-															<td>{$v2.ryue}</td>
-															<td>{$v2.raddtime}</td>
+															<td>{$v.rid}</td>
+															<td>{$v.dname}</td>
+															<td>{$v.dnum}</td>
+															<td>{$v.dnickname|default='待填'}</td>
+															<td>{$v.rmoney}</td>
+															<td>{$v.ryue}</td>
+															<td>{$v.raddtime}</td>
 														</tr>
 													</foreach>
 													</tbody>

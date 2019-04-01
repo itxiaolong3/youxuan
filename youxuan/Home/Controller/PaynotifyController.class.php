@@ -19,11 +19,11 @@ class PaynotifyController extends Controller {
         //将xml转换成数组
         $reArr = $this->FromXml($postXml);
         //验证签名
-        if ($reArr['sign']==$sign){
+       if ($reArr['sign']==$sign){
           	$data['ostatus']=1;
           	$data['opaymoney']=$reArr['total_fee']/100;
             M('order')->where('onumber='.$reArr['out_trade_no'])->save($data);
-            //立即生效订单分成开始
+          //立即生效订单分成开始
             $getonumber=$reArr['out_trade_no'];
             $allorderinfo=M('order')->where('onumber='.$reArr['out_trade_no'])->select();
             foreach ($allorderinfo as $k=>$vv){
@@ -63,23 +63,17 @@ class PaynotifyController extends Controller {
             file_put_contents($file,'签名不一样返回的签名='.$reArr['sign'].'签名不一样回调再次签名='.$sign);
 
         }
-        if($reArr['sign'] != $sign) echo '<xml> 
+        if($reArr['sign'] != $sign) {
+          echo '<xml> 
 				<return_code><![CDATA[FAIL]]></return_code>
 				<return_msg><![CDATA[签名失败]]></return_msg>
 				</xml>';
-
-        //查看是否已经处理过
-        // $ordItem = Db::table('zc_order')->where('order_number',$reArr['out_trade_no'])->find();
-        //is_pay = 1，说明已经处理过，不需要再处理了
-//           if($ordItem['is_pay'] == 1) return '<xml>
-//				<return_code><![CDATA[SUCCESS]]></return_code>
-//				<return_msg><![CDATA[OK]]></return_msg>
-//				</xml>';
-
-        echo '<xml> 
+                                }else{
+           echo '<xml> 
 			<return_code><![CDATA[SUCCESS]]></return_code>
 			<return_msg><![CDATA[OK]]></return_msg>
 			</xml>';
+        }
     }
     public function mymakesign($xml){
         $key='wx07c7042328d04b81wx07c7042328d0';

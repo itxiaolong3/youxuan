@@ -30,7 +30,11 @@ class  UserController extends \Think\Controller
                 $arr['status'] = -2;
                 $arr['msg'] = '删除失败';
                 echo json_encode($arr);
-            } else {
+            }else if ($admininfo['name']=='admin'){
+                $arr['status'] = -3;
+                $arr['msg'] = '删除失败';
+                echo json_encode($arr);
+            }else {
                 $re = $superModel->where('id=' . $getid)->delete();
                 if ($re) {
                     $arr['status'] = 1;
@@ -220,7 +224,7 @@ class  UserController extends \Think\Controller
         session('session_superadmin',null);
         $this->redirect('mylogin');
     }
-    //创建验证码方法
+      //创建验证码方法
     public function VerifyImg(){
         //创建验证码的配置文件（框架自带的，可以直接从\Think\Verify拿过来用）
         $config = array(

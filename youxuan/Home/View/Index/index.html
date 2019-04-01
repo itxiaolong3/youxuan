@@ -4,15 +4,173 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no" />
+      <!--weui-->
+    <link rel="stylesheet" href="__PUBLIC__/home/weiui/lib/weui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/weiui/css/jquery-weui.css">
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/hyp.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
         <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css" />
       <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/home_admin/css/aui-pull-refresh.css" />
+        <style>
+        .showcat{
+            width: 100%;
+            height: 600px;
+            border: 1px gainsboro solid;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            background-color: rgb(249, 247, 247);
+            z-index:9999;
+
+
+        }
+
+        .goodimg{
+            display: block;
+            width: 25%;
+
+        }
+        .counts{
+            display: flex;
+        }
+        .goodimg img{
+            border-radius: 5px;
+
+        }
+        .formats{
+            width: 70%;
+            height: 120px;
+            position: absolute;
+            left: 300px;
+            top: 20px;
+
+
+        }
+        /*单选、多选*/
+        .aui-radio,
+        .aui-checkbox {
+            width: 0.6rem;
+            height: 0.6rem;
+            background-color: #ffffff;
+            border: solid 1px #000;
+            -webkit-border-radius: 0.3rem;
+            border-radius: 0.3rem;
+            font-size: 0.3rem;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            cursor: default;
+            -webkit-appearance: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-transition: background-color ease 0.1s;
+            transition: background-color ease 0.1s;
+        }
+        .aui-checkbox {
+            border-radius: 0.1rem;
+        }
+        .aui-radio:checked,
+        .aui-radio.aui-checked,
+        .aui-checkbox:checked,
+        .aui-checkbox.aui-checked {
+            background-color: #e70012;
+            border: solid 1px #e70012;
+            text-align: center;
+            background-clip: padding-box;
+        }
+        .aui-radio:checked:before,
+        .aui-radio.aui-checked:before,
+        .aui-checkbox:checked:before,
+        .aui-checkbox.aui-checked:before,
+        .aui-radio:checked:after,
+        .aui-radio.aui-checked:after,
+        .aui-checkbox:checked:after,
+        .aui-checkbox.aui-checked:after {
+            content: '';
+            width: 0.3rem;
+            height: 0.15rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -0.15rem;
+            margin-top: -0.15rem;
+            background: transparent;
+            border: 1px solid #ffffff;
+            border-top: none;
+            border-right: none;
+            z-index: 2;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        .aui-radio:disabled,
+        .aui-radio.aui-disabled,
+        .aui-checkbox:disabled,
+        .aui-checkbox.aui-disabled {
+            background-color: #dddddd;
+            border: solid 1px #dddddd;
+        }
+        .aui-radio:disabled:before,
+        .aui-radio.aui-disabled:before,
+        .aui-radio:disabled:after,
+        .aui-radio.aui-disabled:after,
+        .aui-checkbox:disabled:before,
+        .aui-checkbox.aui-disabled:before,
+        .aui-checkbox:disabled:after,
+        .aui-checkbox.aui-disabled:after {
+            content: '';
+            width: 0.3rem;
+            height: 0.15rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -0.15rem;
+            margin-top: -0.15rem;
+            background: transparent;
+            border: 1px solid #ffffff;
+            border-top: none;
+            border-right: none;
+            z-index: 2;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .detail-container .container-3 .right-2 label {
+            margin-right: 0.1rem;
+            font-size: 0.3rem;
+        }
+        .carbt{
+            width: 22%;
+            height: 75px;
+            font-size: 1em;
+            position: absolute;
+            line-height: 70px;
+            padding: 5px;
+            border-radius: 5px;
+            text-align: center;
+            top: 320px;
+            left: 20px;
+            color: white;
+            background-color: #04be02;;
+
+        }
+        .colsecart{
+            position: absolute;
+            top: -55px;
+            right: 20px;
+        }
+    </style>
        <title>{$iske=='yes'?'代客下单-' :''}首页</title>
     </head>
     <body>
+      <img class="banner" src="__PUBLIC__/home/images/other/banner.jpg" />
        <section class="aui-refresh-content">
-        <img class="banner" src="__PUBLIC__/home/images/other/banner.jpg" />
         <div class="index-container">
             <div class="header-container">
                 <div class="search">
@@ -38,7 +196,12 @@
             <div class="goods-container">
                 <div class="header">本商品由{$v.gboss}专供</div>
                 <a href="{:U('Waredetail/index')}?sid={$sid}&gid={$v.gid}">
-                    <img class="image" src="__PUBLIC__/{$v.gtopimg}" />
+                     <if condition="$v['gendnum'] eq 0">
+                        <div style="position: relative">
+                            <img style="opacity: 0.6;" src="__PUBLIC__/{$v.gtopimg}" />
+                            <img style="top: 10px;width: 100%;height: auto;position: absolute;" src="__PUBLIC__/home/images/other/nogood.png" />
+                        </div>
+                        <else/><img class="image" src="__PUBLIC__/{$v.gtopimg}" /></if>
                 </a>
                 <div style="padding: 0 0.2667rem;">
                     <div class="container-1">
@@ -62,7 +225,12 @@
                          <if condition="$v['gendnum'] eq 0">
                             <div style="color: #999;padding:18px;font-size: 0.3333rem;border-radius: 5px;border: 1px solid #999;">已售罄</div>
                             <else/>
-                            <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}')">加入购物车</div>
+                          	<if condition="(empty($v['gformat']) neq false) and (empty($v['gcolor']) neq false) ">
+                                <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}',0)">加入购物车</div>
+                               <!-- <span class="weui-badge"  id="num{$v.gid}"  style="margin-left: 5px;position: absolute;right: 247px;margin-top: -0.2rem;border-radius: 50%; line-height: 1;font-size: 35px;">0</span>-->
+                                <else/> <div class="right" onclick="addcat('{$v.gid}','{$v.gtopimg}','{$v.gtitle}','{$v.gdes}','{$v.gyhprice}','{$v.gprice}','{$sid}','{$v.gcolor}','{$v.gformat}',1)">加入购物车</div>
+                             <!-- <span class="weui-badge"  id="numf{$v.gid}"  style="margin-left: 5px;position: absolute;right: 247px;margin-top: -0.2rem;border-radius: 50%; line-height: 1;font-size: 35px;">0</span>-->
+                           </if>
                         </if>
                     </div>
                     <div class="container-3">
@@ -76,6 +244,16 @@
                 </div>
             </div>
             </foreach>
+           <!--传输的数据gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid-->
+        <input type="hidden" class="thisgtopimg" value="">
+        <input type="hidden" class="thisgid" value="">
+        <input type="hidden" class="thisgtitle" value="">
+        <input type="hidden" class="thisgcolor" value="">
+        <input type="hidden" class="thisgformat" value="">
+        <input type="hidden" class="thisgdes" value="">
+        <input type="hidden" class="thisgyhprice" value="">
+        <input type="hidden" class="thisgprice" value="">
+        <input type="hidden" class="thissid" value="">
             <!-- 新增底部开始 -->
             <div class="goods-container">
                 <div class="addhead">五鼎飞李购入驻指南</div>
@@ -97,6 +275,35 @@
         </div>
        
        </section>
+      <div id="mask" class="mask mask-out"></div>
+      <div class="showcat hid">
+
+          <div class="goodimg"><img id='titleimg' src="http://jsq.dede1.com/tp3/youxuan/Public/admin/editimg/2018-09-07/5b922a485c222.jpg" width="250px" height="180px"></div>
+          <div class="counts">
+              <div class="weui-cell__ft">
+                  <div class="weui-count" style="margin-top: 15px;">
+                      <a class="weui-count__btn weui-count__decrease"></a>
+                      <input class="weui-count__number" type="number" value="1" />
+                      <a class="weui-count__btn weui-count__increase"></a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="formats">
+            <!--  <div class="colsecart"><img src="http://jsq.dede1.com/tp3/youxuan/Public/home/images/other/colsecat.png" width="90px" height="90px" id="coloseimg"></div> -->
+             
+              <span style="font-size: 0.35rem;padding-left: 5px;margin-bottom: 5px;"  id='title'>这个是商品的描述的标题和简单描述</span>
+              <div class="container-3">
+                  <div class="container-title" style="font-size: 1.1em" id="colortitle"><label>颜色：</label></div>
+                  <div class="right-2" id="addcolor"></div>
+              </div>
+              <div class="container-3">
+                  <div class="container-title" style="font-size: 1.1em;margin-top:15px;" id="formattitle"><label>规格：</label></div>
+                  <div class="right-2" id="addformat"></div>
+              </div>
+          </div>
+          <div class="carbt">加入购物车</div>
+      </div>
        <div class="footer-container">
             <a class="cart" onclick="postcartdata();">
                 <img src="__PUBLIC__/home/images/other/cart.png" />
@@ -117,6 +324,163 @@
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/aui-pull-refresh.js"></script>
   <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <!--weui-->
+<!--weui-->
+<!--<script src="__PUBLIC__/home/weiui/lib/jquery-2.1.4.js"></script>-->
+<!--<script src="__PUBLIC__/home/weiui/lib/fastclick.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/jquery-weui/1.1.2/js/jquery-weui.min.js"></script>-->
+      <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+  <script>
+    $(function() {
+        FastClick.attach(document.body);
+        $("#coloseimg").on("click",function(){
+            $("#mask").addClass('mask-out').removeClass('mask-in');
+            $(".showcat").addClass('hid');
+        });
+      getgoodnum();
+    });
+</script>
+  <script>
+    var MAX = 99, MIN = 1;
+
+    $('.weui-count__decrease').click(function (e) {
+        var $input = $(e.currentTarget).parent().find('.weui-count__number');
+        var number = parseInt($input.val() || "0") - 1
+        if (number < MIN) number = MIN;
+        $input.val(number)
+    })
+    $('.weui-count__increase').click(function (e) {
+        var $input = $(e.currentTarget).parent().find('.weui-count__number');
+        var number = parseInt($input.val() || "0") + 1
+        if (number > MAX) number = MAX;
+        $input.val(number)
+    })
+
+    $(".weui-count__number").change(function(e){
+        var getval=$(this).val();
+        var number = parseInt(getval || "0") - 1
+        if (number < MIN) number = MIN;
+        if (number > MAX){
+            alert('一次最选择99');
+            number = MAX;
+
+        }
+        $(this).val(number)
+    });
+    $('.carbt').click(function(e) {
+        var colors = $("input[name='colors']:checked").val();
+        var chooseformat = $("input[name='formats']:checked").val();
+        var gid=$('.thisgid').val();
+        var gtopimg=$('.thisgtopimg').val();
+        var gtitle=$('.thisgtitle').val();
+        var gdes=$('.thisgdes').val();
+        var gyhprice=$('.thisgyhprice').val();
+        var gprice=$('.thisgprice').val();
+        var sid=$('.thissid').val();
+        var gcolor=$('.thisgcolor').val();
+        var gformat=$('.thisgformat').val();
+        var getnum=$(".weui-count__number").val();
+        //保存的数据
+        product={
+            id:gid,
+            name:gtitle,
+            num:getnum,
+            gdes:gdes,
+            saleprice:gyhprice,
+            gprice:gprice,
+            imgurl:gtopimg,
+            sid:sid,
+            colors:colors,
+            formats:chooseformat
+        };
+        //addcat(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid,gcolor,gformat,ishavaformat)
+        if (gcolor!='' ||gformat!=''){
+            var val=$('input:radio[name="colors"]:checked').val();
+            var vals=$('input:radio[name="formats"]:checked').val();
+            if(gcolor!=''&&gformat!=''){
+                if(colors==null||chooseformat==null){
+                    alert("请选择颜色或者规格");
+                    return false;
+                }else{
+                    shownum(sid);
+                    cart.addproduct(product);
+                    $("#mask").addClass('mask-out').removeClass('mask-in');
+                    $(".showcat").addClass('hid');
+                    window.location.reload();
+                }
+            }else{
+                //有其中一个
+                if(gcolor!=''){
+                    if(colors==null){
+                        alert("请选择颜色");
+                        return false;
+                    }else{
+                        shownum(sid);
+                        cart.addproduct(product);
+                        $("#mask").addClass('mask-out').removeClass('mask-in');
+                        $(".showcat").addClass('hid');
+                        window.location.reload();
+                    }
+                }
+                if (gformat!=''){
+                    if(chooseformat==null){
+                        alert("请选择规格");
+                        return false;
+                    }else{
+                        shownum(sid);
+                        cart.addproduct(product);
+                        $("#mask").addClass('mask-out').removeClass('mask-in');
+                        $(".showcat").addClass('hid');
+                        window.location.reload();
+                    }
+                }
+            }
+        }else{
+            shownum(sid);
+            cart.addproduct(product);
+            $("#mask").addClass('mask-out').removeClass('mask-in');
+            $(".showcat").addClass('hid');
+            window.location.reload();
+        }
+      
+    });
+    function shownum(sid) {
+        var number = $(".footer-container .count").html();
+        number = parseInt(number);
+        var getcartnum=cart.getproducttotalnum(sid);
+        number=number+getcartnum;
+        $(".footer-container .count").html(number);
+        if($(".footer-container .count").html() == 0){
+            $(".footer-container .count").addClass('hid');
+        }else{
+            $(".footer-container .count").removeClass('hid');
+        }
+    }
+  $("#mask").on("click",function(){
+        $("#mask").addClass('mask-out').removeClass('mask-in');
+        $("#dialog-container").addClass('hid');
+        $(".flex").addClass('hid');
+        $(".showcat").addClass('hid');
+    });
+     function getgoodnum() {
+        var goodids=[];
+     <foreach name="goodid" item="vv">
+       var getcartnum=cart.getoneproductnum("{$vv['gid']}","{$sid}");
+       if(getcartnum){
+              $("#num{$vv['gid']}").removeClass('hid');
+             $("#numf{$vv['gid']}").removeClass('hid');
+             $("#num{$vv['gid']}").html(getcartnum);
+              $("#numf{$vv['gid']}").html(getcartnum);
+             console.log('得到的id为='+"{$vv['gid']}"+'的数量为'+getcartnum);
+        }else{
+               $("#num{$vv['gid']}").addClass('hid');
+                $("#numf{$vv['gid']}").addClass('hid');
+        }
+    </foreach>
+    }
+</script>
+<!--weui结束-->
     <script>
         var jsfori=0;
         var jsforsid="{$sid}";
@@ -135,7 +499,7 @@
 
             }
         })
-        function addcat(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid) {
+        function addcat(gid,gtopimg,gtitle,gdes,gyhprice,gprice,sid,gcolor,gformat,ishavaformat) {
             //保存的数据
             product={
                 id:gid,
@@ -147,9 +511,58 @@
                 imgurl:gtopimg,
                 sid:sid
             };
-            cart.addproduct(product);
-           var getdata= cart.getproductlist("{$sid}");
-           //console.log(JSON.stringify(getdata));
+             if(!ishavaformat){
+              var number = $(".footer-container .count").html();
+              number = parseInt(number);
+              number++;
+              $(".footer-container .count").html(number);
+              if($(".footer-container .count").html() == 0){
+                  $(".footer-container .count").addClass('hid');
+              }else{
+                  $(".footer-container .count").removeClass('hid');
+              }
+              cart.addproduct(product);
+              var getdata= cart.getproductlist("{$sid}");
+              //window.location.reload();
+          }else{
+              //给规格参数传真
+              $('.thisgid').val(gid);
+              $('.thisgtopimg').val(gtopimg);
+              $('.thisgtitle').val(gtitle);
+              $('.thisgdes').val(gdes);
+              $('.thisgyhprice').val(gyhprice);
+              $('.thisgprice').val(gprice);
+              $('.thissid').val(sid);
+              var colorarrary=new Array();
+              var formatarrary=new Array();
+              $("#titleimg").attr("src","{$rootpath}"+gtopimg);
+              $("#title").html(gtitle);
+              $("#addcolor").children("label").remove();
+              $("#addformat").children("label").remove();
+              if (gcolor==''){
+                  $("#colortitle").children("label").remove();
+              }else{
+                  colorarrary=gcolor.split(',');
+                  $("#colortitle").html('<label>颜色：</label>');
+              }
+              if (gformat==''){
+                  $("#formattitle").children("label").remove();
+              }else{
+                  formatarrary=gformat.split(',');
+                  $("#formattitle").html('<label>规格：</label>');
+              }
+              for (var i=0;i<colorarrary.length;i++){
+                  $("#addcolor").prepend('<label><input class="aui-radio" type="radio" name="colors" value="'+colorarrary[i]+'"><label style="font-size: 1em;margin-left: 15px;padding-right: 10px;">'+colorarrary[i]+'</label></label>');
+              }
+              for (var i=0;i<formatarrary.length;i++){
+                  $("#addformat").prepend('<label><input class="aui-radio" type="radio" name="formats" value="'+formatarrary[i]+'"><label style="font-size: 1em;margin-left: 15px;padding-right: 10px;">'+formatarrary[i]+'</label></label>');
+              }
+              $('.thisgcolor').val(gcolor);
+              $('.thisgformat').val(gformat);
+              $("#mask").addClass('mask-in').removeClass('mask-out');
+              $(".showcat").removeClass('hid');
+              //alert('请选择规格');
+          }
         }
         function postcartdata() {
             var sid="{$sid}";
@@ -223,8 +636,7 @@
             console.log(getkeyword);
         })
     </script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/hyp.js"></script>
-    <script type="text/javascript" src="__PUBLIC__/home/js/xsyx.js"></script>
+
 <!--微信分享-->
     <script>
         wx.config({

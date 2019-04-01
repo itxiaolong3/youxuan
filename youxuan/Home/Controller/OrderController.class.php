@@ -22,9 +22,10 @@ class OrderController extends Controller {
            ->join("yx_goods g on o.ogid=g.gid")
            ->field("o.*,g.*")//需要显示的字段
            ->where('o.osid='.$getsid.' and o.ouid='.$user['uid'])
+           ->order('o.oaddtime DESC')
            ->select();//所有信息
        foreach ($allorderinfo as $k=>$v){
-           $allorderinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
+           $allorderinfo[$k]['oaddtime']=date('Y-m-d H:i:s',$v['oaddtime']);
        }
        //待付款
        $nopayinfo=M('order')
@@ -34,7 +35,7 @@ class OrderController extends Controller {
            ->where('o.ostatus=0 and o.osid='.$getsid.' and o.ouid='.$user['uid'])
            ->select();//所有信息
        foreach ($nopayinfo as $k=>$v){
-           $nopayinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
+           $nopayinfo[$k]['oaddtime']=date('Y-m-d H:i:s',$v['oaddtime']);
        }
        //已付款，未取货
        $payinfo=M('order')
@@ -44,7 +45,7 @@ class OrderController extends Controller {
            ->where('o.ostatus=1 and o.osid='.$getsid.' and o.ouid='.$user['uid'])
            ->select();//所有信息
        foreach ($payinfo as $k=>$v){
-           $payinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
+           $payinfo[$k]['oaddtime']=date('Y-m-d H:i:s',$v['oaddtime']);
        }
        //已提货
        $finisheorderinfo=M('order')
@@ -54,7 +55,7 @@ class OrderController extends Controller {
            ->where('o.ostatus=2 and o.osid='.$getsid.' and o.ouid='.$user['uid'])
            ->select();//所有信息
        foreach ($finisheorderinfo as $k=>$v){
-           $finisheorderinfo[$k]['oaddtime']=date('Y-m-d h:i:s',$v['oaddtime']);
+           $finisheorderinfo[$k]['oaddtime']=date('Y-m-d H:i:s',$v['oaddtime']);
        }
 
        $this->allorderinfo=$allorderinfo;
@@ -81,7 +82,7 @@ public function updatastatus(){
        $arr=array();
        if($re){
          //确认提货
-//        if ($getstatus==2){
+       //        if ($getstatus==2){
 //            //在交易表中填加一条提成记录
 //                $jiaoyi['rtype']=0;
 //                //这里的余额只是提供交易表中使用，具体计算方法如下：提成类型-退款类型-提现类型-提现表中的提现中金额

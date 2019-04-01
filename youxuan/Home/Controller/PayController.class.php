@@ -23,6 +23,7 @@ class PayController extends Controller {
         $this->sid=$sid;
         $phone=I('userphone');
         $username=I('username');
+      	$totalpric=I('totalprice');
         $goodid=json_decode(htmlspecialchars_decode(I('goodid')),true);
       	$this->goodsid=$goodid;
         $goodcomment=json_decode(htmlspecialchars_decode(I('goodcomment')),true);
@@ -31,13 +32,16 @@ class PayController extends Controller {
       	//查询用户id
  		$openId=session('session_islogin'.$sid);
        $user=M('user')->where('openid='.'"'.$openId.'"')->find();
-      //更新用户的手机号
-        $userphone['phone']=$phone;
-        M('user')->where('uid='.$user['uid'])->save($userphone);
+      //更新用户的手机号,如果是代客就不用修改
+        $iske=session('iske');
+        if (!$iske){
+            $userphone['phone']=$phone;
+            M('user')->where('uid='.$user['uid'])->save($userphone);
+        }
       //保存预订单
         $preorder['onumber']=$out_trade_no;
         $preorder['oaddtime']=time();
-      	$preorder['ordertime']=date('Y-m-d h:i:s',time());//用于统计的时间
+      	$preorder['ordertime']=date('Y-m-d H:i:s',time());//用于统计的时间
         //$preorder['ogid']=implode('-',$goodid);//数组转字符串
         $preorder['osid']=$sid;
         $preorder['ouid']=$user['uid'];
@@ -50,10 +54,26 @@ class PayController extends Controller {
         //从订单中进来付款时，默认数量为1
         $getonum=1;
        if(!empty($getoid)){
-            $out_trade_no=I('onumber');
+            $out_trade_no_old=I('onumber');
+            //重新生成订单号
+            $out_trade_no=$out_trade_no_old+1;
+            $data['onumber']=$out_trade_no;
+            M('order')->where('onumber='.$out_trade_no_old)->save($data);
+            //查询商品
+            $getordernum=$out_trade_no;
+            $goods=M('order')->where('onumber='.$getordernum)->select();
+            $pricearr=array();
+            foreach ($goods as $k=>$v){
+                $goods[$k]['gooddetail']=M('goods')->where('gid='.$v['ogid'])->find();
+                array_push($pricearr,$v['opaymoney']*$v['buynum']);
+            }
+            //总价格
+            $totalpric=array_sum($pricearr);
+            $this->goods=$goods;
+            
             $numinfo=I('numinfo');
-           $num=explode('x', $numinfo);
-           $getonum=intval($num[1]);
+            $num=explode('x', $numinfo);
+            $getonum=intval($num[1]);
          $re=1;
         }else{
              $iske=session('iske');//是否是代客下单
@@ -91,7 +111,7 @@ class PayController extends Controller {
             }
         }
         if($re){
-           $totalpric=I('totalprice');
+           
             //查询店名
             $shop=M('shop')->where('did='.$sid)->find();
             $shopname=$shop['dname'];
@@ -103,6 +123,9 @@ class PayController extends Controller {
             $this->assign('success_url','http://'.$_SERVER['HTTP_HOST'].'/tp3/youxuan/index.php/Payresult?ordernum='.$out_trade_no.'&total='.$totalpric);
             $this->display('Pay/index');
         }
+      //剔除重复订单。处理bug所用
+       $tcsql="DELETE from yx_order WHERE oid not in (SELECT maxid from (SELECT MAX(oid) as maxid, CONCAT(onum,ordertime,ogid) as nameAndCode from yx_order GROUP BY nameAndCode) t)";
+       M('order')->execute($tcsql);
     }
        public  function postpay(){
           $file = __DIR__ . '/paytestinfo.txt';

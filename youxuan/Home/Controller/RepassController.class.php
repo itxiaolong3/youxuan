@@ -13,7 +13,7 @@ class RepassController extends Controller {
     function index()
    {
        // var_dump(md5('xiaolong123456'));
-       $getphone=session('session_phone');
+       $getphone=cookie('session_phone');
        $isxiu=I('x');
        if ($isxiu){
            $this->title='修改密码';
@@ -73,8 +73,8 @@ class RepassController extends Controller {
         $updatas['dpassword']=$getpsw;
         $re=M('shop')->where('dphone='.$getphone)->save($updatas);
         if ($re){
-            session('session_phone',null);
-            session('session_password',null);
+            cookie('session_phone',null);
+            cookie('session_password',null);
             $arr['status']=1;
             $arr['msg']='修改成功';
             echo json_encode($arr);

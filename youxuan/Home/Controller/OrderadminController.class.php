@@ -16,8 +16,8 @@ use Think\Controller;
 class OrderadminController extends Controller {
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        if (!empty($getphone)&&!empty($getpassword)){
            $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
            //全部（代客，待提货，已提货）
@@ -27,6 +27,7 @@ class OrderadminController extends Controller {
                ->join("yx_user u on o.ouid=u.uid")
                ->field("o.*,g.*,u.*")//需要显示的字段
                ->where('(o.ostatus=1 or o.ostatus=2) and o.osid='.$shopinfo['did'])
+             ->order('o.oaddtime DESC')
                ->select();//所有信息
            $this->orderinfo=$orderinfo;
            //代客订单
@@ -36,6 +37,7 @@ class OrderadminController extends Controller {
                ->join("yx_user u on o.ouid=u.uid")
                ->field("o.*,g.*,u.*")//需要显示的字段
                ->where('(o.ostatus=1 or o.ostatus=2) and o.oiske=1 and o.osid='.$shopinfo['did'])
+             ->order('o.oaddtime DESC')
                ->select();//所有信息
            $this->daiinfo=$daiinfo;
            //待提货订单
@@ -45,6 +47,7 @@ class OrderadminController extends Controller {
                ->join("yx_user u on o.ouid=u.uid")
                ->field("o.*,g.*,u.*")//需要显示的字段
                ->where('o.oiske=0 and o.ostatus=1 and o.osid='.$shopinfo['did'])
+             ->order('o.oaddtime DESC')
                ->select();//所有信息
            $this->nogetinfo=$nogetinfo;
            //已提货
@@ -54,6 +57,7 @@ class OrderadminController extends Controller {
                ->join("yx_user u on o.ouid=u.uid")
                ->field("o.*,g.*,u.*")//需要显示的字段
                ->where('o.oiske=0 and o.ostatus=2 and o.osid='.$shopinfo['did'])
+             ->order('o.oaddtime DESC')
                ->select();//所有信息
            $this->getinfo=$getinfo;
            //判断是否有数据
@@ -80,7 +84,7 @@ class OrderadminController extends Controller {
         $arr=array();
         if($re){
             //确认提货
-//            if ($getstatus==2){
+           //            if ($getstatus==2){
 //                //在交易表中填加一条提成记录
 //                $jiaoyi['rtype']=0;
 //                //这里的余额只是提供交易表中使用，具体计算方法如下：提成类型-退款类型-提现类型-提现表中的提现中金额

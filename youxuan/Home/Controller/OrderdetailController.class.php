@@ -40,11 +40,18 @@ class OrderdetailController extends BaseController {
         //当前请求的全路径$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         $getordernum=I('ordernum');
         $gettotal=I('total');
-        if (empty($gettotal)){
+       $requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+       if (empty($gettotal)){
             if(!empty($getordernum)){
-                $gettotal= M('order')->where('onumber='.$getordernum)->sum('opaymoney');
+                 $gettotal= M('order')->where('onumber='.$getordernum)->getField('opaymoney');
+             // $requrl=strstr($requrl,'.html',true).'/ordernum/'.$getordernum.'.html';
+            
             }
-        }
+        }else{
+       		$requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+         
+       }
+      
         $goods=M('order')->where('onumber='.$getordernum)->select();
         $goodid='';
         foreach ($goods as $k=>$v){
@@ -56,16 +63,25 @@ class OrderdetailController extends BaseController {
         $sid=$goods[0]['osid'];
         $uid=$goods[0]['ouid'];
         $userinfo=M('user')->where(array("uid"=>$uid))->find();
+      	$getke=session('iske');
+      	$iske=I('iske');
+        if ($iske){
+            $getke=1;
+        }
+      	if ($getke){
+            $userinfo['nickname']=$goods[0]['ousername'];
+          	$userinfo['phone']=$goods[0]['ouserphone'];
+        }
         $this->userinfo=$userinfo;
         $shopinfo=$this->getshopinfo($sid);
         //分享
-        $requrl=$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
         $jssdkArr['appId'] = $this->getWxConfig()['appid'];
         $jssdkArr['timestamp'] = time();
         $jssdkArr['nonceStr'] = md5(time());
         $jssdkArr['signature'] = $this->jsSdkSign($jssdkArr['nonceStr'],$jssdkArr['timestamp'],$requrl);
-        $getke=session('iske');
+        
         if (empty($getke)){
+          //exit($requrl);
             //分享数据
             $fxArr['title'] = "老板，我是“".$userinfo['nickname']."”,刚在店里买的商品请接单！";
             $fxArr['link'] = $requrl;
@@ -74,7 +90,7 @@ class OrderdetailController extends BaseController {
             $fxArr['type'] = 'link';
         }else{
             //代客分享数据
-            $fxArr['title'] = "亲爱的“".$userinfo['nickname']."”,刚才给你下单了，记得及时来提货哦！";
+            $fxArr['title'] = "亲爱的“".$goods[0]['ousername']."”,刚才给你下单了，记得及时来提货哦！";
             $fxArr['link'] = $requrl;
             $fxArr['imgUrl'] =$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].'/tp3/youxuan/Public/home/images/other/orderlogo.png';
             $fxArr['desc'] = '【五鼎飞李购】：小伙伴们都购买了，大家赶快来晒单吧！';

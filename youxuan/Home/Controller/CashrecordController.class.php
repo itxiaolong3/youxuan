@@ -16,8 +16,8 @@ use Think\Controller;
 class CashrecordController extends Controller {
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
        $sid=$shopinfo['did'];
        //全部记录

@@ -16,8 +16,8 @@ use Think\Controller;
 class CashController extends Controller {
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        if (!empty($getphone)&&!empty($getpassword)){
 
 

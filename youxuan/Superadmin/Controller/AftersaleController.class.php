@@ -22,7 +22,7 @@ class AftersaleController extends Controller
                 ->join("yx_user u on h.huid=u.uid")
                 ->join('left join yx_goods AS g ON h.hgid=g.gid')
                 ->join('left join yx_shop AS s ON s.did=h.hsid')
-                ->field("h.*,g.*,u.nickname,u.uid,s.dname")//需要显示的字段
+                ->field("h.*,g.*,u.nickname,u.uid,s.dname,s.dnickname,s.dnum")//需要显示的字段
                 ->where('h.htype=0')
                 ->select();//所有信息
 //            foreach ($allinfo as $k=>$v){
@@ -33,7 +33,7 @@ class AftersaleController extends Controller
                 ->join("yx_user u on h.huid=u.uid")
                 ->join('left join yx_goods AS g ON h.hgid=g.gid')
                 ->join('left join yx_shop AS s ON s.did=h.hsid')
-                ->field("h.*,g.*,u.nickname,u.uid,s.dname")//需要显示的字段
+                ->field("h.*,g.*,u.nickname,u.uid,s.dname,s.dnickname,s.dnum")//需要显示的字段
                 ->where('h.htype=1')
                 ->select();//所有信息
 //            foreach ($isdeal as $k=>$v){

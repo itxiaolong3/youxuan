@@ -27,31 +27,38 @@
 													<thead>
 													<tr>
 														<th>提单号</th>
-														<th>商品图片</th>
-														<th>商品名称</th>
-														<th>订单来源</th>
-														<th>订单号</th>
+														<th>商品描述</th>
+														<!--<th>商品名称</th>-->
 														<th>价格</th>
 														<th>数量</th>
-														<th>实付金额</th>
+														
+														<th>总单金额</th>
 														<th>手机号</th>
 														<th>用户名</th>
-														<th>添加时间</th>
+                                                      <th>门店编号</th>
+                                                      <th>订单来源</th>
+														<th>订单号</th>
+                                                      <th>提成</th>
+														<th>下单时间</th>
 													</tr>
 													</thead>
 													<tbody>
 													<foreach name="info" item="v">
 													<tr class="gradeX">
 														<td class="center">{$v.oid}</td>
-														<td><img src="__PUBLIC__/{$v.gtopimg}" width="45" height="45" /></td>
-														<td>{$v.gtitle}</td>
-														<td>{$v.dname}</td>
-														<td>{$v.onumber}</td>
+														<td style="width:85px;">{$v.onum}</td>
+														<!--<td>{$v.gtitle}</td>-->
+														
 														<td>{$v.gyhprice}</td>
-														<td>{$v.onum}</td>
-														<td>{$v.opaymoney}</td>
+														<td>{$v.buynum}</td>
+														<td>{$v.goodallmoney}</td>
+													
 														<td>{$v.ouserphone}</td>
 														<td>{$v.ousername}</td>
+                                                      <td>{$v.dnum}</td>
+                                                      <td>{$v.dname}</td>
+														<td>{$v.onumber}</td>
+                                                      <td>{$v.gticheng}</td>
 														<td>{$v.oaddtime}</td>
 													</tr>
 													</foreach>

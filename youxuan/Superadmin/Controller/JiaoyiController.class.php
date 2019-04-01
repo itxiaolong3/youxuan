@@ -21,8 +21,9 @@ class JiaoyiController extends Controller
             $ticheninfo=$infoModel
                 ->alias('j')
                 ->join('left join yx_shop AS s ON s.did=j.rsid')
-                ->field("j.*,s.dname")//需要显示的字段
+                ->field("j.*,s.dname,s.dnum,s.dnickname")//需要显示的字段
                 ->where('j.rtype=0')
+                ->order('j.raddtime DESC')
                 ->select();//所有信息
             foreach ($ticheninfo as $k=>$v){
                 $ticheninfo[$k]['raddtime']=date('Y-m-d h:i:s',$v['raddtime']);
@@ -31,8 +32,9 @@ class JiaoyiController extends Controller
             $tuikuaninfo=$infoModel
                 ->alias('j')
                 ->join('left join yx_shop AS s ON s.did=j.rsid')
-                ->field("j.*,s.dname")//需要显示的字段
+                ->field("j.*,s.dname,s.dnum,s.dnickname")//需要显示的字段
                 ->where('j.rtype=1')
+               ->order('j.raddtime DESC')
                 ->select();//所有信息
             foreach ($tuikuaninfo as $k=>$v){
                 $tuikuaninfo[$k]['raddtime']=date('Y-m-d h:i:s',$v['raddtime']);
@@ -41,8 +43,9 @@ class JiaoyiController extends Controller
             $tixianinfo=$infoModel
                 ->alias('j')
                 ->join('left join yx_shop AS s ON s.did=j.rsid')
-                ->field("j.*,s.dname")//需要显示的字段
+                ->field("j.*,s.dname,s.dnum,s.dnickname")//需要显示的字段
                 ->where('j.rtype=2')
+               ->order('j.raddtime DESC')
                 ->select();//所有信息
             foreach ($tixianinfo as $k=>$v){
                 $tixianinfo[$k]['raddtime']=date('Y-m-d h:i:s',$v['raddtime']);

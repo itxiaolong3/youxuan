@@ -1,7 +1,54 @@
 <include file="Common:header" />
 
 <body style="background: none;">
-
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+		border: none;
+		box-sizing: border-box;
+		outline: none;
+	}
+	.box{
+		width: 100%;
+	}
+	.box input{
+		display: none;
+	}
+	.box label{
+		width: 100px;
+		height: 50px;
+		float: left;
+	}
+	input{
+		display: none;
+	}
+	.box label{
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		position: relative;
+		text-align: center;
+		margin-right: -35px
+	}
+	.box label:active{
+		background: #EEEEEE;
+	}
+	.box label:after{
+		content: "";
+		width: 20px;
+		height: 20px;
+		border: 1px solid green;
+		border-radius: 20px;
+		display: inline-block;
+		position: absolute;
+		top: 15px;
+		left: 15px;
+	}
+	input:checked+label:after{
+		background-color: green;
+	}
+</style>
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
@@ -33,12 +80,14 @@
 										<th>id</th>
 										<th>用户名</th>
 										<th>密码</th>
+                                        <th>身份</th>
 										<th>操作</th>
 									</tr>
 									<foreach name="superinfo" item="vv">
 										<tr>
 											<td>{$vv.id}</td>
 											<td>{$vv.name}</td>
+                                            <td><span>{$vv['isadmin']=='0'?'总管理员':'普通管理员'}</span></td>
 											<td>{$vv.password}</td>
 											<td>
 												<a type="button" class="btn btn-primary btn-xs" data-toggle="modal" href="javascript:deleteuser('{$vv.id}');">移除</a>
@@ -140,6 +189,16 @@
 											<input type="password" placeholder="请输入密码" name="password" class="form-control" required="required">
 										</div>
 									</div>
+									<div class="form-group"><label class="col-sm-2 control-label">管理员身份:</label>
+										<div class="col-sm-10">
+												<div class="box">
+													<input type="radio" name="isadmin" id="isadmin" checked="checked"  value="0"/><label for="isadmin">总管理员</label>
+												</div>
+												<div class="box">
+												<input type="radio" name="isadmin"  id="noadmin" value="1"/><label for="noadmin">普通管理员</label>
+												</div>
+										</div>
+									</div>
 
 									<div class="col-sm-10" style="width: 100%;text-align: center;">
 										<input type="button" class="btn btn-primary" onclick="addadmin();" value="立即提交" />
@@ -218,6 +277,10 @@
                         },function () {
                             window.location.reload();
                         });
+
+                    }else if(obj.status==-3){
+                      alert('超级管理员删除不了');
+                      window.location.reload();
 
                     }else{
                         window.location.reload();

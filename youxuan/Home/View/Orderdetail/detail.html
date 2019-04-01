@@ -8,11 +8,7 @@
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/xsyx.css" />
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/order-detail.css" />
     <title>订单详细</title>
-<<<<<<< HEAD
   <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
-=======
-    <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
->>>>>>> 266ef46842076d075a85ec53a6434384f31a4d13
 </head>
 <body>
 <div class="header-container">
@@ -54,9 +50,8 @@
                     <div class="top">
                         <input type="hidden" value="{$v.id}"/>
                         <p class="name">{$v['gooddetail']['gtitle']} </p>
-                        <p class="describe">{$v['gooddetail']['gdes']}&nbsp;&nbsp;&nbsp;<span>x{$v.buynum}</span></p>
-
-
+                        <!--<p class="describe">{$v['gooddetail']['gdes']}&nbsp;&nbsp;&nbsp;<span>x{$v.buynum}</span></p>-->
+                        <p class="describe">{$v.onum}</p>
                     </div>
                     <div class="bottom">
                         <div class="left"><span>￥</span>{$v['gooddetail']['gyhprice']}&nbsp;&nbsp;<s>￥{$v['gooddetail']['gprice']}</s></div>

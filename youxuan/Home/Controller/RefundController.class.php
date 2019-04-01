@@ -14,8 +14,8 @@ class RefundController extends Controller {
      */
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        if (!empty($getphone)&&!empty($getpassword)){
            $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
            //已提货

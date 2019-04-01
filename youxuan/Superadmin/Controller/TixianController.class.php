@@ -17,10 +17,11 @@ class TixianController extends Controller
         $getsuperadminname=session('session_superadmin');
         if (!empty($getsuperadminname)){
             $infoModel=M('tixian');
+          	$infoModel->where('xsid=0')->delete();
             $allinfo=$infoModel
                 ->alias('x')
                 ->join('left join yx_shop AS s ON s.did=x.xsid')
-                ->field("x.*,s.dname,s.did")//需要显示的字段
+                ->field("x.*,s.dname,s.did,s.dnickname,s.dnum")//需要显示的字段
                 ->where('x.xtype=0')
                 ->select();//所有信息
             foreach ($allinfo as $k=>$v){
@@ -30,7 +31,7 @@ class TixianController extends Controller
             $isdeal=$infoModel
                 ->alias('x')
                 ->join('left join yx_shop AS s ON s.did=x.xsid')
-                ->field("x.*,s.dname")//需要显示的字段
+                ->field("x.*,s.dname,s.dnickname,s.dnum")//需要显示的字段
                 ->where('x.xtype=1')
                 ->select();//所有信息
             foreach ($isdeal as $k=>$v){

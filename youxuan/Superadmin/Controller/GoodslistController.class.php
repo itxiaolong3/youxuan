@@ -6,15 +6,47 @@
  * Time: 22:50
  */
 namespace Superadmin\Controller;
+use Think;
 use Think\Controller;
+
 class GoodslistController extends Controller{
     function goodslist(){
         $getname=session('session_name');
         $getsuperadminname=session('session_superadmin');
         if (!empty($getname)||!empty($getsuperadminname)){
             $infoModel=M('goods');
-            $allinfo=$infoModel->order('gorder DESC')->select();//所有信息
-            $noup=$infoModel->where('gstatus=0')->select();
+
+            $state=I('state');
+            if (empty($state)){
+                $state=1;
+            }else if ($state==2){
+                $state=0;
+            }
+            //模糊查询
+            $keyword=I('keyword');
+            if (!empty($keyword)){
+                $where='g_isdelete=0 and gtitle like'."'%".$keyword."%'";
+                //分页数据
+                $count=$infoModel->where($where)->count();
+            }else{
+                $where="gstatus='{$state}'and g_isdelete=0 and gtitle like"."'%".$keyword."%'";
+                //分页数据
+                $count=$infoModel->where($where)->count();
+            }
+
+            $pagesize=50;
+            $p=getpage($count,$pagesize);
+            //分页数据结束
+            $online=$infoModel->where('g_isdelete=0 and gstatus=1')->count();
+            $waitonline=$infoModel->where('g_isdelete=0 and gstatus=0')->count();
+            $this->online=$online;
+            $this->waitonline=$waitonline;
+            $this->state=I('state');
+
+            $show=$p->show();
+            $allinfo=$infoModel->where($where)->order('gorder asc') ->limit($p->firstRow,$p->listRows)->select();//所有信息
+            $this->assign('page',$show); // 赋值分页输出
+            $noup=$infoModel->where('gstatus=0 and g_isdelete=0')->select();
             $uptimearr=array();
             foreach ($noup as $kk=>$vv){
                 if(!empty($vv['guptime'])){//手动下架的忽略
@@ -30,6 +62,7 @@ class GoodslistController extends Controller{
                 $allinfo[$k]['gaddtime']=date('Y-m-d',$v['gaddtime']);
                 //$allinfo[$k]['notice']=htmlspecialchars_decode($v['notice']);
             }
+            //var_dump(I('.post'));
             $this->info=$allinfo;
             // $this->assign("info",$allinfo);//传递所有信息
             $this->display();
@@ -60,9 +93,12 @@ class GoodslistController extends Controller{
     function deletegoods(){
         $upCtypeModel=M('goods');
         $arr=array();
+      $datas=array();
         if (!empty($_POST)){
             $getid=$_POST['gid'];
-            $re=$upCtypeModel->where('gid='.$getid)->delete();
+            $datas['g_isdelete']=1;
+            //$re=$upCtypeModel->where('gid='.$getid)->delete();
+            $re=$upCtypeModel->where('gid='.$getid)->save($datas);
             if ($re){
                 $arr['status']=1;
                 $arr['msg']='删除成功';
@@ -123,29 +159,33 @@ class GoodslistController extends Controller{
             //对图片进行小处理
             $data['gimgs']=substr($data['gimgs'],1);
             $classModel = M('goods');
+            $gtitle=I('gtitle');
+            $gyhprice=I('gyhprice');
+            $gticheng=I('gticheng');
+            $guptime=I('guptime');
             if(empty($data['gtopimg'])){
                 $arr['status']=-1;
                 $arr['msg']='封面图不可为空';
                 echo json_encode($arr);
                 exit();
             }
-            else if(empty(I('gtitle'))){
+            else if(empty($gtitle)){
                 $arr['status']=-2;
                 $arr['msg']='商品名不可为空';
                 echo json_encode($arr);
                 exit();
-            }else if(empty(I('gyhprice'))){
+            }else if(empty($gyhprice)){
                 $arr['status']=-3;
                 $arr['msg']='价格不可为空';
                 echo json_encode($arr);
                 exit();
-            }else if(empty(I('gticheng'))){
+            }else if(empty($gticheng)){
                 $arr['status']=-4;
                 $arr['msg']='提成不可为空';
                 echo json_encode($arr);
                 exit();
             }else{
-              $getuptime=I('guptime');
+              $getuptime=$guptime;
                 $uptime=strtotime($getuptime);
                 if($uptime-time()>0){//开启预上架，这关闭当前上架状态
                     $data['gstatus']=0;
@@ -172,7 +212,7 @@ class GoodslistController extends Controller{
             $goodsdata['gcomment']=htmlspecialchars_decode($goodsdata['gcomment']);
             $thums=explode('|',$goodsdata['gimgs']);
             $this->assign('arrs',$thums);
-            //规格
+           //规格
             $getcolor=M('color')->select();
             $getformat=M('format')->select();
             $this->colors=$getcolor;

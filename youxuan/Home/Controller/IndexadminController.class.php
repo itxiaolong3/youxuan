@@ -14,10 +14,10 @@ class IndexadminController extends BaseController {
     function index()
    {
 
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
+     
        if (!empty($getphone)&&!empty($getpassword)){
-
            $getsid=I('sid');
            if (!empty($getsid)){
 
@@ -87,20 +87,23 @@ class IndexadminController extends BaseController {
            }
 
        } else{
+        
            $this->redirect("Loginadmin/index");
        }
 
     }
     //注销方法
     function outlogin(){
-        session('session_phone',null);
-        session('session_password',null);
+//        session('session_phone',null);
+//        session('session_password',null);
+        cookie('session_phone',null);
+        cookie('session_password',null);
         $this->redirect("Loginadmin/index");
     }
    //上传头像
   public function uploadimg(){
-    	$getphone=session('session_phone');
-        $getpassword=session('session_password');
+    	$getphone=cookie('session_phone');
+        $getpassword=cookie('session_password');
         if ($_FILES) {
             if($_FILES['file'][error]<4){
                 $arg=array(
@@ -121,8 +124,8 @@ class IndexadminController extends BaseController {
     }
 	//更新签名
    public  function updatasign(){
-        $getphone=session('session_phone');
-        $getpassword=session('session_password');
+        $getphone=cookie('session_phone');
+        $getpassword=cookie('session_password');
         $getdsgin=I('dsign');
         $data['dsign']=$getdsgin;
         M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->save($data);

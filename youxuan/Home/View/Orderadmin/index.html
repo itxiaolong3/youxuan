@@ -58,7 +58,7 @@
                 </a>
             <div class="info-2">
                 <div class="left">
-                    <p>{$v.nickname}</p>
+                    <p>{$v.ousername}</p>
                     <p style="margin-top: 0.2667rem;">提单号：<span style="color: #e70012;">{$v.oid}</span></p>
                 </div>
                 <div class="middle">
@@ -66,6 +66,7 @@
                     <p style="margin-top: 0.2667rem;">{$v.ordertime}</p>
                 </div>
                 <if condition="$v.ostatus eq 1 ">
+                  <div class="right" onclick="gototishi('{$v.onumber}');">详细</div>
                     <div class="right" onclick="comfin('{$v.oid}',2,'{$v.onum}')">确认收货</div>
                     <else /> <div class="right disable">已完成</div>
                 </if>
@@ -104,7 +105,7 @@
                 </a>
             <div class="info-2">
                 <div class="left">
-                    <p>{$v.nickname}</p>
+                    <p>{$v.ousername}</p>
                     <p style="margin-top: 0.2667rem;">提单号：<span style="color: #e70012;">{$v.oid}</span></p>
                 </div>
                 <div class="middle">
@@ -112,6 +113,7 @@
                     <p style="margin-top: 0.2667rem;">{$v.ordertime}</p>
                 </div>
                 <if condition="$v.ostatus eq 1 ">
+                  <div class="right" onclick="gototishi('{$v.onumber}');">详细</div>
                     <div class="right" onclick="comfin('{$v.oid}',2,'{$v.onum}')">确认收货</div>
                     <else /> <div class="right disable">已完成</div>
                 </if>
@@ -146,13 +148,14 @@
             </a>
             <div class="info-2">
                 <div class="left">
-                    <p>{$v.nickname}</p>
+                    <p>{$v.ousername}</p>
                     <p style="margin-top: 0.2667rem;">提单号：<span style="color: #e70012;">{$v.oid}</span></p>
                 </div>
                 <div class="middle">
                     <p>{$v.ouserphone}</p>
                     <p style="margin-top: 0.2667rem;">{$v.ordertime}</p>
                 </div>
+              <div class="right" onclick="gototishi('{$v.onumber}');">详细</div>
                 <div class="right" onclick="comfin('{$v.oid}',2,'{$v.onum}')">确认收货</div>
             </div>
         </div>
@@ -184,7 +187,7 @@
                 </a>
                 <div class="info-2">
                     <div class="left">
-                        <p>{$v.nickname}</p>
+                        <p>{$v.ousername}</p>
                         <p style="margin-top: 0.2667rem;">提单号：<span style="color: #e70012;">{$v.oid}</span></p>
                     </div>
                     <div class="middle">
@@ -202,6 +205,13 @@
 <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
 <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
 <script>
+   //去提示老板
+    function gototishi(onumber) {
+        var parames = new Array();
+        parames.push({ name: "ordernum", value: onumber});
+      	parames.push({ name: "iske", value: 1});
+        Post("{:U('Orderdetail/detail')}",parames);
+    }
     function comfin(oid,status,onum) {
         if(window.confirm('是否确认收货？')){
             $.post(
@@ -223,6 +233,25 @@
             return false;
         }
 
+    }
+  function Post(URL, PARAMTERS) {
+        //创建form表单
+        var temp_form = document.createElement("form");
+        temp_form.action = URL;
+        //如需打开新窗口，form的target属性要设置为'_blank'
+        temp_form.target = "_self";
+        temp_form.method = "get";
+        temp_form.style.display = "none";
+        //添加参数
+        for (var item in PARAMTERS) {
+            var opt = document.createElement("textarea");
+            opt.name = PARAMTERS[item].name;
+            opt.value = PARAMTERS[item].value;
+            temp_form.appendChild(opt);
+        }
+        document.body.appendChild(temp_form);
+        //提交数据
+        temp_form.submit();
     }
 </script>
 

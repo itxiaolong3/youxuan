@@ -20,6 +20,7 @@ class ShoplistController extends Controller{
             $this->info=$allinfo;
 
             // $this->assign("info",$allinfo);//传递所有信息
+          $this->counts=$infoModel->count();
             $this->display();
         }else{
             $this.redirect(__MODULE__."/User/mylogin");
@@ -49,7 +50,7 @@ class ShoplistController extends Controller{
             $data['dis_delete']=1;
            $re=$upCtypeModel->where('did='.$getid)->delete();
             if ($re){
-                M('order')->where('osid='.$getid)->delete();
+              M('order')->where('osid='.$getid)->delete();
                 $arr['status']=1;
                 $arr['msg']='删除成功';
                 echo json_encode($arr);

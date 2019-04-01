@@ -11,8 +11,8 @@ use Think\Controller;
 class VipController extends Controller {
     function index()
    {
-       $getphone=session('session_phone');
-       $getpassword=session('session_password');
+       $getphone=cookie('session_phone');
+       $getpassword=cookie('session_password');
        $shopinfo=M('shop')->where("dphone='".$getphone."' and dpassword='".$getpassword."'")->find();
        $sid=$shopinfo['did'];
        $allvipinfo=M('user')->where('shopid='.$sid)->select();

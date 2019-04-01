@@ -37,7 +37,7 @@
 									<foreach name="userinfo" item="vv">
 										<tr>
 											<td>{$vv.uid}</td>
-											<td><img src="__PUBLIC__/{$vv.headerimg}" width="60" height="60" /></td>
+											<td><img src="{$vv.headerimg}" width="60" height="60" /></td>
 											<td>{$vv.nickname}</td>
 											<td>{$vv.phone}</td>
 											<td>{$vv.openid}</td>
@@ -179,8 +179,8 @@
     }
 </script>
 <script>
-    $(function () {
-        var l = $( '.ladda-button-demo' ).ladda();
+	//{$vv.t_id}','{$vv.name}','{$vv.briday}','{$vv.phone}','{$vv.school}'
+    function doedit(id,pmo' ).ladda();
         $("#postadmin").click(function () {
             l.ladda( 'start' );
             getid=$("#getid").val();
@@ -212,4 +212,4 @@
 
 </body>
 
-</html>
+</html>   

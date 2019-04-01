@@ -3,67 +3,82 @@
 	<body style="background: none;">
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-10">
+				<div class="col-lg-10"  style="display: flex;margin-top: 20px;">
 					<div style="margin-top: 10px;"></div>
 					<ol class="breadcrumb">
-
 						<li class="active">
 							<label>完成的订单:&nbsp;一共<span style="color: #0d8ddb;font-weight: bold;font-size: 25px;">{$finishedcount}</span>单</label>
 						</li>
 					</ol>
+					<div class="layui-inline">
+						<!--<form action="{:U('Orderlist/finishedorder')}" method="post" >-->
+							<div class="layui-input-inline" style="display: flex;padding-left: 50px;">
+								<input type="text" name="keyword" id="keyword"  placeholder="提单号/订单号/手机号" class="layui-input" style="width: 250px;" value="{$keyword}">
+								<button class="layui-btn" id="findkeyword">查找</button>
+							</div>
+						<!--</form>-->
+					</div>
 				</div>
 			</div>
 			<!--主体部分-->
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="ibox">
-						<div class="ibox-content">
-							<div class="clients-list">
-								<div class="tab-content">
-									<div id="tab-2">
-										<div class="full-height-scroll">
-											<div class="table-responsive">
-												<table class="table table-striped  dataTables-example">
-													<thead>
-													<tr>
-														<th>提单号</th>
-														<th>商品图片</th>
-														<th>商品名称</th>
-														<th>订单来源</th>
-														<th>订单号</th>
-														<th>价格</th>
-														<th>数量</th>
-														<th>实付金额</th>
-														<th>手机号</th>
-														<th>用户名</th>
-														<th>添加时间</th>
-													</tr>
-													</thead>
-													<tbody>
-													<foreach name="info" item="v">
-													<tr class="gradeX">
-														<td class="center">{$v.oid}</td>
-														<td><img src="__PUBLIC__/{$v.gtopimg}" width="45" height="45" /></td>
-														<td>{$v.gtitle}</td>
-														<td>{$v.dname}</td>
-														<td>{$v.onumber}</td>
-														<td>{$v.gyhprice}</td>
-														<td>{$v.onum}</td>
-														<td>{$v.opaymoney}</td>
-														<td>{$v.ouserphone}</td>
-														<td>{$v.ousername}</td>
-														<td>{$v.oaddtime}</td>
-													</tr>
-													</foreach>
+						<div class="tab-content">
+							<div id="tab-2">
+								<div class="full-height-scroll">
+									<div class="table-responsive">
+										<table class="table table-striped  dataTables-example">
+											<thead>
+											<tr>
+												<th>提单号</th>
+												<th>商品描述</th>
+												<!--<th>商品名称</th>-->
 
-													</tbody>
-												</table>
-											</div>
+												<th>价格</th>
+												<th>数量</th>
+												<th>单品金额</th>
+												<th>总单金额</th>
+												<th>手机号</th>
+												<th>用户名</th>
+											  <th>门店编号</th>
+											  <th>订单来源</th>
+												<th>订单号</th>
+											  <th>提成</th>
+												<th>下单时间</th>
+											</tr>
+											</thead>
+											<tbody>
+											<foreach name="info" item="v">
+											<tr class="gradeX">
+												<td class="center">{$v.oid}</td>
+												<td style="width:120px;">{$v.onum}</td>
+												<!--<td>{$v.gtitle}</td>-->
+
+												<td>{$v.gyhprice}</td>
+												<td>{$v.buynum}</td>
+												<td>{$v.goodallmoney}</td>
+												<td>{$v.opaymoney}</td>
+												<td>{$v.ouserphone}</td>
+												<td>{$v.ousername}</td>
+											  <td>{$v.dnum}</td>
+											  <td>{$v.dname}</td>
+												<td>{$v.onumber}</td>
+											  <td>{$v.gticheng}</td>
+												<td>{$v.oaddtime}</td>
+											</tr>
+											</foreach>
+
+											</tbody>
+										</table>
+										<div class="pages">
+											{$page}
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -85,29 +100,19 @@
 					return false
 				}
 			});
-
-		</script>
-		<script>
-            $(document).ready(function(){
-                $('.dataTables-example').DataTable({
-                    pageLength: 10,
-                    responsive: true,
-                    buttons: [
-                        {
-                            customize: function (win){
-                                $(win.document.body).addClass('white-bg');
-                                $(win.document.body).css('font-size', '10px');
-                                $(win.document.body).find('table')
-                                    .addClass('compact')
-                                    .css('font-size', 'inherit');
-                            }
-                        }
-                    ]
-
-                });
-
+            layui.use('layer', function(){
+                var layer = layui.layer;
+                $("#findkeyword").click(function () {
+                    layer.load();
+                    var getkeyword=$('#keyword').val();
+                    $.post("{:U('Orderlist/finishedorder')}",{keyword:getkeyword},function (a) {
+                        window.location.href="{:U('Orderlist/finishedorder')}?keyword="+getkeyword;
+                    })
+                })
             });
+
 		</script>
+
 	</body>
 
 </html>

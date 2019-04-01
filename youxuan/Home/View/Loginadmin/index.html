@@ -13,11 +13,11 @@
             <img class="logo-t" src="__PUBLIC__/home/home_admin/images/other/logo_b.png">
             <form action="__SELF__" method="POST" id="subform">
                 <div class="input-container1">
-                    <input type="text" placeholder="账户" name="phone" value="" required="required" id="phone">
+                    <input type="text" placeholder="账户" name="phone" value="{$getphone}" required="required" id="phone">
                     <img src="__PUBLIC__/home/home_admin/images/icon/user.png">
                 </div>
                 <div class="input-container1">
-                    <input type="password" placeholder="密码" name="password" value="" required="required" id="password">
+                    <input type="password" placeholder="密码" name="password" value="{$getpsw}" required="required" id="password">
                     <img src="__PUBLIC__/home/home_admin/images/icon/lock.png">
                 </div>
                 <!--<a class="btn-container2" onclick="postinfo()">提交</a>-->
@@ -30,10 +30,33 @@
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
     <script>
+      
+      	function setCookie(c_name,value,expiredays){
+        var exdate=new Date()
+        exdate.setDate(exdate.getDate()+expiredays)
+        document.cookie=c_name+ "=" +escape(value)+
+        ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+        }
+        //取回cookie
+        function getCookie(c_name)
+        {
+          if (document.cookie.length>0)
+            {
+            c_start=document.cookie.indexOf(c_name + "=")
+            if (c_start!=-1)
+              { 
+              c_start=c_start + c_name.length+1 
+              c_end=document.cookie.indexOf(";",c_start)
+              if (c_end==-1) c_end=document.cookie.length
+              return unescape(document.cookie.substring(c_start,c_end))
+              } 
+            }
+          return ""
+        }
         function postinfo() {
             getphone=$('#phone').val();
             getpassword=$('#password').val();
-            $.post(
+             $.post(
                 "{:U('Loginadmin/index')}",
                 {'phone':getphone,
                  'password':getpassword
@@ -42,6 +65,110 @@
                 }
             )
         }
+      	  if("{$getphone}"){
+             localStorage.setItem('name',"{$getphone}");
+           	 localStorage.setItem('psw',"{$getpsw}");
+             setCookie('name',"{$getphone}",3650);
+            setCookie('psw',"{$getpsw}",3650);
+            }
+        getname=localStorage.getItem('name');
+        getpsw=localStorage.getItem('psw');
+      	getname=getCookie('name');
+      	getpsw=getCookie('psw');
+        $('#phone').val(getname);
+        $('#password').val(getpsw);
+    </script>
+   <!--微信分享-->
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+        wx.config({
+            debug: false, // 开启调试模式
+            appId: '{$jssdkArr["appId"]}', // 必填，公众号的唯一标识
+            timestamp: {$jssdkArr['timestamp']}, // 必填，生成签名的时间戳
+            nonceStr: '{$jssdkArr["nonceStr"]}', // 必填，生成签名的随机串
+            signature: '{$jssdkArr["signature"]}',// 必填，签名
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone'] // 必填，需要使用的JS接口列表
+        });
+
+        wx.ready(function(){
+            var title = '{$fxArr.title}'
+                ,link = '{$fxArr.link}'
+                ,imgUrl = '{$fxArr.imgUrl}'
+                ,desc = '{$fxArr.desc}'
+                ,type = '{$fxArr.type}'
+                ,dataUrl = '';
+
+            //分享到朋友圈
+            wx.onMenuShareTimeline({
+                title: title, // 分享标题
+                link: link,
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                }
+            });
+
+            //分享给朋友
+            wx.onMenuShareAppMessage({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                imgUrl: imgUrl, // 分享图标
+                type: type, // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+
+                }
+            });
+
+            //分享到QQ
+            wx.onMenuShareQQ({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到腾讯微博
+            wx.onMenuShareWeibo({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+
+            //分享到QQ空间
+            wx.onMenuShareQZone({
+                title: title, // 分享标题
+                desc: desc, // 分享描述
+                link: link, // 分享链接
+                imgUrl: imgUrl, // 分享图标
+                success: function () {
+
+                },
+                cancel: function () {
+
+                }
+            });
+        });
+
+        wx.error(function(res){
+            //alert(JSON.parse(res))
+            console.log(res);
+        });
+
     </script>
 
 </html>

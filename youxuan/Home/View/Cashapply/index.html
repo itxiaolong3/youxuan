@@ -40,6 +40,7 @@
     </body>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/hyp.js"></script>
     <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/xsyx.js"></script>
+   <script type="text/javascript" src="__PUBLIC__/home/home_admin/js/jquer3.1.js"></script>
     <script>
         function tixian(sid,enblemoney) {
            getmoney= $('#txmoney').val();
@@ -49,9 +50,23 @@
                alert('提现金额不能小于1元');
            }else{
                if(window.confirm('当次提现金额为'+getmoney+'元，是否提现？')){
-                   $('#posttixian').submit();
-                   console.log('提现金额：'+getmoney+'==总额'+enblemoney);
-                   return true;
+                   $.post(
+                       "{:U('Cashapply/istixian')}",
+                       {
+                           'txmoney':getmoney
+                       },function (e) {
+                           e=JSON.parse(e);
+                          console.log(e);
+                           if (e.status==1){
+                               console.log('可以');
+                               $('#posttixian').submit();
+                               console.log('提现金额：'+getmoney);
+                               return true;
+                           }else{
+                               alert('总余额不足！');
+                               console.log('总余额不足');
+                           }
+                       });
                }else{
                    return false;
                }
